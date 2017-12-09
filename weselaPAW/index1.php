@@ -3,7 +3,7 @@
 	if(isset($_SESSION['login']))
 	{
 		echo 'Witaj ' . $_SESSION['login'] . '!</br>';
-		echo '<a href=show_plans.php>Zobacz swoje plany</a></br>';
+		echo '<a href=logout.php>Wyloguj</a></br>';
 	}
 	else
 	{

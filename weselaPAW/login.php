@@ -13,11 +13,12 @@ else
 	{
 	$login = trim($_POST['log_login']);
 	$password = trim($_POST['log_password']);
-	$pass_hash = sha1($password);
+	$pass_hash = md5($password);
 	
 	
 	$object = new functions('PDO');
 	$object -> login($login,$pass_hash);
+	//$object -> login($login,$password);
 	}
 }
 ?>

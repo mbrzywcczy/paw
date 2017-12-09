@@ -43,10 +43,11 @@ public function login($login, $password)
 
 public function check_reg()
 {
-	$check_login = $this -> db -> prepare("SELECT COUNT(user_id) AS liczba FROM users WHERE login = :login");
+	$check_login = $this -> db -> prepare("SELECT COUNT(id) AS liczba FROM users WHERE login = :login");
 	$check_login -> bindParam(':login', $login, PDO::PARAM_STR);
 	$check_login -> execute();
 	$row = $check_login -> fetch();
+	
 
 	if($row['liczba'] > 0)
 	{
@@ -59,7 +60,7 @@ public function register()
 		$login = trim($_POST['frm_login']);
 		$password1 = trim($_POST['frm_pass1']);
 		$password2 = trim($_POST['frm_pass2']);
-		$password1 = sha1($password1);
+		$password1 = md5($password1);
 		$add = $this -> db -> prepare('INSERT INTO users (id, login, password) VALUES (null, :login, :password)');
 		$add -> bindParam(':login', $login, PDO::PARAM_STR);
 		$add -> bindParam(':password', $password1, PDO::PARAM_STR);
