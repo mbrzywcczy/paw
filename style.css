@@ -1,0 +1,132 @@
+body {
+      font: 20px Montserrat, sans-serif;
+      line-height: 1.8;
+      color: #f5f6f7;
+  }
+  p {font-size: 16px;}
+  .margin {margin-bottom: 45px;}
+  .bg-1 { 
+      background-color: #9e6ca6; 
+      color: #ffffff;
+  }
+  .bg-2 { 
+      background-color: #474e5d; 
+      color: #ffffff;
+  }
+  .bg-3 { 
+      background-color: #ffffff; 
+      color: #555555;
+  }
+  .bg-4 { 
+      background-color: #2f2f2f; 
+      color: #fff;
+  }
+  .bg-5 { 
+      background-color: #ffffff; 
+      color: #f2caf9;
+  }
+  .container-fluid {
+      padding-top: 70px;
+      padding-bottom: 70px;
+  }
+  .container-fluidy {
+      padding-top: 10px;
+      padding-bottom: 10px;
+
+  }
+   .container-fluidys {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      height: 500px;
+      background-image: url("https://images.unsplash.com/photo-1494955870715-979ca4f13bf0?auto=format&fit=crop&w=1950&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D");
+      background-position: center;
+  }
+  .navbar {
+      padding-top: 15px;
+      padding-bottom: 15px;
+      border: 0;
+      border-radius: 0;
+      margin-bottom: 0;
+      font-size: 12px;
+      letter-spacing: 5px;
+  }
+  .navbar-nav  li a:hover {
+      color: #9e6ca6 !important;
+  }
+  .padd {
+      padding-top: 30px;
+      padding-bottom: 30px;
+  }
+
+.lista {
+  margin:0;
+  padding:0;
+  list-style-type:none;
+
+}
+
+.lista > li > a {
+  text-decoration:none;
+  color:#000;
+}
+
+.kategoria {
+  padding-bottom: 60px;
+}
+.social-size {
+  font-size:36px;
+}
+
+a { 
+    text-decoration: none; 
+     color: #fff; 
+}
+
+a:hover { 
+    text-decoration: none; 
+     color: #000; 
+} 
+
+a:visited { 
+    color: #fff; 
+} 
+
+.center {
+
+  position: center;
+}
+
+.card-box {
+  padding: 20px;
+  -webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  margin-bottom: 30px;
+  background-clip: padding-box;
+  background-color: #ffffff; 
+  word-wrap: break-word;
+}
+
+.liczba {
+  text-align: left; 
+  margin-left: 50px;
+}
+
+.img-circle {
+
+  height: 160px; 
+  width: 160px;
+}
+
+.img-thumbnail {
+  height: 500px; 
+  width: 650px;
+}
+
+textarea {
+  resize: none;
+}
+
+.right {
+  float: right;
+}
