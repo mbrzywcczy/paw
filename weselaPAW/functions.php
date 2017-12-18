@@ -73,6 +73,7 @@ public function register()
 		exit;
 }
 
+<<<<<<< HEAD
 public function getComment()
 {
         //Pobranie id muzyka będzie z URL na razie robie sobie na sztywno
@@ -88,6 +89,8 @@ public function getComment()
         }
 }
 
+=======
+>>>>>>> 67a466dc840305e8110fa10fa6ea92400d816d7e
 
 }
 ?>

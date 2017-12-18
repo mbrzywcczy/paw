@@ -355,9 +355,15 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `login`, `password`, `email`, `first_name`, `last_name`, `gender`, `admin`) VALUES
+<<<<<<< HEAD
 (1, 'admin', 'admin', 'admin@admin.com', 'admin', 'admin', 'none', 0),
 (2, 'test_user_1', 'test1', 'test1@test.com', 'TestowyUser1', 'TestowyUser1', 'M', 1),
 (3, 'test_user_2', 'test2', 'test2@test.com', 'TestowyUser2', 'TestowyUser2', 'F', 1);
+=======
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin@admin.com', 'admin', 'admin', 'none', 0),
+(2, 'test_user_1', '21232f297a57a5a743894a0e4a801fc3', 'test1@test.com', 'TestowyUser1', 'TestowyUser1', 'M', 1),
+(3, 'test_user_2', '21232f297a57a5a743894a0e4a801fc3', 'test2@test.com', 'TestowyUser2', 'TestowyUser2', 'F', 1);
+>>>>>>> 67a466dc840305e8110fa10fa6ea92400d816d7e
 
 -- --------------------------------------------------------
 
