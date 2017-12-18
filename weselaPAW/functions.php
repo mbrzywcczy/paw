@@ -73,6 +73,21 @@ public function register()
 		exit;
 }
 
+public function getComment()
+{
+        //Pobranie id muzyka będzie z URL na razie robie sobie na sztywno
+        $idMusician = 3;
+        $query = $this -> db -> prepare("SELECT * FROM music_details WHERE id = :idMusician");
+        $query -> bindParam(':idMusician', $idMusician, PDO::PARAM_STR);
+        $query -> execute();
+
+        while ($row = $query -> fetch())
+        {
+            echo var_dump($row['review']) .
+            '<br/>';
+        }
+}
+
 
 }
 ?>

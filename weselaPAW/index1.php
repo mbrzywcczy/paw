@@ -1,5 +1,6 @@
 <?php
 	session_start();
+    require ('./functions.php');
 	if(isset($_SESSION['login']))
 	{
 		echo 'Witaj ' . $_SESSION['login'] . '!</br>';
@@ -13,6 +14,8 @@
 				</br>
 				<a href=login.php>Zaloguj sie!</a></br></br>';
 	}
+
+	var_dump(getComment());
 ?>
 <html>
 <head>

@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html lang="pl">
+<?php
+	session_start();
+	require ('weselaPAW/functions.php');
+?>
 <head>
   <title>Wesela</title>
   <meta charset="utf-8">
@@ -146,7 +150,8 @@ $(document).ready(function(){
                 <h4>Aleksander Kędzior</h4>
               </div>
               <div class="col-md-7">
-                   Super! Nagie fotki Pyki wyszły idealnie :)
+                <?php  getComment() ?>
+                   Super! Dźwięk godowy Pyki pierwsza klasa :)
               </div> 
               <div class="col-md-2">  
                <p>4,5/5 &nbsp;<span class="glyphicon glyphicon-star" data-toggle="tooltip" data-placement="right" title="Ocena"></span></p>       
