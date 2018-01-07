@@ -1,7 +1,7 @@
 <?php
 require('../../paw/weselaPAW/functions.php');
 $functions = new functions('PDO');
-$functions->checkSession();
+$functions->checkIfUserIsAdmin();
 
 $types = array('consultant_details', 'consultant_reviews', 'couple_transport_details', 'couple_transport_reviews',
     'guest_transport_details', 'guest_transport_reviews', 'music_details', 'music_reviews', 'photo_detail',
@@ -171,7 +171,7 @@ $records->setFetchMode(PDO::FETCH_ASSOC);
 $records->execute();
 $row = $records->fetch();
 
-$functions->displayTopNav("../login.html", "../index.html");
+$functions->displayTopNav("../login.php", "../index.html");
 echo '<a href="table.php?type=' . $type . '" class="btn btn-primary" style="width:100%">Powrót do tabeli rekordów</a>';
 if (strpos($type, 'review') == true) {
     $functions->displayFormEditReview($type, $id, $row['review'], $row['rate']);

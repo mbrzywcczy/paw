@@ -75,13 +75,21 @@ class functions
         }
     }
 
-    public function checkSession()
+    public function checkIfUserIsAdmin()
     {
         session_start();
         if (!isset($_SESSION['admin']) || $_SESSION['admin'] != 0) {
             header('Location: /paw');
             exit;
         }
+    }
+
+    public function checkIfUserIsLogged(){
+        session_start();
+        if (isset($_SESSION['login'])){
+            return true;
+        }
+        return false;
     }
 
     public function getComment()

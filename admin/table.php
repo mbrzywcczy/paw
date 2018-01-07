@@ -1,7 +1,7 @@
 <?php
 require('../../paw/weselaPAW/functions.php');
 $functions = new functions('PDO');
-$functions->checkSession();
+$functions->checkIfUserIsAdmin();
 ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -13,7 +13,7 @@ $functions->checkSession();
 </head>
 <body>
 <?php
-$functions->displayTopNav("../login.html", "../index.html");
+$functions->displayTopNav("../login.php", "../index.html");
 echo '<a href="panel.php" class="btn btn-primary" style="width:100%">Powrót do wyboru kategorii</a>';
 
 $types = array('consultant_details', 'consultant_reviews', 'couple_transport_details', 'couple_transport_reviews',

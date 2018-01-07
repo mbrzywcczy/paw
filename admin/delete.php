@@ -1,7 +1,7 @@
 <?php
 require('../../paw/weselaPAW/functions.php');
 $functions = new functions('PDO');
-$functions->checkSession();
+$functions->checkIfUserIsAdmin();
 
 $types = array('consultant_details', 'consultant_reviews', 'couple_transport_details', 'couple_transport_reviews',
     'guest_transport_details', 'guest_transport_reviews', 'music_details', 'music_reviews', 'photo_detail',
@@ -31,7 +31,7 @@ header('Location: /paw/admin/table.php?type=' . $type);
 </head>
 <body>
 <?php
-$functions->displayTopNav("../login.html", "../index.html");
+$functions->displayTopNav("../login.php", "../index.html");
 ?>
 <h3 style="text-align: center;">Usuwanie rekordu o numerze identyfikacyjnym <?php echo $id; ?> z
     tabeli <?php echo $type; ?></h3>
