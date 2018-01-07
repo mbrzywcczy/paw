@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="301500c8-0596-4083-b776-baa99043fa3c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/paw.iml" afterPath="$PROJECT_DIR$/.idea/paw.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,8 +16,8 @@
       <file leaf-file-name="functions.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/weselaPAW/functions.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="124" column="31" lean-forward="true" selection-start-line="124" selection-start-column="31" selection-end-line="124" selection-end-column="31" />
+            <state relative-caret-position="572">
+              <caret line="142" column="2" lean-forward="true" selection-start-line="142" selection-start-column="2" selection-end-line="142" selection-end-column="2" />
               <folding>
                 <marker date="1515337093038" expanded="true" signature="525:586" ph="SELECT * FRO... users" />
                 <marker date="1515337093038" expanded="true" signature="1240:1298" ph="SELECT COUNT... users" />
@@ -253,12 +252,20 @@
       <option name="presentableId" value="Default" />
       <updated>1513253435173</updated>
       <workItem from="1513253439848" duration="5793000" />
-      <workItem from="1515314181057" duration="22451000" />
+      <workItem from="1515314181057" duration="22526000" />
     </task>
+    <task id="LOCAL-00001" summary="fix">
+      <created>1515337517636</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1515337517636</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28244000" />
+    <option name="totallyTimeSpent" value="28319000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
@@ -290,6 +297,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -612,8 +623,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/weselaPAW/functions.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="124" column="31" lean-forward="true" selection-start-line="124" selection-start-column="31" selection-end-line="124" selection-end-column="31" />
+        <state relative-caret-position="572">
+          <caret line="142" column="2" lean-forward="true" selection-start-line="142" selection-start-column="2" selection-end-line="142" selection-end-column="2" />
           <folding>
             <marker date="1515337093038" expanded="true" signature="525:586" ph="SELECT * FRO... users" />
             <marker date="1515337093038" expanded="true" signature="1240:1298" ph="SELECT COUNT... users" />
