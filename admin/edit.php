@@ -14,18 +14,39 @@ $id = $_GET['id'];
 $functions = new functions('PDO');
 $dbConn = $functions->db;
 
-if (isset($_GET['edit']) && $_GET['edit'] == 'true' && isset($_GET['review'])&& isset($_GET['rate'])) {
-    echo 'editing in database';
+if (isset($_GET['edit']) && $_GET['edit'] == 'true' && isset($_GET['review']) && isset($_GET['rate'])) {
+    if (strpos($type, 'review') == true) {
+        $edit = $dbConn->prepare('UPDATE ' . $type . ' SET review = :review, rate = :rate WHERE id = :id');
+        $edit->bindParam(':review', $_GET['review']);
+        $edit->bindParam(':rate', $_GET['rate']);
+        $edit->bindParam(':id', $id);
+        $edit->setFetchMode(PDO::FETCH_ASSOC);
+        $edit->execute();
+        header('Location: table.php?type=' . $type);
+    }
+    elseif ($type == "consultant_details"){
+        $edit = $dbConn->prepare('UPDATE ' . $type . ' SET review = :review, rate = :rate WHERE id = :id');
+        //TODO insert
 
+    } elseif ($type == "couple_transport_details"){
+        //TODO insert
 
-    $edit = $dbConn->prepare('UPDATE ' . $type . ' SET review = :review, rate = :rate WHERE id = :id');
-    $edit->bindParam(':review', $_GET['review']);
-    $edit->bindParam(':rate', $_GET['rate']);
-    $edit->bindParam(':id', $id);
-    $edit->setFetchMode(PDO::FETCH_ASSOC);
-    $edit->execute();
-    header('Location: table.php?type=' . $type);
-    // TODO actual editing data in database
+    } elseif ($type == "guest_transport_details"){
+        //TODO insert
+
+    } elseif ($type == "music_details"){
+        //TODO insert
+
+    } elseif ($type == "photo_detail"){
+        //TODO insert
+
+    } elseif ($type == "place_details"){
+        //TODO insert
+
+    } elseif ($type == "type_details"){
+        //TODO insert
+
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -49,7 +70,21 @@ echo '<a href="table.php?type=' . $type . '" class="btn btn-primary" style="widt
 if (strpos($type, 'review') == true) {
     $functions->displayFormEditReview($type, $id, $row['review'], $row['rate']);
 } else {
-    //TODO edit details
+    if ($type == 'consultant_details') {
+        $functions->displayFormAddEditConsultantDetails($type, $id, "edit", $row['state'], $row['city'], $row['street'], $row['img_src']);
+    } elseif ($type == 'couple_transport_details') {
+        $functions->displayFormAddEditCoupleTransportDetails($type, $id, "edit", $row['state'], $row['city'], $row['street'], $row['img_src']);
+    } elseif ($type == 'guest_transport_details') {
+        $functions->displayFormAddEditGuestTransportDetails($type, $id, "edit", $row['state'], $row['city'], $row['street'], $row['img_src']);
+    } elseif ($type == 'music_details') {
+        $functions->displayFormAddEditMusicDetails($type, $id, "edit", $row['state'], $row['city'], $row['street'], $row['img_src']);
+    } elseif ($type == 'photo_detail') {
+        $functions->displayFormAddEditPhotoDetails($type, $id, "edit", $row['state'], $row['city'], $row['street'], $row['img_src']);
+    } elseif ($type == 'place_details') {
+        $functions->displayFormAddEditPlaceDetails($type, $id, "edit", $row['state'], $row['city'], $row['street'], $row['img_src']);
+    } elseif ($type == 'type_details') {
+        $functions->displayFormAddEditTypeDetails($type, $id, "edit", $row['state'], $row['city'], $row['street'], $row['img_src']);
+    }
 }
 $functions->displayFooter();
 ?>

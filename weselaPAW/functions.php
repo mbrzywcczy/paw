@@ -168,6 +168,104 @@ class functions
         echo '<input class="form-control" type="number" min="1" max="10" name="rate" value="' . $rate . '"></div>';
         echo '<br/><input type=submit class="btn btn-success" style="width:100%" value="Dodaj zmieniony rekord"></form>';
     }
+
+    public function displayFormAddEditCoupleTransportDetails($type, $id, $action, $state, $city, $street, $path){
+        // TODO Form for adding and editing details - Couple Transport
+        $this->displayFormStart($type, $id, $action);
+
+        $this->displayAddressInputs($state, $city, $street);
+        $this->displayImagePath($path);
+        $this->displayFormEnd($action);
+    }
+
+    public function displayFormAddEditGuestTransportDetails($type, $id, $action, $state, $city, $street, $path){
+        // TODO Form for adding and editing details - Guest Transport
+        $this->displayFormStart($type, $id, $action);
+
+        $this->displayAddressInputs($state, $city, $street);
+        $this->displayImagePath($path);
+        $this->displayFormEnd($action);
+    }
+
+    public function displayFormAddEditConsultantDetails($type, $id, $action, $state, $city, $street, $path){
+        // TODO Form for adding and editing details - Consultant
+        $this->displayFormStart($type, $id, $action);
+
+        $this->displayAddressInputs($state, $city, $street);
+        $this->displayImagePath($path);
+        $this->displayFormEnd($action);
+    }
+
+    public function displayFormAddEditPhotoDetails($type, $id, $action, $state, $city, $street, $path){
+        // TODO Form for adding and editing details - Photo
+        $this->displayFormStart($type, $id, $action);
+
+        $this->displayAddressInputs($state, $city, $street);
+        $this->displayImagePath($path);
+        $this->displayFormEnd($action);
+    }
+
+    public function displayFormAddEditMusicDetails($type, $id, $action, $state, $city, $street, $path){
+        // TODO Form for adding and editing details - Music
+        $this->displayFormStart($type, $id, $action);
+
+        $this->displayAddressInputs($state, $city, $street);
+        $this->displayImagePath($path);
+        $this->displayFormEnd($action);
+    }
+
+    public function displayFormAddEditTypeDetails($type, $id, $action, $state, $city, $street, $path){
+        // TODO Form for adding and editing details - Type
+        $this->displayFormStart($type, $id, $action);
+
+        $this->displayAddressInputs($state, $city, $street);
+        $this->displayImagePath($path);
+        $this->displayFormEnd($action);
+    }
+
+    public function displayFormAddEditPlaceDetails($type, $id, $action, $state, $city, $street, $path){
+        // TODO Form for adding and editing details - Place
+        $this->displayFormStart($type, $id, $action);
+
+        $this->displayAddressInputs($state, $city, $street);
+        $this->displayImagePath($path);
+        $this->displayFormEnd($action);
+    }
+
+    private function displayAddressInputs($state, $city, $street){
+        echo '<div class="form-group">';
+        echo '<label>Województwo</label>';
+        echo '<input class="form-control" type="text" name="state" maxlength="128" value="' . $state . '"></div>';
+
+        echo '<div class="form-group">';
+        echo '<label>Miasto</label>';
+        echo '<input class="form-control" type="text" name="city" maxlength="128" value="' . $city . '"></div>';
+
+        echo '<div class="form-group">';
+        echo '<label>Ulica</label>';
+        echo '<input class="form-control" type="text" name="street" maxlength="128" value="' . $street . '"></div>';
+    }
+
+    private function displayImagePath($path){
+        echo '<div class="form-group">';
+        echo '<label>Lokalizacja zdjęcia na serwerze</label>';
+        echo '<input class="form-control" type="text" name="img_src" maxlength="128" value="' . $path . '"></div>';
+    }
+
+    private function displayFormStart($type, $id, $action){
+        echo '<form action="/paw/admin/' . $action . '.php" style="padding: 20px;">';
+        echo '<input type="text" name="type" value="' . $type . '" hidden>';
+        echo '<input type="text" name="id" value="' . $id . '" hidden>';
+        echo '<input type="text" name="' . $action . '" value="true" hidden>';
+    }
+
+    private function displayFormEnd($action){
+        $edit = "";
+        if ($action == "edit"){
+            $edit = 'zmieniony ';
+        }
+        echo '<br/><input type=submit class="btn btn-success" style="width:100%" value="Dodaj ' . $edit . 'rekord"></form>';
+    }
 }
 
 ?>
