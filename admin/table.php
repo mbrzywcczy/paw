@@ -14,10 +14,12 @@ $functions->checkIfUserIsAdmin();
 <body>
 <?php
 $username = "";
+$admin = 1;
 if (isset($_SESSION['login'])){
     $username = $_SESSION['login'];
+    $admin = $_SESSION['admin'];
 }
-$functions->displayTopNav("../login.php", "../index.php", $username, "../../paw/weselaPAW/logout.php");
+$functions->displayTopNav("../login.php", "../index.php", $username, $admin, "../../paw/weselaPAW/logout.php", 'panel.php');
 echo '<a href="panel.php" class="btn btn-primary" style="width:100%">Powrót do wyboru kategorii</a>';
 
 $types = array('consultant_details', 'consultant_reviews', 'couple_transport_details', 'couple_transport_reviews',

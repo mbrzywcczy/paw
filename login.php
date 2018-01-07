@@ -20,10 +20,12 @@ if ($isLogged) {
 
 <?php
 $username = "";
+$admin = 1;
 if (isset($_SESSION['login'])){
     $username = $_SESSION['login'];
+    $admin = $_SESSION['admin'];
 }
-$functions->displayTopNav("login.php", "index.php", $username, "../paw/weselaPAW/logout.php");
+$functions->displayTopNav("login.php", "index.php", $username, $admin, "../paw/weselaPAW/logout.php", 'admin/panel.php');
 ?>
 
 <div class="container-fluidy bg-5 text-center">

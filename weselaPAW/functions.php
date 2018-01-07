@@ -188,7 +188,7 @@ class functions
         echo '<link rel="stylesheet" href="' . $styleDir . '" type="text/css"/>';
     }
 
-    public function displayTopNav($loginPath, $indexPath, $username, $logoutPath)
+    public function displayTopNav($loginPath, $indexPath, $username, $admin, $logoutPath, $adminPath)
     {
         echo '<nav class="navbar navbar-default">
         <div class="container"><div class="navbar-header">
@@ -204,9 +204,12 @@ class functions
         if ($username == "") {
             echo '<li><a href="' . $loginPath . '">Logowanie/Rejestracja</a></li>';
         } else {
-            echo '<li><span>Witaj, <strong>' . $username . '</strong> | <a class="btn btn-warning" href="' . $logoutPath . '">Wyloguj</a></span></li>';
+            echo '<li><span>Witaj, ' . $username . ' | <a href="' . $logoutPath . '">Wyloguj</a></li>';
         }
         echo '</ul></div></div></nav>';
+        if ($admin == 0) {
+            echo '<a href="' . $adminPath . '" class="btn btn-primary" style="width:100%">Panel administratora</a>';
+        }
     }
 
     public function displayFooter()
@@ -244,7 +247,7 @@ class functions
                                                              $state, $city, $street, $path)
     {
         $this->displayFormStart($type, $id, $action);
-        $this->displayTypeInput($type);
+        $this->displayTypeInput($type_name);
         $this->displayDescriptionInput($description);
 
         echo '<div class="form-group">';
@@ -259,7 +262,7 @@ class functions
                                                             $price_person, $person, $state, $city, $street, $path)
     {
         $this->displayFormStart($type, $id, $action);
-        $this->displayTypeInput($type);
+        $this->displayTypeInput($type_name);
         $this->displayDescriptionInput($description);
 
         echo '<div class="form-group">';
@@ -328,7 +331,7 @@ class functions
                                                    $price_person, $state, $city, $street, $path)
     {
         $this->displayFormStart($type, $id, $action);
-        $this->displayTypeInput($type);
+        $this->displayTypeInput($type_name);
 
         echo '<div class="form-group">';
         echo '<label>Nazwa</label>';
@@ -366,7 +369,7 @@ class functions
                                                    $person, $state, $city, $street, $path)
     {
         $this->displayFormStart($type, $id, $action);
-        $this->displayTypeInput($type);
+        $this->displayTypeInput($type_name);
         $this->displayDescriptionInput($description);
 
         echo '<div class="form-group">';

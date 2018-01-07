@@ -155,10 +155,12 @@ $records->execute();
 $row = $records->fetch();
 
 $username = "";
+$admin = 1;
 if (isset($_SESSION['login'])){
     $username = $_SESSION['login'];
+    $admin = $_SESSION['admin'];
 }
-$functions->displayTopNav("../login.php", "../index.php", $username, "../../paw/weselaPAW/logout.php");
+$functions->displayTopNav('../login.php', '../index.php', $username, $admin, '../../paw/weselaPAW/logout.php', 'panel.php');
 echo '<a href="table.php?type=' . $type . '" class="btn btn-primary" style="width:100%">Powrót do tabeli rekordów</a>';
 if ($type == 'consultant_details') {
     $functions->displayFormAddEditConsultantDetails($type, $id, "add", $row['first_name'], $row['last_name'], $row['description'], $row['price'], $row['state'], $row['city'], $row['street'], $row['img_src']);

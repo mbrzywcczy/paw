@@ -32,10 +32,12 @@ header('Location: /paw/admin/table.php?type=' . $type);
 <body>
 <?php
 $username = "";
+$admin = 1;
 if (isset($_SESSION['login'])){
     $username = $_SESSION['login'];
+    $admin = $_SESSION['admin'];
 }
-$functions->displayTopNav("../login.php", "../index.php", $username, "../../paw/weselaPAW/logout.php");
+$functions->displayTopNav("../login.php", "../index.php", $username, $admin, "../../paw/weselaPAW/logout.php", 'panel.php');
 ?>
 <h3 style="text-align: center;">Usuwanie rekordu o numerze identyfikacyjnym <?php echo $id; ?> z
     tabeli <?php echo $type; ?></h3>

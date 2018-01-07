@@ -20,10 +20,7 @@ if (isset($_SESSION['login'])){
     $username = $_SESSION['login'];
     $admin = $_SESSION['admin'];
 }
-$functions->displayTopNav("login.php", "index.php", $username, "../paw/weselaPAW/logout.php");
-if ($admin == 0){
-    echo '<a href="admin/panel.php" class="btn btn-primary" style="width:100%">Panel administratora</a>';
-}
+$functions->displayTopNav("login.php", "index.php", $username, $admin, "../paw/weselaPAW/logout.php", 'admin/panel.php');
 ?>
 
 <div class="container-fluidy bg-5 text-center">
@@ -62,7 +59,7 @@ if ($admin == 0){
                     </div>
                 </div>
                 <div class="col-md-2">
-                    <a href="main.html">
+                    <a href="main.php">
                         <button type="button" class="btn btn-default padd">Zobacz</button>
                     </a>
                 </div>

@@ -172,10 +172,12 @@ $records->execute();
 $row = $records->fetch();
 
 $username = "";
+$admin = 1;
 if (isset($_SESSION['login'])){
     $username = $_SESSION['login'];
+    $admin = $_SESSION['admin'];
 }
-$functions->displayTopNav("../login.php", "../index.php", $username, "../../paw/weselaPAW/logout.php");
+$functions->displayTopNav("../login.php", "../index.php", $username, $admin, "../../paw/weselaPAW/logout.php", 'panel.php');
 echo '<a href="table.php?type=' . $type . '" class="btn btn-primary" style="width:100%">Powrót do tabeli rekordów</a>';
 if (strpos($type, 'review') == true) {
     $functions->displayFormEditReview($type, $id, $row['review'], $row['rate']);
