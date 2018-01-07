@@ -27,8 +27,29 @@ if (isset($_GET['add']) && $_GET['add'] == 'true') {
 </head>
 <body>
 <?php
+$records = $dbConn->prepare('SELECT * FROM ' . $type . ' WHERE id = :id');
+$records->bindParam(':id', $id);
+$records->setFetchMode(PDO::FETCH_ASSOC);
+$records->execute();
+$row = $records->fetch();
+
 $functions->displayTopNav("../login.html", "../index.html");
-$functions->displayFormAddEdit($type, "add");
+echo '<a href="table.php?type=' . $type . '" class="btn btn-primary" style="width:100%">Powrót do tabeli rekordów</a>';
+if ($type == 'consultant_details'){
+    $functions->displayFormAddEditConsultantDetails($type, $id, "add", $row['state'], $row['city'], $row['street'], $row['img_src']);
+} elseif ($type == 'couple_transport_details'){
+    $functions->displayFormAddEditCoupleTransportDetails($type, $id, "add", $row['state'], $row['city'], $row['street'], $row['img_src']);
+} elseif ($type == 'guest_transport_details'){
+    $functions->displayFormAddEditGuestTransportDetails($type, $id, "add", $row['state'], $row['city'], $row['street'], $row['img_src']);
+} elseif ($type == 'music_details'){
+    $functions->displayFormAddEditMusicDetails($type, $id, "add", $row['state'], $row['city'], $row['street'], $row['img_src']);
+} elseif ($type == 'photo_detail'){
+    $functions->displayFormAddEditPhotoDetails($type, $id, "add", $row['state'], $row['city'], $row['street'], $row['img_src']);
+} elseif ($type == 'place_details'){
+    $functions->displayFormAddEditPlaceDetails($type, $id, "add", $row['state'], $row['city'], $row['street'], $row['img_src']);
+} elseif ($type == 'type_details'){
+    $functions->displayFormAddEditTypeDetails($type, $id, "add", $row['state'], $row['city'], $row['street'], $row['img_src']);
+}
 $functions->displayFooter();
 ?>
 </body>

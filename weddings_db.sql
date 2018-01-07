@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.7.4
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 03 Gru 2017, 12:29
--- Wersja serwera: 10.1.10-MariaDB
--- Wersja PHP: 5.6.19
+-- Generation Time: Jan 07, 2018 at 04:36 PM
+-- Server version: 10.1.28-MariaDB
+-- PHP Version: 7.1.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -17,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Baza danych: `weddings_db`
+-- Database: `weddings_db`
 --
 CREATE DATABASE IF NOT EXISTS `weddings_db` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE `weddings_db`;
@@ -25,7 +27,7 @@ USE `weddings_db`;
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `consultant_details`
+-- Table structure for table `consultant_details`
 --
 
 CREATE TABLE `consultant_details` (
@@ -34,21 +36,24 @@ CREATE TABLE `consultant_details` (
   `last_name` varchar(32) NOT NULL,
   `description` varchar(512) DEFAULT NULL,
   `price` float DEFAULT NULL,
+  `state` varchar(128) DEFAULT NULL,
+  `city` varchar(128) DEFAULT NULL,
+  `street` varchar(128) DEFAULT NULL,
   `img_src` varchar(128) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Zrzut danych tabeli `consultant_details`
+-- Dumping data for table `consultant_details`
 --
 
-INSERT INTO `consultant_details` (`id`, `first_name`, `last_name`, `description`, `price`, `img_src`) VALUES
-(1, 'Jan', 'Kowalski', 'Konsultant ślubny', 750, 'path'),
-(2, 'Maria', 'Nowak', 'Konsultant ślubny', 1250, 'path');
+INSERT INTO `consultant_details` (`id`, `first_name`, `last_name`, `description`, `price`, `state`, `city`, `street`, `img_src`) VALUES
+(1, 'Jan', 'Kowalski', 'Konsultant ślubny', 750, 'Śląskie', 'Katowice', 'Warszawska 1/1', 'path'),
+(2, 'Maria', 'Nowak', 'Konsultant ślubny', 1250, 'Śląskie', 'Katowice', 'Warszawska 1/1', 'path');
 
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `consultant_reviews`
+-- Table structure for table `consultant_reviews`
 --
 
 CREATE TABLE `consultant_reviews` (
@@ -61,7 +66,7 @@ CREATE TABLE `consultant_reviews` (
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `couple`
+-- Table structure for table `couple`
 --
 
 CREATE TABLE `couple` (
@@ -77,7 +82,7 @@ CREATE TABLE `couple` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Zrzut danych tabeli `couple`
+-- Dumping data for table `couple`
 --
 
 INSERT INTO `couple` (`id`, `person1_first_name`, `person1_last_name`, `person1_gender`, `person2_first_name`, `person2_last_name`, `person2_gender`, `person1_user_id`, `person2_user_id`) VALUES
@@ -86,7 +91,7 @@ INSERT INTO `couple` (`id`, `person1_first_name`, `person1_last_name`, `person1_
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `couple_transport_details`
+-- Table structure for table `couple_transport_details`
 --
 
 CREATE TABLE `couple_transport_details` (
@@ -94,22 +99,25 @@ CREATE TABLE `couple_transport_details` (
   `type` varchar(64) DEFAULT NULL,
   `description` varchar(512) DEFAULT NULL,
   `price` float DEFAULT NULL,
+  `state` varchar(128) DEFAULT NULL,
+  `city` varchar(128) DEFAULT NULL,
+  `street` varchar(128) DEFAULT NULL,
   `img_src` varchar(128) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Zrzut danych tabeli `couple_transport_details`
+-- Dumping data for table `couple_transport_details`
 --
 
-INSERT INTO `couple_transport_details` (`id`, `type`, `description`, `price`, `img_src`) VALUES
-(1, 'Auto', 'Auto', 600, 'path'),
-(2, 'Dorożka', 'Dorożka', 500, 'path'),
-(3, 'Limuzyna', 'Limuzyna', 1250, 'path');
+INSERT INTO `couple_transport_details` (`id`, `type`, `description`, `price`, `state`, `city`, `street`, `img_src`) VALUES
+(1, 'Auto', 'Auto', 600, 'Śląskie', 'Katowice', 'Warszawska 2/3', 'path'),
+(2, 'Dorożka', 'Dorożka', 500, 'Śląskie', 'Katowice', 'Warszawska 2/3', 'path'),
+(3, 'Limuzyna', 'Limuzyna', 1250, 'Śląskie', 'Katowice', 'Warszawska 2/3', 'path');
 
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `couple_transport_reviews`
+-- Table structure for table `couple_transport_reviews`
 --
 
 CREATE TABLE `couple_transport_reviews` (
@@ -122,7 +130,7 @@ CREATE TABLE `couple_transport_reviews` (
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `guest_transport_details`
+-- Table structure for table `guest_transport_details`
 --
 
 CREATE TABLE `guest_transport_details` (
@@ -131,23 +139,26 @@ CREATE TABLE `guest_transport_details` (
   `description` varchar(512) DEFAULT NULL,
   `price_flat` float DEFAULT NULL,
   `price_per_person` float DEFAULT NULL,
-  `img_src` varchar(128) DEFAULT NULL,
-  `person_amount_per_unit` int(11) DEFAULT NULL
+  `person_amount_per_unit` int(11) DEFAULT NULL,
+  `state` varchar(128) DEFAULT NULL,
+  `city` varchar(128) DEFAULT NULL,
+  `street` varchar(128) DEFAULT NULL,
+  `img_src` varchar(128) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Zrzut danych tabeli `guest_transport_details`
+-- Dumping data for table `guest_transport_details`
 --
 
-INSERT INTO `guest_transport_details` (`id`, `type`, `description`, `price_flat`, `price_per_person`, `img_src`, `person_amount_per_unit`) VALUES
-(1, 'Autobus', 'Autobus', 500, 15, 'path', 60),
-(2, 'Bus', 'Bus', 400, 20, 'path', 30),
-(3, 'Auta', 'Auta', 250, 0, 'path', 5);
+INSERT INTO `guest_transport_details` (`id`, `type`, `description`, `price_flat`, `price_per_person`, `person_amount_per_unit`, `state`, `city`, `street`, `img_src`) VALUES
+(1, 'Autobus', 'Autobus', 500, 15, 60, 'Śląskie', 'Katowice', 'Warszawska 3/4', 'path'),
+(2, 'Bus', 'Bus', 400, 20, 30, 'Śląskie', 'Katowice', 'Warszawska 3/4', 'path'),
+(3, 'Auta', 'Auta', 250, 0, 5, 'Śląskie', 'Katowice', 'Warszawska 3/4', 'path');
 
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `guest_transport_reviews`
+-- Table structure for table `guest_transport_reviews`
 --
 
 CREATE TABLE `guest_transport_reviews` (
@@ -160,7 +171,7 @@ CREATE TABLE `guest_transport_reviews` (
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `music_details`
+-- Table structure for table `music_details`
 --
 
 CREATE TABLE `music_details` (
@@ -170,22 +181,25 @@ CREATE TABLE `music_details` (
   `description` varchar(512) DEFAULT NULL,
   `price_flat` float DEFAULT NULL,
   `price_per_person` float DEFAULT NULL,
+  `state` varchar(128) DEFAULT NULL,
+  `city` varchar(128) DEFAULT NULL,
+  `street` varchar(128) DEFAULT NULL,
   `img_src` varchar(128) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Zrzut danych tabeli `music_details`
+-- Dumping data for table `music_details`
 --
 
-INSERT INTO `music_details` (`id`, `type`, `name`, `description`, `price_flat`, `price_per_person`, `img_src`) VALUES
-(1, 'Zespół', 'Zespół', 'Zespół', 1800, 0, 'path'),
-(2, 'Kapela', 'Kapela', 'Kapela', 2500, 0, 'path'),
-(3, 'DJ', 'DJ', 'DJ', 1000, 10, 'path');
+INSERT INTO `music_details` (`id`, `type`, `name`, `description`, `price_flat`, `price_per_person`, `state`, `city`, `street`, `img_src`) VALUES
+(1, 'Zespół', 'Zespół', 'Zespół', 1800, 0, 'Śląskie', 'Katowice', 'Warszawska 3/4', 'path'),
+(2, 'Kapela', 'Kapela', 'Kapela', 2500, 0, 'Śląskie', 'Katowice', 'Warszawska 3/4', 'path'),
+(3, 'DJ', 'DJ', 'DJ', 1000, 10, 'Śląskie', 'Katowice', 'Warszawska 3/4', 'path');
 
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `music_reviews`
+-- Table structure for table `music_reviews`
 --
 
 CREATE TABLE `music_reviews` (
@@ -198,7 +212,7 @@ CREATE TABLE `music_reviews` (
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `photo_detail`
+-- Table structure for table `photo_detail`
 --
 
 CREATE TABLE `photo_detail` (
@@ -213,21 +227,24 @@ CREATE TABLE `photo_detail` (
   `video_price` float DEFAULT NULL,
   `drone` tinyint(1) DEFAULT NULL,
   `drone_price` float DEFAULT NULL,
+  `state` varchar(128) DEFAULT NULL,
+  `city` varchar(128) DEFAULT NULL,
+  `street` varchar(128) DEFAULT NULL,
   `img_src` varchar(128) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Zrzut danych tabeli `photo_detail`
+-- Dumping data for table `photo_detail`
 --
 
-INSERT INTO `photo_detail` (`id`, `first_name`, `last_name`, `company_name`, `description`, `photo`, `photo_price`, `video`, `video_price`, `drone`, `drone_price`, `img_src`) VALUES
-(1, 'Marek', 'Nowak', 'NowakFoto', 'Fotograf Marek Nowak', 0, 750, 0, 2500, 1, 0, 'path'),
-(2, 'Katarzyna', 'Zegarek', 'ZegarekFoto', 'Fotograf Katarzyna Zegarek', 0, 1000, 0, 2000, 0, 5000, 'path');
+INSERT INTO `photo_detail` (`id`, `first_name`, `last_name`, `company_name`, `description`, `photo`, `photo_price`, `video`, `video_price`, `drone`, `drone_price`, `state`, `city`, `street`, `img_src`) VALUES
+(1, 'Marek', 'Nowak', 'NowakFoto', 'Fotograf Marek Nowak', 0, 750, 0, 2500, 1, 0, 'Śląskie', 'Katowice', 'Warszawska 10/1', 'path'),
+(2, 'Katarzyna', 'Zegarek', 'ZegarekFoto', 'Fotograf Katarzyna Zegarek', 0, 1000, 0, 2000, 0, 5000, 'Śląskie', 'Katowice', 'Warszawska 10/1', 'path');
 
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `photo_reviews`
+-- Table structure for table `photo_reviews`
 --
 
 CREATE TABLE `photo_reviews` (
@@ -240,7 +257,7 @@ CREATE TABLE `photo_reviews` (
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `place_details`
+-- Table structure for table `place_details`
 --
 
 CREATE TABLE `place_details` (
@@ -257,7 +274,7 @@ CREATE TABLE `place_details` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Zrzut danych tabeli `place_details`
+-- Dumping data for table `place_details`
 --
 
 INSERT INTO `place_details` (`id`, `type`, `max_guests`, `description`, `state`, `city`, `street`, `price_flat`, `price_per_person`, `img_src`) VALUES
@@ -267,7 +284,7 @@ INSERT INTO `place_details` (`id`, `type`, `max_guests`, `description`, `state`,
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `place_reviews`
+-- Table structure for table `place_reviews`
 --
 
 CREATE TABLE `place_reviews` (
@@ -280,7 +297,7 @@ CREATE TABLE `place_reviews` (
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `transport_details`
+-- Table structure for table `transport_details`
 --
 
 CREATE TABLE `transport_details` (
@@ -290,7 +307,7 @@ CREATE TABLE `transport_details` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Zrzut danych tabeli `transport_details`
+-- Dumping data for table `transport_details`
 --
 
 INSERT INTO `transport_details` (`id`, `couple_transport_id`, `guests_transport_id`) VALUES
@@ -299,7 +316,7 @@ INSERT INTO `transport_details` (`id`, `couple_transport_id`, `guests_transport_
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `type_details`
+-- Table structure for table `type_details`
 --
 
 CREATE TABLE `type_details` (
@@ -313,7 +330,7 @@ CREATE TABLE `type_details` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Zrzut danych tabeli `type_details`
+-- Dumping data for table `type_details`
 --
 
 INSERT INTO `type_details` (`id`, `type`, `description`, `state`, `city`, `street`, `img_src`) VALUES
@@ -323,7 +340,7 @@ INSERT INTO `type_details` (`id`, `type`, `description`, `state`, `city`, `stree
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `type_reviews`
+-- Table structure for table `type_reviews`
 --
 
 CREATE TABLE `type_reviews` (
@@ -336,7 +353,7 @@ CREATE TABLE `type_reviews` (
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -351,7 +368,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Zrzut danych tabeli `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `login`, `password`, `email`, `first_name`, `last_name`, `gender`, `admin`) VALUES
@@ -362,7 +379,7 @@ INSERT INTO `users` (`id`, `login`, `password`, `email`, `first_name`, `last_nam
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `wedding`
+-- Table structure for table `wedding`
 --
 
 CREATE TABLE `wedding` (
@@ -379,14 +396,14 @@ CREATE TABLE `wedding` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Zrzut danych tabeli `wedding`
+-- Dumping data for table `wedding`
 --
 
 INSERT INTO `wedding` (`id`, `creator_user_id`, `second_user_id`, `couple_id`, `type_id`, `place_id`, `photo_id`, `transport_id`, `music_id`, `consultant_id`) VALUES
 (1, 2, 3, 1, 1, 1, 1, 1, 1, 1);
 
 --
--- Indeksy dla zrzutów tabel
+-- Indexes for dumped tables
 --
 
 --
@@ -542,157 +559,175 @@ ALTER TABLE `wedding`
 --
 
 --
--- AUTO_INCREMENT dla tabeli `consultant_details`
+-- AUTO_INCREMENT for table `consultant_details`
 --
 ALTER TABLE `consultant_details`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
--- AUTO_INCREMENT dla tabeli `consultant_reviews`
+-- AUTO_INCREMENT for table `consultant_reviews`
 --
 ALTER TABLE `consultant_reviews`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
--- AUTO_INCREMENT dla tabeli `couple`
+-- AUTO_INCREMENT for table `couple`
 --
 ALTER TABLE `couple`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
--- AUTO_INCREMENT dla tabeli `couple_transport_details`
+-- AUTO_INCREMENT for table `couple_transport_details`
 --
 ALTER TABLE `couple_transport_details`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
--- AUTO_INCREMENT dla tabeli `couple_transport_reviews`
+-- AUTO_INCREMENT for table `couple_transport_reviews`
 --
 ALTER TABLE `couple_transport_reviews`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
--- AUTO_INCREMENT dla tabeli `guest_transport_details`
+-- AUTO_INCREMENT for table `guest_transport_details`
 --
 ALTER TABLE `guest_transport_details`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
--- AUTO_INCREMENT dla tabeli `guest_transport_reviews`
+-- AUTO_INCREMENT for table `guest_transport_reviews`
 --
 ALTER TABLE `guest_transport_reviews`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
--- AUTO_INCREMENT dla tabeli `music_details`
+-- AUTO_INCREMENT for table `music_details`
 --
 ALTER TABLE `music_details`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
--- AUTO_INCREMENT dla tabeli `music_reviews`
+-- AUTO_INCREMENT for table `music_reviews`
 --
 ALTER TABLE `music_reviews`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
--- AUTO_INCREMENT dla tabeli `photo_detail`
+-- AUTO_INCREMENT for table `photo_detail`
 --
 ALTER TABLE `photo_detail`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
--- AUTO_INCREMENT dla tabeli `photo_reviews`
+-- AUTO_INCREMENT for table `photo_reviews`
 --
 ALTER TABLE `photo_reviews`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
--- AUTO_INCREMENT dla tabeli `place_details`
+-- AUTO_INCREMENT for table `place_details`
 --
 ALTER TABLE `place_details`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
--- AUTO_INCREMENT dla tabeli `place_reviews`
+-- AUTO_INCREMENT for table `place_reviews`
 --
 ALTER TABLE `place_reviews`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
--- AUTO_INCREMENT dla tabeli `transport_details`
+-- AUTO_INCREMENT for table `transport_details`
 --
 ALTER TABLE `transport_details`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
--- AUTO_INCREMENT dla tabeli `type_details`
+-- AUTO_INCREMENT for table `type_details`
 --
 ALTER TABLE `type_details`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
--- AUTO_INCREMENT dla tabeli `type_reviews`
+-- AUTO_INCREMENT for table `type_reviews`
 --
 ALTER TABLE `type_reviews`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
--- AUTO_INCREMENT dla tabeli `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
--- AUTO_INCREMENT dla tabeli `wedding`
+-- AUTO_INCREMENT for table `wedding`
 --
 ALTER TABLE `wedding`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
--- Ograniczenia dla zrzutów tabel
+-- Constraints for dumped tables
 --
 
 --
--- Ograniczenia dla tabeli `consultant_reviews`
+-- Constraints for table `consultant_reviews`
 --
 ALTER TABLE `consultant_reviews`
   ADD CONSTRAINT `consultant_reviews_consultant_details_id_fk` FOREIGN KEY (`consultant_id`) REFERENCES `consultant_details` (`id`);
 
 --
--- Ograniczenia dla tabeli `couple`
+-- Constraints for table `couple`
 --
 ALTER TABLE `couple`
   ADD CONSTRAINT `couple_users_id_fk1` FOREIGN KEY (`person1_user_id`) REFERENCES `users` (`id`),
   ADD CONSTRAINT `couple_users_id_fk2` FOREIGN KEY (`person2_user_id`) REFERENCES `users` (`id`);
 
 --
--- Ograniczenia dla tabeli `couple_transport_reviews`
+-- Constraints for table `couple_transport_reviews`
 --
 ALTER TABLE `couple_transport_reviews`
   ADD CONSTRAINT `couple_transport_reviews_couple_transport_details_id_fk` FOREIGN KEY (`couple_transport_id`) REFERENCES `couple_transport_details` (`id`);
 
 --
--- Ograniczenia dla tabeli `guest_transport_reviews`
+-- Constraints for table `guest_transport_reviews`
 --
 ALTER TABLE `guest_transport_reviews`
   ADD CONSTRAINT `guest_transport_reviews_guest_transport_details_id_fk` FOREIGN KEY (`guest_transport_id`) REFERENCES `guest_transport_details` (`id`);
 
 --
--- Ograniczenia dla tabeli `music_reviews`
+-- Constraints for table `music_reviews`
 --
 ALTER TABLE `music_reviews`
   ADD CONSTRAINT `music_reviews_music_details_id_fk` FOREIGN KEY (`music_id`) REFERENCES `music_details` (`id`);
 
 --
--- Ograniczenia dla tabeli `photo_reviews`
+-- Constraints for table `photo_reviews`
 --
 ALTER TABLE `photo_reviews`
   ADD CONSTRAINT `photo_reviews_photo_detail_id_fk` FOREIGN KEY (`photo_id`) REFERENCES `photo_detail` (`id`);
 
 --
--- Ograniczenia dla tabeli `place_reviews`
+-- Constraints for table `place_reviews`
 --
 ALTER TABLE `place_reviews`
   ADD CONSTRAINT `place_reviews_place_details_id_fk` FOREIGN KEY (`place_id`) REFERENCES `place_details` (`id`);
 
 --
--- Ograniczenia dla tabeli `transport_details`
+-- Constraints for table `transport_details`
 --
 ALTER TABLE `transport_details`
   ADD CONSTRAINT `transport_details_couple_transport_details_id_fk` FOREIGN KEY (`couple_transport_id`) REFERENCES `couple_transport_details` (`id`),
   ADD CONSTRAINT `transport_details_guest_transport_details_id_fk` FOREIGN KEY (`guests_transport_id`) REFERENCES `guest_transport_details` (`id`);
 
 --
--- Ograniczenia dla tabeli `type_reviews`
+-- Constraints for table `type_reviews`
 --
 ALTER TABLE `type_reviews`
   ADD CONSTRAINT `type_reviews_type_details_id_fk` FOREIGN KEY (`type_id`) REFERENCES `type_details` (`id`);
 
 --
--- Ograniczenia dla tabeli `wedding`
+-- Constraints for table `wedding`
 --
 ALTER TABLE `wedding`
   ADD CONSTRAINT `wedding_consultant_details_id_fk` FOREIGN KEY (`consultant_id`) REFERENCES `consultant_details` (`id`),
@@ -704,6 +739,7 @@ ALTER TABLE `wedding`
   ADD CONSTRAINT `wedding_type_details_id_fk` FOREIGN KEY (`type_id`) REFERENCES `type_details` (`id`),
   ADD CONSTRAINT `wedding_users__fk2` FOREIGN KEY (`second_user_id`) REFERENCES `users` (`id`),
   ADD CONSTRAINT `wedding_users_id_fk1` FOREIGN KEY (`creator_user_id`) REFERENCES `users` (`id`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
