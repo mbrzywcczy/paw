@@ -197,6 +197,15 @@ class functions
         echo '<input class="form-control" type="number" min="1" max="10" name="rate" value="' . $rate . '"></div>';
         echo '<br/><input type=submit class="btn btn-success" style="width:100%" value="Dodaj zmieniony rekord"></form>';
     }
+    //nie zrobione jeszcze
+    public function offertCounter()
+    {
+        $stmt = $this ->db->prepare('SELECT COUNT(id) FROM music_reviews WHERE music_id = :idMusic');
+        $stmt -> bindParam(':idMusic', $idMusic, PDO::PARAM_STR);
+        $stmt -> execute();
+        $row = $stmt->fetch();
+        echo $row['average'];
+    }
 }
 
 ?>
