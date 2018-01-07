@@ -184,30 +184,19 @@ class functions
         </div></div></footer>';
     }
 
-    public function displayFormAddEdit($type, $action)
+    public function displayFormEditReview ($type, $id, $review, $rate)
     {
-        $edit = "";
-        if ($action == "edit") {
-            $edit = "zmieniony";
-        }
-        echo '<form action="/paw/admin/add.php">
-            <input type="text" name="type" value="' . $type . '" hidden>
-            <input type="text" name="add" value="true" hidden>';
-        $this->getFormFields($type);
-        echo '<input type=submit class="btn btn-primary" value="Dodaj ' . $edit . ' rekord">
-            </form>';
-    }
-
-    private function getFormFields($type)
-    {
-
-        if (strpos($type, 'review') == true) {
-            echo 'test';
-        }
-        echo 'test2';
+        echo '<form action="/paw/admin/edit.php" style="padding: 20px;">';
+        echo '<input type="text" name="type" value="' . $type . '" hidden>';
+        echo '<input type="text" name="id" value="' . $id . '" hidden>';
+        echo '<input type="text" name="edit" value="true" hidden>';
+        echo '<div class="form-group">';
+        echo '<label>Komentarz</label>';
+        echo '<input class="form-control" type="text" name="review" maxlength="512" value="' . $review . '"></div>';
+        echo '<label>Ocena</label>';
+        echo '<input class="form-control" type="number" min="1" max="10" name="rate" value="' . $rate . '"></div>';
+        echo '<br/><input type=submit class="btn btn-success" style="width:100%" value="Dodaj zmieniony rekord"></form>';
     }
 }
-
-//>>>>>>> 67a466dc840305e8110fa10fa6ea92400d816d7e
 
 ?>
