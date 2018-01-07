@@ -43,9 +43,6 @@ $db = new functions('PDO');
     </div>
   </div>
 </nav>
-<div class="container-fluidy bg-1 text-center">
-  <h2 class="liczba">Ilość ogłoszeń: #liczba</h2>
-</div>
 <div class="container-fluid bg-3 text-center">
   <div class="row">
     <div class="col-md-1"></div>
