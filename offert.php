@@ -80,8 +80,6 @@ $db = new functions('PDO');
     </div>
     <div class="col-md-5">
       <h1>DJ Trolo</h1>
-
-      <p>1125 <span class="glyphicon glyphicon-heart" data-toggle="tooltip" data-placement="right" title="Polubień"></span>
         <?php $db->commentsCount()?> <span class="glyphicon glyphicon-comment" data-toggle="tooltip" data-placement="right" title="Komentarzy"></span>
         <?php $db->rateAverage()?> <span class="glyphicon glyphicon-star" data-toggle="tooltip" data-placement="right" title="Ocena"></span></p>
 
@@ -97,36 +95,35 @@ $db = new functions('PDO');
         Fusce convallis gravida elementum. In sodales, tellus nec porta tempus, mi est dictum leo, nec aliquet neque nunc auctor turpis. Suspendisse blandit neque id velit lacinia mattis. Sed dui erat, iaculis sit amet ante at, lacinia ullamcorper urna. Aliquam eget consectetur velit. Aenean eu dictum lectus. Proin porttitor efficitur sodales. Nullam dolor libero, aliquet in tortor in, venenatis tempus odio. Nulla quam tortor, egestas suscipit ultricies ac, iaculis ac justo. Sed in fringilla lorem, eu volutpat nibh. Nullam ut nisi tempor, pharetra ex id, semper risus. Nam auctor nisi ut sem dapibus vehicula. Fusce quis maximus ligula.
       </div>
       <br>
-      <div class="form-group">
-        <div class="card-box">
-          <div class="row">
-            <div class="col-md-3" style="border-right: 1px solid #eee;">
-              <button type="button" class="btn btn-default btn-sm">
-                <span class="glyphicon glyphicon-user"></span>User
-              </button>
-              <h4>Mateusz Pyka</h4>
+        <form method = 'POST' action="<?php $db->setComment() ?>">
+          <div class="form-group">
+            <div class="card-box">
+              <div class="row">
+                <div class="col-md-3" style="border-right: 1px solid #eee;">
+                  <button type="button" class="btn btn-default btn-sm">
+                    <span class="glyphicon glyphicon-user"></span>User
+                  </button>
+                  <h4>Mateusz Pyka</h4>
+                </div>
+                <div class="col-md-7">
+                  <label for="comment">Komentarz:</label>
+                  <textarea name="comment" class="form-control" rows="5" id="comment"></textarea>
+                </div>
+                <div class="col-md-2">
+                  <p>Ocena: &nbsp;<span class="glyphicon glyphicon-star" data-toggle="tooltip" data-placement="right" title="Ocena"></span></p>
+                  <select class="form-control" id="sel1" name="sell">
+                    <option selected="selected">5</option>
+                    <option>4</option>
+                    <option>3</option>
+                    <option>2</option>
+                    <option>1</option>
+                  </select>
+                </div>
+                <button type="submit" class="btn btn-default" style="margin-left: 85%;">Opublikuj</button>
+              </div>
             </div>
-            <div class="col-md-7">
-              <label for="comment">Komentarz:</label>
-              <textarea class="form-control" rows="5" id="comment"></textarea>
-            </div>
-            <div class="col-md-2">
-              <p>Ocena: &nbsp;<span class="glyphicon glyphicon-star" data-toggle="tooltip" data-placement="right" title="Ocena"></span></p>
-              <select class="form-control" id="sel1">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>4</option>
-              </select>
-              <button type="button" class="btn btn-default ">
-                <span class="glyphicon glyphicon-heart"></span> Like
-              </button>
-            </div>
-            <button type="button" class="btn btn-default" style="margin-left: 85%;">Opublikuj</button>
           </div>
-        </div>
-      </div>
+        </form>
       <div class="form-group">
         <div class="card-box">
           <?php $db->getComment();?>
