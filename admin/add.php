@@ -28,7 +28,8 @@ if (isset($_GET['add']) && $_GET['add'] == 'true') {
 <body>
 <?php
 $functions->displayTopNav("../login.html", "../index.html");
-$functions->displayFormAddEdit($type, "add");
+echo '<a href="table.php?type=' . $type . '" class="btn btn-primary" style="width:100%">Powrót do tabeli rekordów</a>';
+// TODO add details
 $functions->displayFooter();
 ?>
 </body>
