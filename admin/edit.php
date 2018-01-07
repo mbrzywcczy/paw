@@ -1,17 +1,17 @@
 <?php
 require('../../paw/weselaPAW/functions.php');
+$functions = new functions('PDO');
+$functions->checkSession();
 
 $types = array('consultant_details', 'consultant_reviews', 'couple_transport_details', 'couple_transport_reviews',
     'guest_transport_details', 'guest_transport_reviews', 'music_details', 'music_reviews', 'photo_detail',
     'photo_reviews', 'place_details', 'place_reviews', 'type_details', 'type_reviews');
-session_start();
-if (!isset($_SESSION['admin']) || $_SESSION['admin'] != 0 || !isset($_GET['type']) || !in_array($_GET['type'], $types) || !isset($_GET['id'])) {
+if (!isset($_GET['type']) || !in_array($_GET['type'], $types) || !isset($_GET['id'])) {
     header('Location: /paw/admin/panel.php');
     exit;
 }
 $type = $_GET['type'];
 $id = $_GET['id'];
-$functions = new functions('PDO');
 $dbConn = $functions->db;
 
 if (isset($_GET['edit']) && $_GET['edit'] == 'true') {
@@ -93,15 +93,15 @@ if (isset($_GET['edit']) && $_GET['edit'] == 'true') {
             video = :video, video_price = :video_price, drone = :drone, drone_price = :drone_price,
             state = :state, city = :city, street = :street, img_src = :img_src WHERE id = :id');
         $photo = 1;
-        if (isset($_GET['photo_price']) && $_GET['photo_price'] != 0){
+        if (isset($_GET['photo_price']) && $_GET['photo_price'] != 0) {
             $photo = 0;
         }
         $video = 1;
-        if (isset($_GET['video_price']) && $_GET['video_price'] != 0){
+        if (isset($_GET['video_price']) && $_GET['video_price'] != 0) {
             $video = 0;
         }
         $drone = 1;
-        if (isset($_GET['drone_price']) && $_GET['drone_price'] != 0){
+        if (isset($_GET['drone_price']) && $_GET['drone_price'] != 0) {
             $drone = 0;
         }
         $edit->bindParam(':first_name', $_GET['first_name']);

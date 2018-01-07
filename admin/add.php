@@ -1,15 +1,15 @@
 <?php
 require('../../paw/weselaPAW/functions.php');
+$functions = new functions('PDO');
+$functions->checkSession();
 
 $types = array('consultant_details', 'couple_transport_details', 'guest_transport_details', 'music_details',
     'photo_detail', 'place_details', 'type_details');
-session_start();
-if (!isset($_SESSION['admin']) || $_SESSION['admin'] != 0 || !isset($_GET['type']) || !in_array($_GET['type'], $types)) {
+if (!isset($_GET['type']) || !in_array($_GET['type'], $types)) {
     header('Location: /paw/admin/panel.php');
     exit;
 }
 $type = $_GET['type'];
-$functions = new functions('PDO');
 $dbConn = $functions->db;
 
 if (isset($_GET['add']) && $_GET['add'] == 'true') {

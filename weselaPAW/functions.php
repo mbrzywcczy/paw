@@ -75,15 +75,23 @@ class functions
         }
     }
 
-    // TODO check if works and finish
+    public function checkSession()
+    {
+        session_start();
+        if (!isset($_SESSION['admin']) || $_SESSION['admin'] != 0) {
+            header('Location: /paw');
+            exit;
+        }
+    }
+
     public function getComment()
     {
         $idMusic = $_GET['id'];
-        $stmt = $this ->db->prepare('SELECT * FROM music_reviews WHERE music_id = :idMusic ORDER BY id DESC');
-        $stmt -> bindParam(':idMusic', $idMusic, PDO::PARAM_STR);
-        $stmt -> execute();
+        $stmt = $this->db->prepare('SELECT * FROM music_reviews WHERE music_id = :idMusic ORDER BY id DESC');
+        $stmt->bindParam(':idMusic', $idMusic, PDO::PARAM_STR);
+        $stmt->execute();
 
-        while($row = $stmt->fetch()){
+        while ($row = $stmt->fetch()) {
 
             echo '<div class="row">
                       <div class="col-md-3" style="border-right: 1px solid #eee;">
@@ -93,10 +101,10 @@ class functions
                         <h4>Aleksander Kędzior</h4>
                       </div>
                       <div class="col-md-7">';
-            echo '<p>'.$row['review'].'</p>';
+            echo '<p>' . $row['review'] . '</p>';
             echo '</div> 
                       <div class="col-md-2">  
-                       <p>'.$row['rate'].'/5 &nbsp;<span class="glyphicon glyphicon-star" data-toggle="tooltip" data-placement="right" title="Ocena"></span></p>       
+                       <p>' . $row['rate'] . '/5 &nbsp;<span class="glyphicon glyphicon-star" data-toggle="tooltip" data-placement="right" title="Ocena"></span></p>       
                       </div>              
                         </div> </br>';
         }
@@ -105,16 +113,16 @@ class functions
     public function rateAverage()
     {
         $idMusic = $_GET['id'];
-        $stmt = $this ->db->prepare('SELECT ROUND(AVG(rate),1) average FROM music_reviews WHERE music_id = :idMusic');
-        $stmt -> bindParam(':idMusic', $idMusic, PDO::PARAM_STR);
-        $stmt -> execute();
+        $stmt = $this->db->prepare('SELECT ROUND(AVG(rate),1) average FROM music_reviews WHERE music_id = :idMusic');
+        $stmt->bindParam(':idMusic', $idMusic, PDO::PARAM_STR);
+        $stmt->execute();
         $row = $stmt->fetch();
         echo $row['average'];
     }
 
     public function setComment()
     {
-        if(isset($_POST['comment']) && isset($_POST['sell'])){
+        if (isset($_POST['comment']) && isset($_POST['sell'])) {
             $comment = $_POST['comment'];
             $stars = $_POST['sell'];
             $idArtist = $_GET['id'];
@@ -125,16 +133,16 @@ class functions
             $set->bindParam(':rate', $stars, PDO::PARAM_INT);
             $set->execute();
 
-            header('Location: /offert.php?'.$idArtist);
+            header('Location: /offert.php?' . $idArtist);
         }
     }
 
     public function commentsCount()
     {
         $idMusic = $_GET['id'];
-        $stmt = $this ->db->prepare('SELECT COUNT(*) counter FROM music_reviews WHERE music_id = :idMusic');
-        $stmt -> bindParam(':idMusic', $idMusic, PDO::PARAM_STR);
-        $stmt -> execute();
+        $stmt = $this->db->prepare('SELECT COUNT(*) counter FROM music_reviews WHERE music_id = :idMusic');
+        $stmt->bindParam(':idMusic', $idMusic, PDO::PARAM_STR);
+        $stmt->execute();
         $row = $stmt->fetch();
         echo $row['counter'];
     }
@@ -142,32 +150,32 @@ class functions
     public function artistInfo()
     {
         $idMusic = $_GET['id'];
-        $stmt = $this ->db->prepare('SELECT * FROM music_details WHERE music_id = :idMusic');
-        $stmt -> bindParam(':idMusic', $idMusic, PDO::PARAM_STR);
-        $stmt -> execute();
+        $stmt = $this->db->prepare('SELECT * FROM music_details WHERE music_id = :idMusic');
+        $stmt->bindParam(':idMusic', $idMusic, PDO::PARAM_STR);
+        $stmt->execute();
         $row = $stmt->fetch();
     }
 
     public function salary()
     {
         $idMusic = $_GET['id'];
-        $stmt = $this ->db->prepare('SELECT * FROM music_details WHERE id = :idMusic');
-        $stmt -> bindParam(':idMusic', $idMusic, PDO::PARAM_STR);
-        $stmt -> execute();
+        $stmt = $this->db->prepare('SELECT * FROM music_details WHERE id = :idMusic');
+        $stmt->bindParam(':idMusic', $idMusic, PDO::PARAM_STR);
+        $stmt->execute();
         $row = $stmt->fetch();
         echo $row['price_flat'];
     }
 
     public function displayMetaTags()
     {
-        echo '<meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1">
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-            <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-            <link rel="stylesheet" href="../style.css" type="text/css"/>';
+        echo '<meta charset="UTF-8">';
+        echo '<meta name="viewport" content="width=device-width, initial-scale=1">';
+        echo '<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">';
+        echo '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">';
+        echo '<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">';
+        echo '<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>';
+        echo '<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>';
+        echo '<link rel="stylesheet" href="../style.css" type="text/css"/>';
     }
 
     public function displayTopNav($loginPath, $indexPath)
@@ -201,52 +209,45 @@ class functions
         </div></div></footer>';
     }
 
-    public function displayFormEditReview ($type, $id, $review, $rate)
+    public function displayFormEditReview($type, $id, $review, $rate)
     {
         echo '<form action="/paw/admin/edit.php" style="padding: 20px;">';
         echo '<input type="text" name="type" value="' . $type . '" hidden>';
         echo '<input type="text" name="id" value="' . $id . '" hidden>';
         echo '<input type="text" name="edit" value="true" hidden>';
+
         echo '<div class="form-group">';
         echo '<label>Komentarz</label>';
         echo '<input class="form-control" type="text" name="review" maxlength="512" value="' . $review . '"></div>';
+
+        echo '<div class="form-group">';
         echo '<label>Ocena</label>';
         echo '<input class="form-control" type="number" min="1" max="10" name="rate" value="' . $rate . '"></div>';
+
         echo '<br/><input type=submit class="btn btn-success" style="width:100%" value="Dodaj zmieniony rekord"></form>';
     }
 
     public function displayFormAddEditCoupleTransportDetails($type, $id, $action, $type_name, $description, $price,
-                                                             $state, $city, $street, $path){
+                                                             $state, $city, $street, $path)
+    {
         $this->displayFormStart($type, $id, $action);
-
-        echo '<div class="form-group">';
-        echo '<label>Typ</label>';
-        echo '<input class="form-control" type="text" name="typeQ" maxlength="64" value="' . $type_name . '"></div>';
-
-        echo '<div class="form-group">';
-        echo '<label>Opis</label>';
-        echo '<input class="form-control" type="text" name="description" maxlength="512" value="' . $description . '"></div>';
+        $this->displayTypeInput($type);
+        $this->displayDescriptionInput($description);
 
         echo '<div class="form-group">';
         echo '<label>Cena</label>';
         echo '<input class="form-control" type="number" name="price" min="0" value=" max="1000000"' . $price . '"></div>';
 
-        $this->displayAddressInputs($state, $city, $street);
-        $this->displayImagePath($path);
+        $this->displayAddressAndImageInputs($state, $city, $street, $path);
         $this->displayFormEnd($action);
     }
 
     public function displayFormAddEditGuestTransportDetails($type, $id, $action, $type_name, $description, $price_flat,
-                                                            $price_person, $person, $state, $city, $street, $path){
+                                                            $price_person, $person, $state, $city, $street, $path)
+    {
         $this->displayFormStart($type, $id, $action);
-
-        echo '<div class="form-group">';
-        echo '<label>Typ</label>';
-        echo '<input class="form-control" type="text" name="typeQ" maxlength="64" value="' . $type_name . '"></div>';
-
-        echo '<div class="form-group">';
-        echo '<label>Opis</label>';
-        echo '<input class="form-control" type="text" name="description" maxlength="512" value="' . $description . '"></div>';
+        $this->displayTypeInput($type);
+        $this->displayDescriptionInput($description);
 
         echo '<div class="form-group">';
         echo '<label>Cena (pojazd)</label>';
@@ -260,55 +261,36 @@ class functions
         echo '<label>Ilość osób (na pojazd)</label>';
         echo '<input class="form-control" type="number" name="person_amount_per_unit" min="0" max="1000000" value="' . $person . '"></div>';
 
-        $this->displayAddressInputs($state, $city, $street);
-        $this->displayImagePath($path);
+        $this->displayAddressAndImageInputs($state, $city, $street, $path);
         $this->displayFormEnd($action);
     }
 
     public function displayFormAddEditConsultantDetails($type, $id, $action, $first_name, $last_name, $description,
-                                                        $price, $state, $city, $street, $path){
+                                                        $price, $state, $city, $street, $path)
+    {
         $this->displayFormStart($type, $id, $action);
-
-        echo '<div class="form-group">';
-        echo '<label>Imię</label>';
-        echo '<input class="form-control" type="text" name="first_name" maxlength="32" value="' . $first_name . '"></div>';
-
-        echo '<div class="form-group">';
-        echo '<label>Nazwisko</label>';
-        echo '<input class="form-control" type="text" name="last_name" maxlength="32" value="' . $last_name . '"></div>';
-
-        echo '<div class="form-group">';
-        echo '<label>Opis</label>';
-        echo '<input class="form-control" type="text" name="description" maxlength="512" value="' . $description . '"></div>';
+        $this->displayFirstLastNameInputs($first_name, $last_name);
+        $this->displayDescriptionInput($description);
 
         echo '<div class="form-group">';
         echo '<label>Cena</label>';
         echo '<input class="form-control" type="number" name="price" min="0" max="1000000" value="' . $price . '"></div>';
 
-        $this->displayAddressInputs($state, $city, $street);
-        $this->displayImagePath($path);
+        $this->displayAddressAndImageInputs($state, $city, $street, $path);
         $this->displayFormEnd($action);
     }
 
     public function displayFormAddEditPhotoDetails($type, $id, $action, $first_name, $last_name, $company_name, $description,
-                                                   $photo_price, $video_price, $drone_price, $state, $city, $street, $path){
+                                                   $photo_price, $video_price, $drone_price, $state, $city, $street, $path)
+    {
         $this->displayFormStart($type, $id, $action);
-
-        echo '<div class="form-group">';
-        echo '<label>Imię</label>';
-        echo '<input class="form-control" type="text" name="first_name" maxlength="32" value="' . $first_name . '"></div>';
-
-        echo '<div class="form-group">';
-        echo '<label>Nazwisko</label>';
-        echo '<input class="form-control" type="text" name="last_name" maxlength="32" value="' . $last_name . '"></div>';
+        $this->displayFirstLastNameInputs($first_name, $last_name);
 
         echo '<div class="form-group">';
         echo '<label>Firma</label>';
         echo '<input class="form-control" type="text" name="company_name" maxlength="64" value="' . $company_name . '"></div>';
 
-        echo '<div class="form-group">';
-        echo '<label>Opis</label>';
-        echo '<input class="form-control" type="text" name="description" maxlength="512" value="' . $description . '"></div>';
+        $this->displayDescriptionInput($description);
 
         echo '<div class="form-group">';
         echo '<label>Zdjęcia - cena</label>';
@@ -325,26 +307,21 @@ class functions
         echo '<input class="form-control" type="text" name="drone_price" min="0" max="1000000" value="' . $drone_price . '">';
         echo '<small class="form-text text-muted">Pozostawienie pola pustego lub wpisanie 0 oznacza brak wykonywane usługi.</small></div>';
 
-        $this->displayAddressInputs($state, $city, $street);
-        $this->displayImagePath($path);
+        $this->displayAddressAndImageInputs($state, $city, $street, $path);
         $this->displayFormEnd($action);
     }
 
     public function displayFormAddEditMusicDetails($type, $id, $action, $type_name, $name, $description, $price_flat,
-                                                   $price_person,$state, $city, $street, $path){
+                                                   $price_person, $state, $city, $street, $path)
+    {
         $this->displayFormStart($type, $id, $action);
-
-        echo '<div class="form-group">';
-        echo '<label>Typ</label>';
-        echo '<input class="form-control" type="text" name="typeQ" maxlength="64" value="' . $type_name . '"></div>';
+        $this->displayTypeInput($type);
 
         echo '<div class="form-group">';
         echo '<label>Nazwa</label>';
         echo '<input class="form-control" type="text" name="name" maxlength="64" value="' . $name . '"></div>';
 
-        echo '<div class="form-group">';
-        echo '<label>Opis</label>';
-        echo '<input class="form-control" type="text" name="description" maxlength="512" value="' . $description . '"></div>';
+        $this->displayDescriptionInput($description);
 
         echo '<div class="form-group">';
         echo '<label>Cena</label>';
@@ -354,38 +331,30 @@ class functions
         echo '<label>Cena (za osobę)</label>';
         echo '<input class="form-control" type="number" name="price_per_person" min="0" max="1000000" value="' . $price_person . '"></div>';
 
-        $this->displayAddressInputs($state, $city, $street);
-        $this->displayImagePath($path);
+        $this->displayAddressAndImageInputs($state, $city, $street, $path);
         $this->displayFormEnd($action);
     }
 
-    public function displayFormAddEditTypeDetails($type, $id, $action, $type_name, $description, $state, $city, $street, $path){
+    public function displayFormAddEditTypeDetails($type, $id, $action, $type_name, $description, $state, $city, $street, $path)
+    {
         $this->displayFormStart($type, $id, $action);
 
         echo '<div class="form-group">';
         echo '<label>Typ</label>';
         echo '<input class="form-control" type="text" name="typeQ" maxlength="128" value="' . $type_name . '"></div>';
 
-        echo '<div class="form-group">';
-        echo '<label>Opis</label>';
-        echo '<input class="form-control" type="text" name="description" maxlength="512" value="' . $description . '"></div>';
+        $this->displayDescriptionInput($description);
 
-        $this->displayAddressInputs($state, $city, $street);
-        $this->displayImagePath($path);
+        $this->displayAddressAndImageInputs($state, $city, $street, $path);
         $this->displayFormEnd($action);
     }
 
     public function displayFormAddEditPlaceDetails($type, $id, $action, $type_name, $description, $price_flat, $price_person,
-                                                   $person, $state, $city, $street, $path){
+                                                   $person, $state, $city, $street, $path)
+    {
         $this->displayFormStart($type, $id, $action);
-
-        echo '<div class="form-group">';
-        echo '<label>Typ</label>';
-        echo '<input class="form-control" type="text" name="typeQ" maxlength="64" value="' . $type_name . '"></div>';
-
-        echo '<div class="form-group">';
-        echo '<label>Opis</label>';
-        echo '<input class="form-control" type="text" name="description" maxlength="512" value="' . $description . '"></div>';
+        $this->displayTypeInput($type);
+        $this->displayDescriptionInput($description);
 
         echo '<div class="form-group">';
         echo '<label>Cena</label>';
@@ -399,12 +368,34 @@ class functions
         echo '<label>Maksymalna ilość gości</label>';
         echo '<input class="form-control" type="number" name="max_guests" min="0" max="1000000" value="' . $person . '"></div>';
 
-        $this->displayAddressInputs($state, $city, $street);
-        $this->displayImagePath($path);
+        $this->displayAddressAndImageInputs($state, $city, $street, $path);
         $this->displayFormEnd($action);
     }
 
-    private function displayAddressInputs($state, $city, $street){
+    private function displayFirstLastNameInputs($first_name, $last_name){
+        echo '<div class="form-group">';
+        echo '<label>Imię</label>';
+        echo '<input class="form-control" type="text" name="first_name" maxlength="32" value="' . $first_name . '"></div>';
+
+        echo '<div class="form-group">';
+        echo '<label>Nazwisko</label>';
+        echo '<input class="form-control" type="text" name="last_name" maxlength="32" value="' . $last_name . '"></div>';
+    }
+
+    private function displayTypeInput($type_name){
+        echo '<div class="form-group">';
+        echo '<label>Typ</label>';
+        echo '<input class="form-control" type="text" name="typeQ" maxlength="64" value="' . $type_name . '"></div>';
+    }
+
+    private function displayDescriptionInput($description){
+        echo '<div class="form-group">';
+        echo '<label>Opis</label>';
+        echo '<input class="form-control" type="text" name="description" maxlength="512" value="' . $description . '"></div>';
+    }
+
+    private function displayAddressAndImageInputs($state, $city, $street, $path)
+    {
         echo '<div class="form-group">';
         echo '<label>Województwo</label>';
         echo '<input class="form-control" type="text" name="state" maxlength="128" value="' . $state . '"></div>';
@@ -416,28 +407,27 @@ class functions
         echo '<div class="form-group">';
         echo '<label>Ulica</label>';
         echo '<input class="form-control" type="text" name="street" maxlength="128" value="' . $street . '"></div>';
-    }
 
-    private function displayImagePath($path){
         echo '<div class="form-group">';
         echo '<label>Lokalizacja zdjęcia na serwerze</label>';
         echo '<input class="form-control" type="text" name="img_src" maxlength="128" value="' . $path . '"></div>';
     }
 
-    private function displayFormStart($type, $id, $action){
+    private function displayFormStart($type, $id, $action)
+    {
         echo '<form action="/paw/admin/' . $action . '.php" style="padding: 20px;">';
         echo '<input type="text" name="type" value="' . $type . '" hidden>';
         echo '<input type="text" name="id" value="' . $id . '" hidden>';
         echo '<input type="text" name="' . $action . '" value="true" hidden>';
     }
 
-    private function displayFormEnd($action){
+    private function displayFormEnd($action)
+    {
         $edit = "";
-        if ($action == "edit"){
+        if ($action == "edit") {
             $edit = 'zmieniony ';
         }
         echo '<br/><input type=submit class="btn btn-success" style="width:100%" value="Dodaj ' . $edit . 'rekord"></form>';
     }
 }
-
 ?>

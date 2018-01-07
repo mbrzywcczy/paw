@@ -1,16 +1,12 @@
 <?php
 require('../../paw/weselaPAW/functions.php');
-session_start();
-if (!isset($_SESSION['admin']) || $_SESSION['admin'] != 0){
-    header('Location: /paw');
-    exit;
-}
+$functions = new functions('PDO');
+$functions->checkSession();
 ?>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
     <?php
-    $functions = new functions('PDO');
     $functions->displayMetaTags()
     ?>
     <title>Panel administratorski</title>
