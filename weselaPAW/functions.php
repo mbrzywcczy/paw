@@ -82,6 +82,36 @@ class functions
         }
     }
 
+    public function rateAverage()
+    {
+        $idMusic = $_GET['id'];
+        $stmt = $this ->db->prepare('SELECT ROUND(AVG(rate),1) average FROM music_reviews WHERE music_id = :idMusic');
+        $stmt -> bindParam(':idMusic', $idMusic, PDO::PARAM_STR);
+        $stmt -> execute();
+        $row = $stmt->fetch();
+        echo $row['average'];
+    }
+
+    public function commentsCount()
+    {
+        $idMusic = $_GET['id'];
+        $stmt = $this ->db->prepare('SELECT COUNT(*) counter FROM music_reviews WHERE music_id = :idMusic');
+        $stmt -> bindParam(':idMusic', $idMusic, PDO::PARAM_STR);
+        $stmt -> execute();
+        $row = $stmt->fetch();
+        echo $row['counter'];
+    }
+
+    public function salary()
+    {
+        $idMusic = $_GET['id'];
+        $stmt = $this ->db->prepare('SELECT * FROM music_details WHERE id = :idMusic');
+        $stmt -> bindParam(':idMusic', $idMusic, PDO::PARAM_STR);
+        $stmt -> execute();
+        $row = $stmt->fetch();
+        echo $row['price_flat'];
+    }
+
     public function displayMetaTags()
     {
         echo '<meta charset="UTF-8">
