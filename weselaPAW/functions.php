@@ -51,13 +51,20 @@ class functions
 
     public function register()
     {
-        $login = trim($_POST['frm_login']);
-        $password1 = trim($_POST['frm_pass1']);
-        $password2 = trim($_POST['frm_pass2']);
+        $login = trim($_POST['reg_login']);
+        $password1 = trim($_POST['reg_pass1']);
         $password1 = md5($password1);
-        $add = $this->db->prepare('INSERT INTO users (id, login, password) VALUES (null, :login, :password)');
+        $email = trim($_POST['reg_email']);
+        $name = trim($_POST['reg_name']);
+        $lastname = trim($_POST['reg_lastname']);
+        $gender = trim($_POST['underwear']);
+        $add = $this->db->prepare('INSERT INTO users (id, login, password, email, first_name, last_name, gender, admin) VALUES (null, :login, :password, :email, :firstname, :lastname, :gender, 0)');
         $add->bindParam(':login', $login, PDO::PARAM_STR);
         $add->bindParam(':password', $password1, PDO::PARAM_STR);
+        $add->bindParam(':email', $email, PDO::PARAM_STR);
+        $add->bindParam(':firstname', $name, PDO::PARAM_STR);
+        $add->bindParam(':lastname', $lastname, PDO::PARAM_STR);
+        $add->bindParam(':gender', $gender, PDO::PARAM_STR);
         $add->execute();
         echo 'Utworzono konto ' . $login;
 

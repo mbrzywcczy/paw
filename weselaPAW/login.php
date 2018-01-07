@@ -22,8 +22,8 @@ else
 	}
 }
 ?>
-<form method="POST" action="login.php">
+<!--<form method="POST" action="login.php">
 Login: <input name="log_login"></br>
 Haslo: <input type=password name="log_password"></br>
 <input type="submit" name="log_button" value="Zaloguj">
-</form>
+</form>-->
