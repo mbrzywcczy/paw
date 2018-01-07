@@ -138,6 +138,15 @@ class functions
         echo $row['counter'];
     }
 
+    public function artistInfo()
+    {
+        $idMusic = $_GET['id'];
+        $stmt = $this ->db->prepare('SELECT * FROM music_details WHERE music_id = :idMusic');
+        $stmt -> bindParam(':idMusic', $idMusic, PDO::PARAM_STR);
+        $stmt -> execute();
+        $row = $stmt->fetch();
+    }
+
     public function salary()
     {
         $idMusic = $_GET['id'];
