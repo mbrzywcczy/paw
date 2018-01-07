@@ -15,12 +15,12 @@ require('../../paw/weselaPAW/functions.php');
 $functions->displayTopNav("../login.html", "../index.html");
 echo '<a href="panel.php" class="btn btn-primary" style="width:100%">Powrót do wyboru kategorii</a>';
 //redirect when get is empty or has wrong values
-//TODO redirect when user doesn't have admin privileges
+session_start();
 $types = array('consultant_details', 'consultant_reviews', 'couple_transport_details', 'couple_transport_reviews',
     'guest_transport_details', 'guest_transport_reviews', 'music_details', 'music_reviews', 'photo_detail',
     'photo_reviews', 'place_details', 'place_reviews', 'type_details', 'type_reviews');
 $type = "";
-if (!isset($_GET['type']) || !in_array($_GET['type'], $types)) {
+if (!isset($_SESSION['admin']) || $_SESSION['admin'] != 0 || !isset($_GET['type']) || !in_array($_GET['type'], $types)) {
     header('Location: /paw/admin/panel.php');
     exit;
 }

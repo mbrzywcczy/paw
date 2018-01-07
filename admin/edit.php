@@ -4,8 +4,8 @@ require('../../paw/weselaPAW/functions.php');
 $types = array('consultant_details', 'consultant_reviews', 'couple_transport_details', 'couple_transport_reviews',
     'guest_transport_details', 'guest_transport_reviews', 'music_details', 'music_reviews', 'photo_detail',
     'photo_reviews', 'place_details', 'place_reviews', 'type_details', 'type_reviews');
-//TODO redirect when user doesn't have admin privileges
-if (!isset($_GET['type']) || !in_array($_GET['type'], $types) || !isset($_GET['id'])) {
+session_start();
+if (!isset($_SESSION['admin']) || $_SESSION['admin'] != 0 || !isset($_GET['type']) || !in_array($_GET['type'], $types) || !isset($_GET['id'])) {
     header('Location: /paw/admin/panel.php');
     exit;
 }

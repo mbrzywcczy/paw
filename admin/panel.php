@@ -1,5 +1,10 @@
 <?php
 require('../../paw/weselaPAW/functions.php');
+session_start();
+if (!isset($_SESSION['admin']) || $_SESSION['admin'] != 0){
+    header('Location: /paw');
+    exit;
+}
 ?>
 <!DOCTYPE html>
 <html lang="pl">
