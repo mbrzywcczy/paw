@@ -2,7 +2,7 @@
 require('../paw/weselaPAW/functions.php');
 $functions = new functions('PDO');
 $isLogged = $functions->checkIfUserIsLogged();
-if ($isLogged){
+if ($isLogged) {
     header('Location: /paw');
     exit;
 }
@@ -12,29 +12,19 @@ if ($isLogged){
 <html lang="pl">
 <head>
     <title>Wesela</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="style.css" type="text/css"/>
+    <?php
+    $functions->displayMetaTags('style.css');
+    ?>
 </head>
 <body>
 
-<nav class="navbar navbar-default">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="index.html">Tu będzie logo</a>
-        </div>
-    </div>
-</nav>
+<?php
+$username = "";
+if (isset($_SESSION['login'])){
+    $username = $_SESSION['login'];
+}
+$functions->displayTopNav("login.php", "index.php", $username, "../paw/weselaPAW/logout.php");
+?>
 
 <div class="container-fluidy bg-5 text-center">
 </div>
@@ -58,10 +48,18 @@ if ($isLogged){
                     </div>
                 </div>
                 <div class="form-group right">
-                    <div >
+                    <div>
                         <button name="log_button" type="submit" class="btn btn-default">Wyślij</button>
                     </div>
                 </div>
+                <?php
+                if (isset($_GET['err']) && $_GET['err'] = 't'){
+                    echo '<br/>';
+                    echo '<div class="form-group"><div>';
+                    echo '<span class="label label-danger">Wprowadzono niepoprawne dane</span>';
+                    echo '</div></div>';
+                }
+                ?>
             </form>
         </div>
         <div class="col-md-1"></div>
@@ -107,12 +105,12 @@ if ($isLogged){
                 <div class="form-group">
                     <label for="inputEmail3" class="col-md-5 control-label">Płeć</label>
                     <div class="col-md-7">
-                        <input type="radio" name="underwear" value="M" required />Mężczyzna
-                        <input type="radio" name="underwear" value="K" required />Kobieta
+                        <input type="radio" name="underwear" value="M" required/>Mężczyzna
+                        <input type="radio" name="underwear" value="K" required/>Kobieta
                     </div>
                 </div>
                 <div class="form-group right">
-                    <div >
+                    <div>
                         <button name="reg_button" type="submit" class="btn btn-default">Wyślij</button>
                     </div>
                 </div>

@@ -7,13 +7,17 @@ $functions->checkIfUserIsAdmin();
 <html lang="pl">
 <head>
     <?php
-    $functions->displayMetaTags()
+    $functions->displayMetaTags('../style.css');
     ?>
     <title>Zarządzanie</title>
 </head>
 <body>
 <?php
-$functions->displayTopNav("../login.php", "../index.html");
+$username = "";
+if (isset($_SESSION['login'])){
+    $username = $_SESSION['login'];
+}
+$functions->displayTopNav("../login.php", "../index.php", $username, "../../paw/weselaPAW/logout.php");
 echo '<a href="panel.php" class="btn btn-primary" style="width:100%">Powrót do wyboru kategorii</a>';
 
 $types = array('consultant_details', 'consultant_reviews', 'couple_transport_details', 'couple_transport_reviews',

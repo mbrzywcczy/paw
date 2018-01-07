@@ -159,7 +159,7 @@ if (isset($_GET['edit']) && $_GET['edit'] == 'true') {
 <html lang="pl">
 <head>
     <?php
-    $functions->displayMetaTags()
+    $functions->displayMetaTags('../style.css');
     ?>
     <title>Edycja rekordu</title>
 </head>
@@ -171,7 +171,11 @@ $records->setFetchMode(PDO::FETCH_ASSOC);
 $records->execute();
 $row = $records->fetch();
 
-$functions->displayTopNav("../login.php", "../index.html");
+$username = "";
+if (isset($_SESSION['login'])){
+    $username = $_SESSION['login'];
+}
+$functions->displayTopNav("../login.php", "../index.php", $username, "../../paw/weselaPAW/logout.php");
 echo '<a href="table.php?type=' . $type . '" class="btn btn-primary" style="width:100%">Powrót do tabeli rekordów</a>';
 if (strpos($type, 'review') == true) {
     $functions->displayFormEditReview($type, $id, $row['review'], $row['rate']);

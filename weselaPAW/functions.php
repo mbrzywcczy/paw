@@ -33,7 +33,8 @@ class functions
             header('Location:log_ok.php');
             exit;
         } else {
-            echo 'Wpisano niepoprawne dane';
+            header('Location: ../login.php?err=t');
+            exit;
         }
     }
 
@@ -84,9 +85,10 @@ class functions
         }
     }
 
-    public function checkIfUserIsLogged(){
+    public function checkIfUserIsLogged()
+    {
         session_start();
-        if (isset($_SESSION['login'])){
+        if (isset($_SESSION['login'])) {
             return true;
         }
         return false;
@@ -174,7 +176,7 @@ class functions
         echo $row['price_flat'];
     }
 
-    public function displayMetaTags()
+    public function displayMetaTags($styleDir)
     {
         echo '<meta charset="UTF-8">';
         echo '<meta name="viewport" content="width=device-width, initial-scale=1">';
@@ -183,10 +185,10 @@ class functions
         echo '<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">';
         echo '<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>';
         echo '<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>';
-        echo '<link rel="stylesheet" href="../style.css" type="text/css"/>';
+        echo '<link rel="stylesheet" href="' . $styleDir . '" type="text/css"/>';
     }
 
-    public function displayTopNav($loginPath, $indexPath)
+    public function displayTopNav($loginPath, $indexPath, $username, $logoutPath)
     {
         echo '<nav class="navbar navbar-default">
         <div class="container"><div class="navbar-header">
@@ -198,10 +200,13 @@ class functions
             <a class="navbar-brand" href="' . $indexPath . '">Tu będzie logo</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="' . $loginPath . '">Logowanie/Rejestracja</a></li>
-            </ul>
-        </div></div></nav>';
+            <ul class="nav navbar-nav navbar-right">';
+        if ($username == "") {
+            echo '<li><a href="' . $loginPath . '">Logowanie/Rejestracja</a></li>';
+        } else {
+            echo '<li><span>Witaj, <strong>' . $username . '</strong> | <a class="btn btn-warning" href="' . $logoutPath . '">Wyloguj</a></span></li>';
+        }
+        echo '</ul></div></div></nav>';
     }
 
     public function displayFooter()
@@ -380,7 +385,8 @@ class functions
         $this->displayFormEnd($action);
     }
 
-    private function displayFirstLastNameInputs($first_name, $last_name){
+    private function displayFirstLastNameInputs($first_name, $last_name)
+    {
         echo '<div class="form-group">';
         echo '<label>Imię</label>';
         echo '<input class="form-control" type="text" name="first_name" maxlength="32" value="' . $first_name . '"></div>';
@@ -390,13 +396,15 @@ class functions
         echo '<input class="form-control" type="text" name="last_name" maxlength="32" value="' . $last_name . '"></div>';
     }
 
-    private function displayTypeInput($type_name){
+    private function displayTypeInput($type_name)
+    {
         echo '<div class="form-group">';
         echo '<label>Typ</label>';
         echo '<input class="form-control" type="text" name="typeQ" maxlength="64" value="' . $type_name . '"></div>';
     }
 
-    private function displayDescriptionInput($description){
+    private function displayDescriptionInput($description)
+    {
         echo '<div class="form-group">';
         echo '<label>Opis</label>';
         echo '<input class="form-control" type="text" name="description" maxlength="512" value="' . $description . '"></div>';
@@ -438,4 +446,5 @@ class functions
         echo '<br/><input type=submit class="btn btn-success" style="width:100%" value="Dodaj ' . $edit . 'rekord"></form>';
     }
 }
+
 ?>

@@ -142,7 +142,7 @@ if (isset($_GET['add']) && $_GET['add'] == 'true') {
 <html lang="pl">
 <head>
     <?php
-    $functions->displayMetaTags()
+    $functions->displayMetaTags('../style.css');
     ?>
     <title>Dodawanie nowego rekordu</title>
 </head>
@@ -154,7 +154,11 @@ $records->setFetchMode(PDO::FETCH_ASSOC);
 $records->execute();
 $row = $records->fetch();
 
-$functions->displayTopNav("../login.php", "../index.html");
+$username = "";
+if (isset($_SESSION['login'])){
+    $username = $_SESSION['login'];
+}
+$functions->displayTopNav("../login.php", "../index.php", $username, "../../paw/weselaPAW/logout.php");
 echo '<a href="table.php?type=' . $type . '" class="btn btn-primary" style="width:100%">Powrót do tabeli rekordów</a>';
 if ($type == 'consultant_details') {
     $functions->displayFormAddEditConsultantDetails($type, $id, "add", $row['first_name'], $row['last_name'], $row['description'], $row['price'], $row['state'], $row['city'], $row['street'], $row['img_src']);

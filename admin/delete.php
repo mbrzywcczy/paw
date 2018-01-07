@@ -25,13 +25,17 @@ header('Location: /paw/admin/table.php?type=' . $type);
 <html lang="pl">
 <head>
     <?php
-    $functions->displayMetaTags()
+    $functions->displayMetaTags('../style.css');
     ?>
     <title>Usuwanie rekordu</title>
 </head>
 <body>
 <?php
-$functions->displayTopNav("../login.php", "../index.html");
+$username = "";
+if (isset($_SESSION['login'])){
+    $username = $_SESSION['login'];
+}
+$functions->displayTopNav("../login.php", "../index.php", $username, "../../paw/weselaPAW/logout.php");
 ?>
 <h3 style="text-align: center;">Usuwanie rekordu o numerze identyfikacyjnym <?php echo $id; ?> z
     tabeli <?php echo $type; ?></h3>

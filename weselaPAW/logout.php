@@ -1,12 +1,12 @@
 <?php
 session_start();
 if (!isset($_SESSION['login'])) {
-    echo "Nie jestes zalogowany. <a href=login.php>Zaloguj sie</a>";
+    header('Location: /paw');
+    exit;
 } else {
     session_unset();
     session_destroy();
-    echo 'Wylogowano';
-    echo '</br><a href=login.php>Logowanie</a>';
+    header('Location: /paw');
+    exit;
 }
-
 ?>
