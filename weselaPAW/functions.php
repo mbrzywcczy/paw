@@ -173,7 +173,7 @@ class functions
 
     public function displayFooter()
     {
-        echo '<footer class="container-fluid bg-4 text-center" style="position: fixed; bottom: 0; width: 100%; padding: 20px;">
+        echo '<footer class="container-fluid bg-4 text-center" style="width: 100%; padding: 20px;">
         <div class="row"><div class="col-md-4"></div><div class="col-md-4">
             <p>Projekt zaliczeniowy</p>
         </div><div class="col-md-4">
@@ -198,27 +198,75 @@ class functions
         echo '<br/><input type=submit class="btn btn-success" style="width:100%" value="Dodaj zmieniony rekord"></form>';
     }
 
-    public function displayFormAddEditCoupleTransportDetails($type, $id, $action, $state, $city, $street, $path){
-        // TODO Form for adding and editing details - Couple Transport
+    public function displayFormAddEditCoupleTransportDetails($type, $id, $action, $type_name, $description, $price,
+                                                             $state, $city, $street, $path){
         $this->displayFormStart($type, $id, $action);
+
+        echo '<div class="form-group">';
+        echo '<label>Typ</label>';
+        echo '<input class="form-control" type="text" name="type" maxlength="64" value="' . $type_name . '"></div>';
+
+        echo '<div class="form-group">';
+        echo '<label>Opis</label>';
+        echo '<input class="form-control" type="text" name="description" maxlength="512" value="' . $description . '"></div>';
+
+        echo '<div class="form-group">';
+        echo '<label>Cena</label>';
+        echo '<input class="form-control" type="number" name="price" min="0" value="' . $price . '"></div>';
 
         $this->displayAddressInputs($state, $city, $street);
         $this->displayImagePath($path);
         $this->displayFormEnd($action);
     }
 
-    public function displayFormAddEditGuestTransportDetails($type, $id, $action, $state, $city, $street, $path){
-        // TODO Form for adding and editing details - Guest Transport
+    public function displayFormAddEditGuestTransportDetails($type, $id, $action, $type_name, $description, $price_flat,
+                                                            $price_person, $person, $state, $city, $street, $path){
         $this->displayFormStart($type, $id, $action);
+
+        echo '<div class="form-group">';
+        echo '<label>Typ</label>';
+        echo '<input class="form-control" type="text" name="type" maxlength="64" value="' . $type_name . '"></div>';
+
+        echo '<div class="form-group">';
+        echo '<label>Opis</label>';
+        echo '<input class="form-control" type="text" name="description" maxlength="512" value="' . $description . '"></div>';
+
+        echo '<div class="form-group">';
+        echo '<label>Cena (pojazd)</label>';
+        echo '<input class="form-control" type="number" name="price_flat" min="0" value="' . $price_flat . '"></div>';
+
+        echo '<div class="form-group">';
+        echo '<label>Cena (za osobę)</label>';
+        echo '<input class="form-control" type="number" name="price_per_person" min="0" value="' . $price_person . '"></div>';
+
+        echo '<div class="form-group">';
+        echo '<label>Ilość osób (na pojazd)</label>';
+        echo '<input class="form-control" type="number" name="person_amount_per_unit" min="0" value="' . $person . '"></div>';
 
         $this->displayAddressInputs($state, $city, $street);
         $this->displayImagePath($path);
         $this->displayFormEnd($action);
     }
 
-    public function displayFormAddEditConsultantDetails($type, $id, $action, $state, $city, $street, $path){
-        // TODO Form for adding and editing details - Consultant
+    public function displayFormAddEditConsultantDetails($type, $id, $action, $first_name, $last_name, $description,
+                                                        $price, $state, $city, $street, $path){
         $this->displayFormStart($type, $id, $action);
+
+        echo '<div class="form-group">';
+        echo '<label>Imię</label>';
+        echo '<input class="form-control" type="text" name="first_name" maxlength="32" value="' . $first_name . '"></div>';
+
+        echo '<div class="form-group">';
+        echo '<label>Nazwisko</label>';
+        echo '<input class="form-control" type="text" name="last_name" maxlength="32" value="' . $last_name . '"></div>';
+
+        echo '<div class="form-group">';
+        echo '<label>Opis</label>';
+        echo '<input class="form-control" type="text" name="description" maxlength="512" value="' . $description . '"></div>';
+
+        echo '<div class="form-group">';
+        echo '<label>Cena</label>';
+        echo '<input class="form-control" type="number" name="price" min="0" value="' . $price . '"></div>';
 
         $this->displayAddressInputs($state, $city, $street);
         $this->displayImagePath($path);
