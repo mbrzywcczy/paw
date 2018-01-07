@@ -36,22 +36,22 @@
     <div class="col-md-2"></div>
     <div class="col-md-3">
       <h2 class="kategoria">Logowanie</h2> 
-      <form class="form-horizontal" role="form">
+      <form class="form-horizontal" role="form" method="post" action="weselaPAW/login.php">
         <div class="form-group">
-          <label for="inputEmail3" class="col-md-5 control-label">Email</label>
+          <label for="inputEmail3" class="col-md-5 control-label">Login</label>
           <div class="col-md-7">
-            <input type="email" class="form-control" placeholder="Podaj adres email">
+            <input name="log_login" class="form-control" placeholder="Podaj login">
           </div>
         </div>
         <div class="form-group">
           <label for="inputPassword3" class="col-md-5 control-label">Hasło</label>
           <div class="col-md-7">
-            <input type="password" class="form-control" placeholder="Twoje tajne hasło">
+            <input name="log_password" type="password" class="form-control" placeholder="Twoje tajne hasło">
           </div>
         </div>
         <div class="form-group right">
           <div >
-            <button type="submit" class="btn btn-default">Wyślij</button>
+            <button name="log_button" type="submit" class="btn btn-default">Wyślij</button>
           </div>
         </div>
     </form>
@@ -59,47 +59,53 @@
     <div class="col-md-1"></div>
     <div class="col-md-3">
             <h2 class="kategoria">Rejestracja</h2> 
-      <form class="form-horizontal" role="form">
+      <form class="form-horizontal" role="form" method="post" action="weselaPAW/register.php">
         <div class="form-group">
           <label for="inputEmail3" class="col-md-5 control-label">Login</label>
           <div class="col-md-7">
-            <input type="email" class="form-control" placeholder="Podaj adres email">
+            <input name="reg_login" class="form-control" placeholder="Podaj login">
           </div>
         </div>
         <div class="form-group">
           <label for="inputPassword3" class="col-md-5 control-label">Hasło</label>
           <div class="col-md-7">
-            <input type="password" class="form-control" placeholder="Twoje tajne hasło">
+            <input name="reg_pass1" type="password" class="form-control" placeholder="Podaj hasło">
           </div>
         </div>
+         <div class="form-group">
+             <label for="inputPassword3" class="col-md-5 control-label">Hasło</label>
+             <div class="col-md-7">
+                 <input name="reg_pass2" type="password" class="form-control" placeholder="Powtorz hasło">
+             </div>
+         </div>
         <div class="form-group">
           <label for="inputEmail3" class="col-md-5 control-label">Email</label>
           <div class="col-md-7">
-            <input type="email" class="form-control" placeholder="Podaj adres email">
+            <input name="reg_email" type="email" class="form-control" placeholder="Podaj adres email">
           </div>
         </div>
         <div class="form-group">
           <label for="inputEmail3" class="col-md-5 control-label">Imię</label>
           <div class="col-md-7">
-            <input type="email" class="form-control" placeholder="Podaj adres email">
+            <input name="reg_name" class="form-control" placeholder="Podaj imię">
           </div>
         </div>
          <div class="form-group">
           <label for="inputEmail3" class="col-md-5 control-label">Nazwisko</label>
           <div class="col-md-7">
-            <input type="email" class="form-control" placeholder="Podaj adres email">
+            <input name="reg_lastname" class="form-control" placeholder="Podaj nazwisko">
           </div>
         </div>
          <div class="form-group">
           <label for="inputEmail3" class="col-md-5 control-label">Płeć</label>
           <div class="col-md-7">
-            <input type="radio" name="underwear" required>Mężczyzna
-            <input type="radio" name="underwear" required>Kobieta
+              <input type="radio" name="underwear" value="M" required />Mężczyzna
+            <input type="radio" name="underwear" value="K" required />Kobieta
           </div>
         </div>
         <div class="form-group right">
           <div >
-            <button type="submit" class="btn btn-default">Wyślij</button>
+            <button name="reg_button" type="submit" class="btn btn-default">Wyślij</button>
           </div>
         </div>
     </form>

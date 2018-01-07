@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="301500c8-0596-4083-b776-baa99043fa3c" name="Default" comment="Update oferty">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/offert.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/offert.html" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.html" afterPath="$PROJECT_DIR$/main.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/add.php" afterPath="$PROJECT_DIR$/admin/add.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/edit.php" afterPath="$PROJECT_DIR$/admin/edit.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/weselaPAW/functions.php" afterPath="$PROJECT_DIR$/weselaPAW/functions.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,7 +15,79 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+      <file leaf-file-name="functions.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/weselaPAW/functions.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="164">
+              <caret line="186" column="23" lean-forward="false" selection-start-line="186" selection-start-column="23" selection-end-line="186" selection-end-column="23" />
+              <folding>
+                <marker date="1515345123403" expanded="true" signature="525:586" ph="SELECT * FRO... users" />
+                <marker date="1515345123403" expanded="true" signature="1240:1298" ph="SELECT COUNT... users" />
+                <marker date="1515345123403" expanded="true" signature="1813:1885" ph="INSERT INTO users... " />
+                <marker date="1515345123403" expanded="true" signature="2350:2420" ph="SELECT * FRO... music_reviews" />
+                <marker date="1515345123403" expanded="true" signature="2592:2991" ph="..." />
+                <marker date="1515345123403" expanded="true" signature="2645:2674" ph="..." />
+                <marker date="1515345123403" expanded="true" signature="2675:2946" ph="..." />
+                <marker date="1515345123403" expanded="true" signature="2753:2865" ph="..." />
+                <marker date="1515345123403" expanded="true" signature="3110:3309" ph="..." />
+                <marker date="1515345123403" expanded="true" signature="3159:3165" ph=" " />
+                <marker date="1515345123403" expanded="true" signature="3490:3568" ph="SELECT ROUND... music_reviews" />
+                <marker date="1515345123403" expanded="true" signature="3992:4087" ph="INSERT INTO music_reviews... " />
+                <marker date="1515345123403" expanded="true" signature="4502:4570" ph="SELECT COUNT... music_reviews" />
+                <marker date="1515345123403" expanded="true" signature="4840:4887" ph="SELECT * FRO... music_details" />
+                <marker date="1515345123403" expanded="true" signature="5950:6611" ph="..." />
+                <marker date="1515345123403" expanded="true" signature="5982:6605" ph="..." />
+                <marker date="1515345123403" expanded="true" signature="6009:6372" ph="..." />
+                <marker date="1515345123403" expanded="true" signature="6113:6276" ph="..." />
+                <marker date="1515345123403" expanded="true" signature="6433:6599" ph="..." />
+                <marker date="1515345123403" expanded="true" signature="6486:6584" ph="..." />
+                <marker date="1515345123403" expanded="true" signature="6734:6761" ph="..." />
+                <marker date="1515345123403" expanded="true" signature="6762:7225" ph="..." />
+                <marker date="1515345123403" expanded="true" signature="6788:7216" ph="..." />
+                <marker date="1515345123403" expanded="true" signature="6838:6893" ph="..." />
+                <marker date="1515345123403" expanded="true" signature="6915:7210" ph="..." />
+                <marker date="1515345123403" expanded="true" signature="7369:7383" ph="..." />
+                <marker date="1515345123403" expanded="true" signature="8027:8037" ph="..." />
+                <marker date="1515345123403" expanded="true" signature="14309:14323" ph="..." />
+                <marker date="1515345123403" expanded="true" signature="14775:14785" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="add.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/add.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="589">
+              <caret line="42" column="54" lean-forward="true" selection-start-line="42" selection-start-column="54" selection-end-line="42" selection-end-column="54" />
+              <folding>
+                <marker date="1515345670723" expanded="true" signature="607:802" ph="INSERT INTO ${$type}... " />
+                <marker date="1515345670723" expanded="true" signature="1459:1619" ph="INSERT INTO ${$type}... " />
+                <marker date="1515345670723" expanded="true" signature="2206:2232" ph="INSERT INTO ${$type}... " />
+                <marker date="1515345670723" expanded="true" signature="2206:2472" ph="INSERT INTO ${$type}... " />
+                <marker date="1515345670723" expanded="true" signature="3442:3594" ph="..." />
+                <marker date="1515345670723" expanded="true" signature="3449:3552" ph="..." />
+                <marker date="1515345670723" expanded="true" signature="3559:3594" ph="..." />
+                <marker date="1515345670723" expanded="true" signature="3596:3638" ph="SELECT * FRO... ${$type}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="edit.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/edit.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="439">
+              <caret line="40" column="52" lean-forward="false" selection-start-line="40" selection-start-column="52" selection-end-line="40" selection-end-column="52" />
+              <folding>
+                <marker date="1515345543789" expanded="true" signature="2664:2706" ph="SELECT * FRO... ${$type}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -25,9 +96,12 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/weselaPAW/index1.php" />
-        <option value="$PROJECT_DIR$/weselaPAW/functions.php" />
         <option value="$PROJECT_DIR$/offert.html" />
         <option value="$PROJECT_DIR$/main.html" />
+        <option value="$PROJECT_DIR$/weddings_db.sql" />
+        <option value="$PROJECT_DIR$/weselaPAW/functions.php" />
+        <option value="$PROJECT_DIR$/admin/edit.php" />
+        <option value="$PROJECT_DIR$/admin/add.php" />
       </list>
     </option>
   </component>
@@ -38,7 +112,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="width" value="976" />
     <option name="height" value="1038" />
@@ -122,17 +196,18 @@
       <option name="presentableId" value="Default" />
       <updated>1513253435173</updated>
       <workItem from="1513253439848" duration="5793000" />
-      <workItem from="1515338230545" duration="31000" />
+      <workItem from="1515338230545" duration="7504000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6291000" />
+    <option name="totallyTimeSpent" value="13764000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="784" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17935579" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17935579" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -168,30 +243,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/weselaPAW/index1.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="4" lean-forward="false" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/weselaPAW/reg_ok.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/weselaPAW/logout.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/weselaPAW/login.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -213,26 +264,35 @@
         <state relative-caret-position="2394">
           <caret line="114" column="12" lean-forward="false" selection-start-line="114" selection-start-column="12" selection-end-line="114" selection-end-column="12" />
           <folding>
-            <marker date="1515337774853" expanded="true" signature="525:586" ph="SELECT * FRO... users" />
-            <marker date="1515337774853" expanded="true" signature="1240:1298" ph="SELECT COUNT... users" />
-            <marker date="1515337774853" expanded="true" signature="1813:1885" ph="INSERT INTO users... " />
-            <marker date="1515337774853" expanded="true" signature="2417:2467" ph="SELECT * FRO... music_details" />
-            <marker date="1515337774853" expanded="true" signature="2806:2884" ph="SELECT ROUND... music_reviews" />
-            <marker date="1515337774853" expanded="true" signature="3161:3229" ph="SELECT COUNT... music_reviews" />
-            <marker date="1515337774853" expanded="true" signature="3499:3546" ph="SELECT * FRO... music_details" />
-            <marker date="1515337774853" expanded="true" signature="4609:5270" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="4641:5264" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="4668:5031" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="4772:4935" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="5092:5258" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="5145:5243" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="5393:5448" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="5449:5912" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="5475:5903" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="5525:5580" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="5602:5897" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="6056:6070" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="6714:6724" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="525:586" ph="SELECT * FRO... users" />
+            <marker date="1515345123403" expanded="true" signature="1240:1298" ph="SELECT COUNT... users" />
+            <marker date="1515345123403" expanded="true" signature="1813:1885" ph="INSERT INTO users... " />
+            <marker date="1515345123403" expanded="true" signature="2350:2420" ph="SELECT * FRO... music_reviews" />
+            <marker date="1515345123403" expanded="true" signature="2592:2991" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="2645:2674" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="2675:2946" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="2753:2865" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="3110:3309" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="3159:3165" ph=" " />
+            <marker date="1515345123403" expanded="true" signature="3490:3568" ph="SELECT ROUND... music_reviews" />
+            <marker date="1515345123403" expanded="true" signature="3992:4087" ph="INSERT INTO music_reviews... " />
+            <marker date="1515345123403" expanded="true" signature="4502:4570" ph="SELECT COUNT... music_reviews" />
+            <marker date="1515345123403" expanded="true" signature="4840:4887" ph="SELECT * FRO... music_details" />
+            <marker date="1515345123403" expanded="true" signature="5950:6611" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="5982:6605" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="6009:6372" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="6113:6276" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="6433:6599" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="6486:6584" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="6734:6761" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="6762:7225" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="6788:7216" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="6838:6893" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="6915:7210" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="7369:7383" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="8027:8037" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="14309:14323" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="14775:14785" ph="..." />
           </folding>
         </state>
       </provider>
@@ -312,26 +372,35 @@
         <state relative-caret-position="2016">
           <caret line="96" column="39" lean-forward="false" selection-start-line="96" selection-start-column="39" selection-end-line="96" selection-end-column="39" />
           <folding>
-            <marker date="1515337774853" expanded="true" signature="525:586" ph="SELECT * FRO... users" />
-            <marker date="1515337774853" expanded="true" signature="1240:1298" ph="SELECT COUNT... users" />
-            <marker date="1515337774853" expanded="true" signature="1813:1885" ph="INSERT INTO users... " />
-            <marker date="1515337774853" expanded="true" signature="2417:2467" ph="SELECT * FRO... music_details" />
-            <marker date="1515337774853" expanded="true" signature="2806:2884" ph="SELECT ROUND... music_reviews" />
-            <marker date="1515337774853" expanded="true" signature="3161:3229" ph="SELECT COUNT... music_reviews" />
-            <marker date="1515337774853" expanded="true" signature="3499:3546" ph="SELECT * FRO... music_details" />
-            <marker date="1515337774853" expanded="true" signature="4609:5270" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="4641:5264" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="4668:5031" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="4772:4935" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="5092:5258" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="5145:5243" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="5393:5448" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="5449:5912" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="5475:5903" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="5525:5580" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="5602:5897" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="6056:6070" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="6714:6724" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="525:586" ph="SELECT * FRO... users" />
+            <marker date="1515345123403" expanded="true" signature="1240:1298" ph="SELECT COUNT... users" />
+            <marker date="1515345123403" expanded="true" signature="1813:1885" ph="INSERT INTO users... " />
+            <marker date="1515345123403" expanded="true" signature="2350:2420" ph="SELECT * FRO... music_reviews" />
+            <marker date="1515345123403" expanded="true" signature="2592:2991" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="2645:2674" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="2675:2946" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="2753:2865" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="3110:3309" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="3159:3165" ph=" " />
+            <marker date="1515345123403" expanded="true" signature="3490:3568" ph="SELECT ROUND... music_reviews" />
+            <marker date="1515345123403" expanded="true" signature="3992:4087" ph="INSERT INTO music_reviews... " />
+            <marker date="1515345123403" expanded="true" signature="4502:4570" ph="SELECT COUNT... music_reviews" />
+            <marker date="1515345123403" expanded="true" signature="4840:4887" ph="SELECT * FRO... music_details" />
+            <marker date="1515345123403" expanded="true" signature="5950:6611" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="5982:6605" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="6009:6372" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="6113:6276" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="6433:6599" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="6486:6584" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="6734:6761" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="6762:7225" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="6788:7216" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="6838:6893" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="6915:7210" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="7369:7383" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="8027:8037" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="14309:14323" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="14775:14785" ph="..." />
           </folding>
         </state>
       </provider>
@@ -403,26 +472,35 @@
         <state relative-caret-position="1785">
           <caret line="85" column="40" lean-forward="false" selection-start-line="85" selection-start-column="40" selection-end-line="85" selection-end-column="40" />
           <folding>
-            <marker date="1515337774853" expanded="true" signature="525:586" ph="SELECT * FRO... users" />
-            <marker date="1515337774853" expanded="true" signature="1240:1298" ph="SELECT COUNT... users" />
-            <marker date="1515337774853" expanded="true" signature="1813:1885" ph="INSERT INTO users... " />
-            <marker date="1515337774853" expanded="true" signature="2417:2467" ph="SELECT * FRO... music_details" />
-            <marker date="1515337774853" expanded="true" signature="2806:2884" ph="SELECT ROUND... music_reviews" />
-            <marker date="1515337774853" expanded="true" signature="3161:3229" ph="SELECT COUNT... music_reviews" />
-            <marker date="1515337774853" expanded="true" signature="3499:3546" ph="SELECT * FRO... music_details" />
-            <marker date="1515337774853" expanded="true" signature="4609:5270" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="4641:5264" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="4668:5031" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="4772:4935" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="5092:5258" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="5145:5243" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="5393:5448" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="5449:5912" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="5475:5903" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="5525:5580" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="5602:5897" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="6056:6070" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="6714:6724" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="525:586" ph="SELECT * FRO... users" />
+            <marker date="1515345123403" expanded="true" signature="1240:1298" ph="SELECT COUNT... users" />
+            <marker date="1515345123403" expanded="true" signature="1813:1885" ph="INSERT INTO users... " />
+            <marker date="1515345123403" expanded="true" signature="2350:2420" ph="SELECT * FRO... music_reviews" />
+            <marker date="1515345123403" expanded="true" signature="2592:2991" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="2645:2674" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="2675:2946" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="2753:2865" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="3110:3309" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="3159:3165" ph=" " />
+            <marker date="1515345123403" expanded="true" signature="3490:3568" ph="SELECT ROUND... music_reviews" />
+            <marker date="1515345123403" expanded="true" signature="3992:4087" ph="INSERT INTO music_reviews... " />
+            <marker date="1515345123403" expanded="true" signature="4502:4570" ph="SELECT COUNT... music_reviews" />
+            <marker date="1515345123403" expanded="true" signature="4840:4887" ph="SELECT * FRO... music_details" />
+            <marker date="1515345123403" expanded="true" signature="5950:6611" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="5982:6605" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="6009:6372" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="6113:6276" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="6433:6599" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="6486:6584" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="6734:6761" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="6762:7225" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="6788:7216" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="6838:6893" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="6915:7210" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="7369:7383" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="8027:8037" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="14309:14323" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="14775:14785" ph="..." />
           </folding>
         </state>
       </provider>
@@ -440,26 +518,35 @@
         <state relative-caret-position="378">
           <caret line="18" column="5" lean-forward="true" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
           <folding>
-            <marker date="1515337774853" expanded="true" signature="525:586" ph="SELECT * FRO... users" />
-            <marker date="1515337774853" expanded="true" signature="1240:1298" ph="SELECT COUNT... users" />
-            <marker date="1515337774853" expanded="true" signature="1813:1885" ph="INSERT INTO users... " />
-            <marker date="1515337774853" expanded="true" signature="2417:2467" ph="SELECT * FRO... music_details" />
-            <marker date="1515337774853" expanded="true" signature="2806:2884" ph="SELECT ROUND... music_reviews" />
-            <marker date="1515337774853" expanded="true" signature="3161:3229" ph="SELECT COUNT... music_reviews" />
-            <marker date="1515337774853" expanded="true" signature="3499:3546" ph="SELECT * FRO... music_details" />
-            <marker date="1515337774853" expanded="true" signature="4609:5270" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="4641:5264" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="4668:5031" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="4772:4935" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="5092:5258" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="5145:5243" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="5393:5448" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="5449:5912" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="5475:5903" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="5525:5580" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="5602:5897" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="6056:6070" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="6714:6724" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="525:586" ph="SELECT * FRO... users" />
+            <marker date="1515345123403" expanded="true" signature="1240:1298" ph="SELECT COUNT... users" />
+            <marker date="1515345123403" expanded="true" signature="1813:1885" ph="INSERT INTO users... " />
+            <marker date="1515345123403" expanded="true" signature="2350:2420" ph="SELECT * FRO... music_reviews" />
+            <marker date="1515345123403" expanded="true" signature="2592:2991" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="2645:2674" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="2675:2946" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="2753:2865" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="3110:3309" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="3159:3165" ph=" " />
+            <marker date="1515345123403" expanded="true" signature="3490:3568" ph="SELECT ROUND... music_reviews" />
+            <marker date="1515345123403" expanded="true" signature="3992:4087" ph="INSERT INTO music_reviews... " />
+            <marker date="1515345123403" expanded="true" signature="4502:4570" ph="SELECT COUNT... music_reviews" />
+            <marker date="1515345123403" expanded="true" signature="4840:4887" ph="SELECT * FRO... music_details" />
+            <marker date="1515345123403" expanded="true" signature="5950:6611" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="5982:6605" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="6009:6372" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="6113:6276" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="6433:6599" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="6486:6584" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="6734:6761" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="6762:7225" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="6788:7216" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="6838:6893" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="6915:7210" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="7369:7383" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="8027:8037" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="14309:14323" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="14775:14785" ph="..." />
           </folding>
         </state>
       </provider>
@@ -553,26 +640,35 @@
         <state relative-caret-position="2394">
           <caret line="114" column="12" lean-forward="false" selection-start-line="114" selection-start-column="12" selection-end-line="114" selection-end-column="12" />
           <folding>
-            <marker date="1515337774853" expanded="true" signature="525:586" ph="SELECT * FRO... users" />
-            <marker date="1515337774853" expanded="true" signature="1240:1298" ph="SELECT COUNT... users" />
-            <marker date="1515337774853" expanded="true" signature="1813:1885" ph="INSERT INTO users... " />
-            <marker date="1515337774853" expanded="true" signature="2417:2467" ph="SELECT * FRO... music_details" />
-            <marker date="1515337774853" expanded="true" signature="2806:2884" ph="SELECT ROUND... music_reviews" />
-            <marker date="1515337774853" expanded="true" signature="3161:3229" ph="SELECT COUNT... music_reviews" />
-            <marker date="1515337774853" expanded="true" signature="3499:3546" ph="SELECT * FRO... music_details" />
-            <marker date="1515337774853" expanded="true" signature="4609:5270" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="4641:5264" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="4668:5031" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="4772:4935" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="5092:5258" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="5145:5243" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="5393:5448" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="5449:5912" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="5475:5903" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="5525:5580" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="5602:5897" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="6056:6070" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="6714:6724" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="525:586" ph="SELECT * FRO... users" />
+            <marker date="1515345123403" expanded="true" signature="1240:1298" ph="SELECT COUNT... users" />
+            <marker date="1515345123403" expanded="true" signature="1813:1885" ph="INSERT INTO users... " />
+            <marker date="1515345123403" expanded="true" signature="2350:2420" ph="SELECT * FRO... music_reviews" />
+            <marker date="1515345123403" expanded="true" signature="2592:2991" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="2645:2674" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="2675:2946" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="2753:2865" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="3110:3309" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="3159:3165" ph=" " />
+            <marker date="1515345123403" expanded="true" signature="3490:3568" ph="SELECT ROUND... music_reviews" />
+            <marker date="1515345123403" expanded="true" signature="3992:4087" ph="INSERT INTO music_reviews... " />
+            <marker date="1515345123403" expanded="true" signature="4502:4570" ph="SELECT COUNT... music_reviews" />
+            <marker date="1515345123403" expanded="true" signature="4840:4887" ph="SELECT * FRO... music_details" />
+            <marker date="1515345123403" expanded="true" signature="5950:6611" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="5982:6605" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="6009:6372" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="6113:6276" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="6433:6599" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="6486:6584" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="6734:6761" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="6762:7225" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="6788:7216" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="6838:6893" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="6915:7210" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="7369:7383" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="8027:8037" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="14309:14323" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="14775:14785" ph="..." />
           </folding>
         </state>
       </provider>
@@ -594,35 +690,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../paw — kopia/offert.php" />
     <entry file="file://$PROJECT_DIR$/../paw — kopia/weselaPAW/functions.php" />
-    <entry file="file://$PROJECT_DIR$/weselaPAW/functions.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="29" lean-forward="true" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
-          <folding>
-            <marker date="1515337774853" expanded="true" signature="525:586" ph="SELECT * FRO... users" />
-            <marker date="1515337774853" expanded="true" signature="1240:1298" ph="SELECT COUNT... users" />
-            <marker date="1515337774853" expanded="true" signature="1813:1885" ph="INSERT INTO users... " />
-            <marker date="1515337774853" expanded="true" signature="2417:2467" ph="SELECT * FRO... music_details" />
-            <marker date="1515337774853" expanded="true" signature="2806:2884" ph="SELECT ROUND... music_reviews" />
-            <marker date="1515337774853" expanded="true" signature="3161:3229" ph="SELECT COUNT... music_reviews" />
-            <marker date="1515337774853" expanded="true" signature="3499:3546" ph="SELECT * FRO... music_details" />
-            <marker date="1515337774853" expanded="true" signature="4609:5270" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="4641:5264" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="4668:5031" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="4772:4935" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="5092:5258" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="5145:5243" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="5393:5448" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="5449:5912" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="5475:5903" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="5525:5580" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="5602:5897" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="6056:6070" ph="..." />
-            <marker date="1515337774853" expanded="true" signature="6714:6724" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="183">
@@ -676,6 +743,79 @@
         <state relative-caret-position="340">
           <caret line="20" column="9" lean-forward="false" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weddings_db.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="736" column="47" lean-forward="false" selection-start-line="736" selection-start-column="47" selection-end-line="736" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/edit.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="439">
+          <caret line="40" column="52" lean-forward="false" selection-start-line="40" selection-start-column="52" selection-end-line="40" selection-end-column="52" />
+          <folding>
+            <marker date="1515345543789" expanded="true" signature="2664:2706" ph="SELECT * FRO... ${$type}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/add.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="589">
+          <caret line="42" column="54" lean-forward="true" selection-start-line="42" selection-start-column="54" selection-end-line="42" selection-end-column="54" />
+          <folding>
+            <marker date="1515345670723" expanded="true" signature="607:802" ph="INSERT INTO ${$type}... " />
+            <marker date="1515345670723" expanded="true" signature="1459:1619" ph="INSERT INTO ${$type}... " />
+            <marker date="1515345670723" expanded="true" signature="2206:2232" ph="INSERT INTO ${$type}... " />
+            <marker date="1515345670723" expanded="true" signature="2206:2472" ph="INSERT INTO ${$type}... " />
+            <marker date="1515345670723" expanded="true" signature="3442:3594" ph="..." />
+            <marker date="1515345670723" expanded="true" signature="3449:3552" ph="..." />
+            <marker date="1515345670723" expanded="true" signature="3559:3594" ph="..." />
+            <marker date="1515345670723" expanded="true" signature="3596:3638" ph="SELECT * FRO... ${$type}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weselaPAW/functions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="186" column="23" lean-forward="false" selection-start-line="186" selection-start-column="23" selection-end-line="186" selection-end-column="23" />
+          <folding>
+            <marker date="1515345123403" expanded="true" signature="525:586" ph="SELECT * FRO... users" />
+            <marker date="1515345123403" expanded="true" signature="1240:1298" ph="SELECT COUNT... users" />
+            <marker date="1515345123403" expanded="true" signature="1813:1885" ph="INSERT INTO users... " />
+            <marker date="1515345123403" expanded="true" signature="2350:2420" ph="SELECT * FRO... music_reviews" />
+            <marker date="1515345123403" expanded="true" signature="2592:2991" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="2645:2674" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="2675:2946" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="2753:2865" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="3110:3309" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="3159:3165" ph=" " />
+            <marker date="1515345123403" expanded="true" signature="3490:3568" ph="SELECT ROUND... music_reviews" />
+            <marker date="1515345123403" expanded="true" signature="3992:4087" ph="INSERT INTO music_reviews... " />
+            <marker date="1515345123403" expanded="true" signature="4502:4570" ph="SELECT COUNT... music_reviews" />
+            <marker date="1515345123403" expanded="true" signature="4840:4887" ph="SELECT * FRO... music_details" />
+            <marker date="1515345123403" expanded="true" signature="5950:6611" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="5982:6605" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="6009:6372" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="6113:6276" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="6433:6599" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="6486:6584" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="6734:6761" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="6762:7225" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="6788:7216" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="6838:6893" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="6915:7210" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="7369:7383" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="8027:8037" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="14309:14323" ph="..." />
+            <marker date="1515345123403" expanded="true" signature="14775:14785" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>

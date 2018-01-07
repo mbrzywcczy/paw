@@ -1,13 +1,17 @@
 ﻿<?php
 require ('./functions.php');
 
-if (isset($_POST['frm_register']))
+if (isset($_POST['reg_button']))
 {
 	//czyści formularz
-	$login = trim($_POST['frm_login']);
-	$password1 = trim($_POST['frm_pass1']);
-	$password2 = trim($_POST['frm_pass2']);
-	
+	$login = trim($_POST['reg_login']);
+	$password1 = trim($_POST['reg_pass1']);
+	$password2 = trim($_POST['reg_pass2']);
+    $email = trim($_POST['reg_email']);
+    $name = trim($_POST['reg_name']);
+    $lastname = trim($_POST['reg_lastname']);
+	$gender = $POST['underwear'];
+
 	//zmienna z błędami
 	$errors = NULL;
 	
@@ -40,9 +44,9 @@ if (isset($_POST['frm_register']))
 }
 
 ?>
-<form method="POST" action="register.php">
-Login: <input name="frm_login"></br>
-Haslo: <input type="password" name="frm_pass1"></br>
-Powtorz haslo: <input type="password" name="frm_pass2"></br>
-<input type="submit" name="frm_register" value="Utworz konto">
-</form>
+<!--<form method="POST" action="register.php">
+Login: <input name="reg_login"></br>
+Haslo: <input type="password" name="reg_pass1"></br>
+Powtorz haslo: <input type="password" name="reg_pass2"></br>
+<input type="submit" name="reg_register" value="Utworz konto">
+</form>-->
