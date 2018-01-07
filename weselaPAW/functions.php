@@ -70,15 +70,27 @@ class functions
     // TODO check if works and finish
     public function getComment()
     {
-        //Pobranie id muzyka będzie z URL na razie robie sobie na sztywno
-        $idMusician = 3;
-        $query = $this->db->prepare("SELECT * FROM music_details WHERE id = :idMusician");
-        $query->bindParam(':idMusician', $idMusician, PDO::PARAM_STR);
-        $query->execute();
+        $idMusic = $_GET['id'];
+        $stmt = $this ->db->prepare('SELECT * FROM music_reviews WHERE music_id = :idMusic ORDER BY id DESC');
+        $stmt -> bindParam(':idMusic', $idMusic, PDO::PARAM_STR);
+        $stmt -> execute();
 
-        while ($row = $query->fetch()) {
-            echo var_dump($row['review']) .
-                '<br/>';
+        while($row = $stmt->fetch()){
+
+            echo '<div class="row">
+                      <div class="col-md-3" style="border-right: 1px solid #eee;">
+                        <button type="button" class="btn btn-default btn-sm">
+                          <span class="glyphicon glyphicon-user"></span>User 
+                        </button>
+                        <h4>Aleksander Kędzior</h4>
+                      </div>
+                      <div class="col-md-7">';
+            echo '<p>'.$row['review'].'</p>';
+            echo '</div> 
+                      <div class="col-md-2">  
+                       <p>'.$row['rate'].'/5 &nbsp;<span class="glyphicon glyphicon-star" data-toggle="tooltip" data-placement="right" title="Ocena"></span></p>       
+                      </div>              
+                        </div> </br>';
         }
     }
 
@@ -90,6 +102,23 @@ class functions
         $stmt -> execute();
         $row = $stmt->fetch();
         echo $row['average'];
+    }
+
+    public function setComment()
+    {
+        if(isset($_POST['comment']) && isset($_POST['sell'])){
+            $comment = $_POST['comment'];
+            $stars = $_POST['sell'];
+            $idArtist = $_GET['id'];
+
+            $set = $this->db->prepare('INSERT INTO music_reviews (id, music_id, review, rate) VALUES (null, :music_id, :review, :rate)');
+            $set->bindParam(':music_id', $idArtist, PDO::PARAM_INT);
+            $set->bindParam(':review', $comment, PDO::PARAM_STR);
+            $set->bindParam(':rate', $stars, PDO::PARAM_INT);
+            $set->execute();
+
+            header('Location: /offert.php?'.$idArtist);
+        }
     }
 
     public function commentsCount()
