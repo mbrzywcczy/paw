@@ -21,6 +21,9 @@ if (isset($_SESSION['login'])){
     $admin = $_SESSION['admin'];
 }
 $functions->displayTopNav("login.php", "index.php", $username, $admin, "../paw/weselaPAW/logout.php", 'admin/panel.php');
+if (isset($_GET['reg']) && $_GET['reg'] == 'ok'){
+    echo '<a href="login.php" class="btn btn-success" style="width:100%">Zarejestrowano pomyślnie, możesz się zalogować</a>';
+}
 ?>
 
 <div class="container-fluidy bg-5 text-center">

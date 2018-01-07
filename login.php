@@ -21,7 +21,7 @@ if ($isLogged) {
 <?php
 $username = "";
 $admin = 1;
-if (isset($_SESSION['login'])){
+if (isset($_SESSION['login'])) {
     $username = $_SESSION['login'];
     $admin = $_SESSION['admin'];
 }
@@ -49,19 +49,18 @@ $functions->displayTopNav("login.php", "index.php", $username, $admin, "../paw/w
                         <input name="log_password" type="password" class="form-control" placeholder="Twoje tajne hasło">
                     </div>
                 </div>
-                <div class="form-group right">
-                    <div>
-                        <button name="log_button" type="submit" class="btn btn-default">Wyślij</button>
-                    </div>
-                </div>
                 <?php
-                if (isset($_GET['err']) && $_GET['err'] = 't'){
-                    echo '<br/>';
+                if (isset($_GET['err']) && $_GET['err'] = 't') {
                     echo '<div class="form-group"><div>';
                     echo '<span class="label label-danger">Wprowadzono niepoprawne dane</span>';
                     echo '</div></div>';
                 }
                 ?>
+                <div class="form-group right">
+                    <div>
+                        <button name="log_button" type="submit" class="btn btn-default">Wyślij</button>
+                    </div>
+                </div>
             </form>
         </div>
         <div class="col-md-1"></div>
@@ -71,43 +70,63 @@ $functions->displayTopNav("login.php", "index.php", $username, $admin, "../paw/w
                 <div class="form-group">
                     <label for="inputEmail3" class="col-md-5 control-label">Login</label>
                     <div class="col-md-7">
-                        <input name="reg_login" class="form-control" placeholder="Podaj login">
+                        <input name="reg_login" class="form-control" placeholder="Podaj login" required maxlength="32"
+                               minlength="4">
+                    </div>
+                </div>
+                <?php
+                if (isset($_GET['reg_log']) && $_GET['reg_log'] = 'err') {
+                    echo '<div class="form-group"><div>';
+                    echo '<span class="label label-danger">Użytkownik takiej nazwie już istnieje</span>';
+                    echo '</div></div>';
+                }
+                ?>
+                <div class="form-group">
+                    <label for="inputPassword3" class="col-md-5 control-label">Hasło</label>
+                    <div class="col-md-7">
+                        <input name="reg_pass1" type="password" class="form-control" placeholder="Podaj hasło" required
+                               maxlength="32" minlength="6">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="inputPassword3" class="col-md-5 control-label">Hasło</label>
                     <div class="col-md-7">
-                        <input name="reg_pass1" type="password" class="form-control" placeholder="Podaj hasło">
+                        <input name="reg_pass2" type="password" class="form-control" placeholder="Powtorz hasło"
+                               required maxlength="32" minlength="6">
                     </div>
                 </div>
-                <div class="form-group">
-                    <label for="inputPassword3" class="col-md-5 control-label">Hasło</label>
-                    <div class="col-md-7">
-                        <input name="reg_pass2" type="password" class="form-control" placeholder="Powtorz hasło">
-                    </div>
-                </div>
+                <?php
+                if (isset($_GET['pass2']) && $_GET['pass2'] = 'err') {
+                    echo '<div class="form-group"><div>';
+                    echo '<span class="label label-danger">Hasła nie są identyczne</span>';
+                    echo '</div></div>';
+                }
+                ?>
                 <div class="form-group">
                     <label for="inputEmail3" class="col-md-5 control-label">Email</label>
                     <div class="col-md-7">
-                        <input name="reg_email" type="email" class="form-control" placeholder="Podaj adres email">
+                        <input name="reg_email" type="email" class="form-control" placeholder="Podaj adres email"
+                               required maxlength="64" minlength="3">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="inputEmail3" class="col-md-5 control-label">Imię</label>
                     <div class="col-md-7">
-                        <input name="reg_name" class="form-control" placeholder="Podaj imię">
+                        <input name="reg_name" class="form-control" placeholder="Podaj imię" required maxlength="32"
+                               minlength="1">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="inputEmail3" class="col-md-5 control-label">Nazwisko</label>
                     <div class="col-md-7">
-                        <input name="reg_lastname" class="form-control" placeholder="Podaj nazwisko">
+                        <input name="reg_lastname" class="form-control" placeholder="Podaj nazwisko" required
+                               maxlength="32" minlength="1">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="inputEmail3" class="col-md-5 control-label">Płeć</label>
                     <div class="col-md-7">
-                        <input type="radio" name="underwear" value="M" required/>Mężczyzna
+                        <input type="radio" name="underwear" value="M" required/>Mężczyzna<br/>
                         <input type="radio" name="underwear" value="K" required/>Kobieta
                     </div>
                 </div>

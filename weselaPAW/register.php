@@ -12,27 +12,29 @@ if (isset($_POST['reg_button'])) {
     $gender = $POST['underwear'];
 
     //zmienna z błędami
-    $errors = NULL;
+    $errors = null;
 
-    //sprawdza czy dane są poprawne
-    if (strlen($login) < 4) {
-        $errors .= 'Login musi miec co najmniej 4 znaki</br>';
-    }
-    if (strlen($password1) < 6) {
-        $errors .= 'Haslo musi miec co najmniej 6 znakow</br>';
-    }
     if ($password1 !== $password2) {
-        $errors .= 'Podane hasla nie sa takie same</br>';
+        $errors .= 'pass2=err';
     }
 
     //sprawdza czy użytkownik o danym loginie już nie istnieje
     $object = new functions('PDO');
-    $object->check_reg();
+    $user_exists .= $object->check_reg($login);
+
+    if ($errors == null){
+        $errors = $user_exists;
+    } else {
+        if ($user_exists != ""){
+            $errors = $errors . '&' . $user_exists;
+        }
+    }
 
     if (empty($errors)) {
         $object->register();
     } else {
-        echo $errors;
+        header('Location: ../login.php?' . $errors);
+        exit;
     }
 }
 

@@ -30,7 +30,7 @@ class functions
             $_SESSION['login'] = $login;
             $_SESSION['user_id'] = $row['id'];
             $_SESSION['admin'] = $row['admin'];
-            header('Location:log_ok.php');
+            header('Location:../index.php');
             exit;
         } else {
             header('Location: ../login.php?err=t');
@@ -41,39 +41,36 @@ class functions
     public function register()
     {
         $login = trim($_POST['reg_login']);
-        $password1 = trim($_POST['reg_pass1']);
-        $password1 = md5($password1);
+        $password1 = md5(trim($_POST['reg_pass1']));
         $email = trim($_POST['reg_email']);
         $name = trim($_POST['reg_name']);
         $lastname = trim($_POST['reg_lastname']);
         $gender = trim($_POST['underwear']);
-        $add = $this->db->prepare('INSERT INTO users (id, login, password, email, first_name, last_name, gender, admin) VALUES (null, :login, :password, :email, :firstname, :lastname, :gender, 0)');
-        $add->bindParam(':login', $login, PDO::PARAM_STR);
-        $add->bindParam(':password', $password1, PDO::PARAM_STR);
-        $add->bindParam(':email', $email, PDO::PARAM_STR);
-        $add->bindParam(':firstname', $name, PDO::PARAM_STR);
-        $add->bindParam(':lastname', $lastname, PDO::PARAM_STR);
-        $add->bindParam(':gender', $gender, PDO::PARAM_STR);
-        $add->execute();
-        echo 'Utworzono konto ' . $login;
+        $register = $this->db->prepare('INSERT INTO users (login, password, email, first_name, last_name, gender, 
+            admin) VALUES (:login, :password, :email, :firstname, :lastname, :gender, 1)');
+        $register->bindParam(':login', $login, PDO::PARAM_STR);
+        $register->bindParam(':password', $password1, PDO::PARAM_STR);
+        $register->bindParam(':email', $email, PDO::PARAM_STR);
+        $register->bindParam(':firstname', $name, PDO::PARAM_STR);
+        $register->bindParam(':lastname', $lastname, PDO::PARAM_STR);
+        $register->bindParam(':gender', $gender, PDO::PARAM_STR);
+        $register->execute();
 
-        session_start();
-        $_SESSION['login'] = $login;
-        header('Location:reg_ok.php');
+        header('Location:../index.php?reg=ok');
         exit;
     }
 
-    public function check_reg()
+    public function check_reg($login)
     {
         $check_login = $this->db->prepare("SELECT COUNT(id) AS liczba FROM users WHERE login = :login");
         $check_login->bindParam(':login', $login, PDO::PARAM_STR);
         $check_login->execute();
         $row = $check_login->fetch();
 
-        $errors = "";
         if ($row['liczba'] > 0) {
-            $errors .= 'Login jest zajęty</br>';
+            return 'reg_log=err';
         }
+        return "";
     }
 
     public function checkIfUserIsAdmin()
@@ -204,7 +201,7 @@ class functions
         if ($username == "") {
             echo '<li><a href="' . $loginPath . '">Logowanie/Rejestracja</a></li>';
         } else {
-            echo '<li><span>Witaj, ' . $username . ' | <a href="' . $logoutPath . '">Wyloguj</a></li>';
+            echo '<li><span>Witaj, ' . $username . ' | <a class="btn btn-warning" href="' . $logoutPath . '">Wyloguj</a></li>';
         }
         echo '</ul></div></div></nav>';
         if ($admin == 0) {
