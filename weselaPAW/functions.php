@@ -25,27 +25,15 @@ class functions
         $check_login->execute();
         $row = $check_login->fetch();
         if ($row['login'] == $login && $row['password'] == $password) {
-            $user_id = $row['id'];
+            //$user_id = $row['id'];
             session_start();
             $_SESSION['login'] = $login;
-            $_SESSION['user_id'] = $user_id;
+            $_SESSION['user_id'] = $row['id'];
+            $_SESSION['admin'] = $row['admin'];
             header('Location:log_ok.php');
             exit;
         } else {
             echo 'Wpisano niepoprawne dane';
-        }
-    }
-
-    public function check_reg()
-    {
-        $check_login = $this->db->prepare("SELECT COUNT(id) AS liczba FROM users WHERE login = :login");
-        $check_login->bindParam(':login', $login, PDO::PARAM_STR);
-        $check_login->execute();
-        $row = $check_login->fetch();
-
-        $errors = "";
-        if ($row['liczba'] > 0) {
-            $errors .= 'Login jest zajęty</br>';
         }
     }
 
@@ -72,6 +60,19 @@ class functions
         $_SESSION['login'] = $login;
         header('Location:reg_ok.php');
         exit;
+    }
+
+    public function check_reg()
+    {
+        $check_login = $this->db->prepare("SELECT COUNT(id) AS liczba FROM users WHERE login = :login");
+        $check_login->bindParam(':login', $login, PDO::PARAM_STR);
+        $check_login->execute();
+        $row = $check_login->fetch();
+
+        $errors = "";
+        if ($row['liczba'] > 0) {
+            $errors .= 'Login jest zajęty</br>';
+        }
     }
 
     // TODO check if works and finish
