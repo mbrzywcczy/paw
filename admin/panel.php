@@ -15,7 +15,7 @@ $functions->checkIfUserIsAdmin();
 <?php
 $username = "";
 $admin = 1;
-if (isset($_SESSION['login'])){
+if (isset($_SESSION['login'])) {
     $username = $_SESSION['login'];
     $admin = $_SESSION['admin'];
 }
@@ -111,6 +111,12 @@ $functions->displayTopNav("../login.php", "../index.php", $username, $admin, "..
             <form action="/paw/admin/table.php?type=type_reviews"><input type="text" name="type" value="type_reviews"
                                                                          hidden>
                 <input type=submit class="btn btn-secondary" value="Komentarze" style="width:100%"></form>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <form action="/paw/admin/users.php"><input type=submit class="btn btn-warning"
+                                                       value="Zarządzaj użytkownikami" style="width:100%"></form>
         </td>
     </tr>
 </table>

@@ -1,7 +1,9 @@
 <?php
 require('../../paw/weselaPAW/functions.php');
+require('../../paw/weselaPAW/admin_display.php');
 $functions = new functions('PDO');
 $functions->checkIfUserIsAdmin();
+$admin_display = new adminDisplay();
 
 $types = array('consultant_details', 'couple_transport_details', 'guest_transport_details', 'music_details',
     'photo_detail', 'place_details', 'type_details');
@@ -163,19 +165,19 @@ if (isset($_SESSION['login'])){
 $functions->displayTopNav('../login.php', '../index.php', $username, $admin, '../../paw/weselaPAW/logout.php', 'panel.php');
 echo '<a href="table.php?type=' . $type . '" class="btn btn-primary" style="width:100%">Powrót do tabeli rekordów</a>';
 if ($type == 'consultant_details') {
-    $functions->displayFormAddEditConsultantDetails($type, $id, "add", $row['first_name'], $row['last_name'], $row['description'], $row['price'], $row['state'], $row['city'], $row['street'], $row['img_src']);
+    $admin_display->displayFormAddEditConsultantDetails($type, $id, "add", $row['first_name'], $row['last_name'], $row['description'], $row['price'], $row['state'], $row['city'], $row['street'], $row['img_src']);
 } elseif ($type == 'couple_transport_details') {
-    $functions->displayFormAddEditCoupleTransportDetails($type, $id, "add", $row['type'], $row['description'], $row['price'],  $row['state'], $row['city'], $row['street'], $row['img_src']);
+    $admin_display->displayFormAddEditCoupleTransportDetails($type, $id, "add", $row['type'], $row['description'], $row['price'],  $row['state'], $row['city'], $row['street'], $row['img_src']);
 } elseif ($type == 'guest_transport_details') {
-    $functions->displayFormAddEditGuestTransportDetails($type, $id, "add", $row['type'], $row['description'], $row['price_flat'], $row['price_per_person'], $row['person_amount_per_unit'], $row['state'], $row['city'], $row['street'], $row['img_src']);
+    $admin_display->displayFormAddEditGuestTransportDetails($type, $id, "add", $row['type'], $row['description'], $row['price_flat'], $row['price_per_person'], $row['person_amount_per_unit'], $row['state'], $row['city'], $row['street'], $row['img_src']);
 } elseif ($type == 'music_details') {
-    $functions->displayFormAddEditMusicDetails($type, $id, "add", $row['type'], $row['name'], $row['description'], $row['price_flat'], $row['price_per_person'],  $row['state'], $row['city'], $row['street'], $row['img_src']);
+    $admin_display->displayFormAddEditMusicDetails($type, $id, "add", $row['type'], $row['name'], $row['description'], $row['price_flat'], $row['price_per_person'],  $row['state'], $row['city'], $row['street'], $row['img_src']);
 } elseif ($type == 'photo_detail') {
-    $functions->displayFormAddEditPhotoDetails($type, $id, "add", $row['first_name'], $row['last_name'], $row['company_name'], $row['description'], $row['photo_price'], $row['video_price'], $row['drone_price'], $row['state'], $row['city'], $row['street'], $row['img_src']);
+    $admin_display->displayFormAddEditPhotoDetails($type, $id, "add", $row['first_name'], $row['last_name'], $row['company_name'], $row['description'], $row['photo_price'], $row['video_price'], $row['drone_price'], $row['state'], $row['city'], $row['street'], $row['img_src']);
 } elseif ($type == 'place_details') {
-    $functions->displayFormAddEditPlaceDetails($type, $id, "add", $row['type'], $row['description'], $row['price_flat'], $row['price_per_person'], $row['max_guests'], $row['state'], $row['city'], $row['street'], $row['img_src']);
+    $admin_display->displayFormAddEditPlaceDetails($type, $id, "add", $row['type'], $row['description'], $row['price_flat'], $row['price_per_person'], $row['max_guests'], $row['state'], $row['city'], $row['street'], $row['img_src']);
 } elseif ($type == 'type_details') {
-    $functions->displayFormAddEditTypeDetails($type, $id, "add", $row['type'], $row['description'], $row['state'], $row['city'], $row['street'], $row['img_src']);
+    $admin_display->displayFormAddEditTypeDetails($type, $id, "add", $row['type'], $row['description'], $row['state'], $row['city'], $row['street'], $row['img_src']);
 }
 $functions->displayFooter();
 ?>
