@@ -76,6 +76,17 @@ class functions
         }
     }
 
+    public function getEmail($username){
+        $check_login = $this->db->prepare("SELECT email FROM users WHERE login = :login");
+        $check_login->bindParam(':login', $username, PDO::PARAM_STR);
+        $check_login->execute();
+        $row = $check_login->fetch();
+        if (isset($row[0])){
+            return $row[0];
+        }
+        return "";
+    }
+
     public function checkIfUserIsLogged()
     {
         session_start();
