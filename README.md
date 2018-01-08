@@ -19,3 +19,5 @@ Instalacja aplikacji lokalnie, przy pomocy XAMPP:
     1. Katalog 'paw' skopiować do 'xampp/htdocs'
     2. W /phpmyadmin zaimportować bazę danych, z pliku 'paw/other/weddings_db.sql'.
     Skrypt instalacyjny automatycznie tworzy bazę. W wypadku reinstalacji bazę należy usunąć przed uruchamianiem skryptu.
+    
+Repozytorium projektu dostępne pod adresem [https://github.com/mbrzywcczy/paw](https://github.com/mbrzywcczy/paw)
