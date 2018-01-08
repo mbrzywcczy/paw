@@ -122,9 +122,8 @@ class functions
         }
     }
 
-    public function rateAverage()
+    public function rateAverage($idMusic)
     {
-        $idMusic = $_GET['id'];
         $stmt = $this->db->prepare('SELECT ROUND(AVG(rate),1) average FROM music_reviews WHERE music_id = :idMusic');
         $stmt->bindParam(':idMusic', $idMusic, PDO::PARAM_STR);
         $stmt->execute();
@@ -149,9 +148,8 @@ class functions
         }
     }
 
-    public function commentsCount()
+    public function commentsCount($idMusic)
     {
-        $idMusic = $_GET['id'];
         $stmt = $this->db->prepare('SELECT COUNT(*) counter FROM music_reviews WHERE music_id = :idMusic');
         $stmt->bindParam(':idMusic', $idMusic, PDO::PARAM_STR);
         $stmt->execute();
@@ -159,23 +157,76 @@ class functions
         echo $row['counter'];
     }
 
-    public function artistInfo()
+    public function artistInfo($id)
     {
-        $idMusic = $_GET['id'];
-        $stmt = $this->db->prepare('SELECT * FROM music_details WHERE music_id = :idMusic');
-        $stmt->bindParam(':idMusic', $idMusic, PDO::PARAM_STR);
+        $stmt = $this->db->prepare("SELECT * FROM music_details WHERE id = :id");
+        $stmt->bindParam(':id', $id, PDO::PARAM_STR);
         $stmt->execute();
         $row = $stmt->fetch();
+        return $row;
     }
 
-    public function salary()
+    public function photoInfo($id)
     {
-        $idMusic = $_GET['id'];
+        $stmt = $this->db->prepare("SELECT * FROM photo_detail WHERE id = :id");
+        $stmt->bindParam(':id', $id, PDO::PARAM_STR);
+        $stmt->execute();
+        $row = $stmt->fetch();
+        return $row;
+    }
+
+    public function consultantInfo($id)
+    {
+        $stmt = $this->db->prepare("SELECT * FROM consultant_details WHERE id = :id");
+        $stmt->bindParam(':id', $id, PDO::PARAM_STR);
+        $stmt->execute();
+        $row = $stmt->fetch();
+        return $row;
+    }
+
+    public function coupleTransportInfo($id)
+    {
+        $stmt = $this->db->prepare("SELECT * FROM couple_transport_details WHERE id = :id");
+        $stmt->bindParam(':id', $id, PDO::PARAM_STR);
+        $stmt->execute();
+        $row = $stmt->fetch();
+        return $row;
+    }
+
+    public function guestTransportInfo($id)
+    {
+        $stmt = $this->db->prepare("SELECT * FROM guest_transport_details WHERE id = :id");
+        $stmt->bindParam(':id', $id, PDO::PARAM_STR);
+        $stmt->execute();
+        $row = $stmt->fetch();
+        return $row;
+    }
+
+    public function typeInfo($id)
+    {
+        $stmt = $this->db->prepare("SELECT * FROM type_details WHERE id = :id");
+        $stmt->bindParam(':id', $id, PDO::PARAM_STR);
+        $stmt->execute();
+        $row = $stmt->fetch();
+        return $row;
+    }
+
+    public function placeInfo($id)
+    {
+        $stmt = $this->db->prepare("SELECT * FROM place_details WHERE id = :id");
+        $stmt->bindParam(':id', $id, PDO::PARAM_STR);
+        $stmt->execute();
+        $row = $stmt->fetch();
+        return $row;
+    }
+
+    public function salary($idMusic)
+    {
         $stmt = $this->db->prepare('SELECT * FROM music_details WHERE id = :idMusic');
         $stmt->bindParam(':idMusic', $idMusic, PDO::PARAM_STR);
         $stmt->execute();
         $row = $stmt->fetch();
-        echo $row['price_flat'];
+        return $row['price_flat'];
     }
 
     public function displayMetaTags($styleDir)
@@ -212,6 +263,220 @@ class functions
         if ($admin == 0) {
             echo '<a href="' . $adminPath . '" class="btn btn-primary" style="width:100%">Panel administratora</a>';
         }
+    }
+
+    public function displayLeftOffert($id, $type)
+    {
+
+        if($type == 'music_details') {
+            $info = $this->artistInfo($id);
+            echo '
+            <div class="col-md-3" style="border-right: 1px solid #eee;">
+                <h2>' . $info['type'] . '</h2>
+                <hr>
+                <span class="glyphicon glyphicon-tags"></span>&nbsp;
+                <b>' . $info['name'] . '</b>
+                </br>
+                <hr>
+                <div class="form-group">
+                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                    <b>Województwo</b>
+                    <p>' . $info['state'] . '</p>
+                </div>
+                <div class="form-group">
+                    <span class="glyphicon glyphicon-home"></span>&nbsp;
+                    <b>Miejscowość</b>
+                    <p>' . $info['city'] . '</p>
+                </div>
+                <div class="form-group">
+                    <span class="glyphicon glyphicon-usd"></span>&nbsp;
+                    <b>Cena</b>
+                    <p>' . $info['price_flat'] . ' zł</p>
+                </div>
+            </div>
+            ';
+        }elseif($type == 'photo_detail')
+        {
+            $info = $this->photoInfo($id);
+            $drone = $info['drone'];
+            echo '
+            <div class="col-md-3" style="border-right: 1px solid #eee;">
+                <h2> photo </h2>
+                <hr>
+                <span class="glyphicon glyphicon-tags"></span>&nbsp;
+                <b>' . $info['first_name']. ' '. $info['last_name'] . '</b>
+                </br>
+                <small>' . $info['company_name'] . '</small>
+                <hr>
+                <div class="form-group">
+                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                    <b>Województwo</b>
+                    <p>' . $info['state'] . '</p>
+                </div>
+                <div class="form-group">
+                    <span class="glyphicon glyphicon-home"></span>&nbsp;
+                    <b>Miejscowość</b>
+                    <p>' . $info['city'] . '</p>
+                </div>
+                <div class="form-group">
+                    <span class="glyphicon glyphicon-usd"></span>&nbsp;
+                    <b>Zdjęcia</b>
+                    <p>' . $info['photo_price'] . ' zł</p>
+                </div>
+                <div class="form-group">
+                    <span class="glyphicon glyphicon-usd"></span>&nbsp;
+                    <b>Wideo</b>
+                    <p>' . $info['video_price'] . ' zł</p>
+                </div>
+                ';
+                if($drone == 0){
+                    echo '<div class="form-group">
+                    <span class="glyphicon glyphicon-usd"></span>&nbsp;
+                    <b>Ujęcia z drona</b>
+                    <p>' . $info['drone_price'] . ' zł</p>
+                </div>';
+                }
+                echo '</div>';
+        }elseif($type == 'consultant_details'){
+            $info = $this->consultantInfo($id);
+            echo '
+            <div class="col-md-3" style="border-right: 1px solid #eee;">
+                <h2>' . $info['description'] . '</h2>
+                <hr>
+                <span class="glyphicon glyphicon-tags"></span>&nbsp;
+                <b>' . $info['first_name'] . ' '.$info['last_name'] . '</b>
+                </br>             
+                <hr>
+                <div class="form-group">
+                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                    <b>Województwo</b>
+                    <p>' . $info['state'] . '</p>
+                </div>
+                <div class="form-group">
+                    <span class="glyphicon glyphicon-home"></span>&nbsp;
+                    <b>Miejscowość</b>
+                    <p>' . $info['city'] . '</p>
+                </div>
+                <div class="form-group">
+                    <span class="glyphicon glyphicon-usd"></span>&nbsp;
+                    <b>Cena</b>
+                    <p>' . $info['price'] . ' zł</p>
+                </div>
+            </div>
+            ';
+        }elseif($type == 'couple_transport_details') {
+            $info = $this->coupleTransportInfo($id);
+            echo '
+            <div class="col-md-3" style="border-right: 1px solid #eee;">
+                <h2>' . $info['type'] . '</h2>
+                <hr>
+                <span class="glyphicon glyphicon-tags"></span>&nbsp;
+                <b>' . $info['description'] . '</b>
+                </br>             
+                <hr>
+                <div class="form-group">
+                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                    <b>Województwo</b>
+                    <p>' . $info['state'] . '</p>
+                </div>
+                <div class="form-group">
+                    <span class="glyphicon glyphicon-home"></span>&nbsp;
+                    <b>Miejscowość</b>
+                    <p>' . $info['city'] . '</p>
+                </div>
+                <div class="form-group">
+                    <span class="glyphicon glyphicon-usd"></span>&nbsp;
+                    <b>Cena</b>
+                    <p>' . $info['price'] . ' zł</p>
+                </div>
+            </div>
+            ';
+        }elseif($type == 'guest_transport_details') {
+            $info = $this->guestTransportInfo($id);
+            echo '
+            <div class="col-md-3" style="border-right: 1px solid #eee;">
+                <h2>' . $info['type'] . '</h2>
+                <hr>
+                <span class="glyphicon glyphicon-tags"></span>&nbsp;
+                <b>' . $info['description'] . '</b>
+                </br>             
+                <hr>
+                <div class="form-group">
+                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                    <b>Województwo</b>
+                    <p>' . $info['state'] . '</p>
+                </div>
+                <div class="form-group">
+                    <span class="glyphicon glyphicon-home"></span>&nbsp;
+                    <b>Miejscowość</b>
+                    <p>' . $info['city'] . '</p>
+                </div>
+                <div class="form-group">
+                    <span class="glyphicon glyphicon-usd"></span>&nbsp;
+                    <b>Cena</b>
+                    <p>' . $info['price_flat'] . ' zł</p>
+                </div>
+            </div>
+            ';
+        }elseif($type == 'type_details') {
+            $info = $this->typeInfo($id);
+            echo '
+            <div class="col-md-3" style="border-right: 1px solid #eee;">
+                <h2>' . $info['type'] . '</h2>
+                <hr>
+                <span class="glyphicon glyphicon-tags"></span>&nbsp;
+                <b>' . $info['description'] . '</b>
+                </br>             
+                <hr>
+                <div class="form-group">
+                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                    <b>Województwo</b>
+                    <p>' . $info['state'] . '</p>
+                </div>
+                <div class="form-group">
+                    <span class="glyphicon glyphicon-home"></span>&nbsp;
+                    <b>Miejscowość</b>
+                    <p>' . $info['city'] . '</p>
+                </div>
+            </div>
+            ';
+        }elseif($type == 'place_details') {
+            $info = $this->placeInfo($id);
+            echo '
+            <div class="col-md-3" style="border-right: 1px solid #eee;">
+                <h2>' . $info['type'] . '</h2>
+                <hr>
+                <span class="glyphicon glyphicon-tags"></span>&nbsp;
+                <b>' . $info['description'] . '</b>
+                </br>             
+                <hr>
+                <div class="form-group">
+                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                    <b>Województwo</b>
+                    <p>' . $info['state'] . '</p>
+                </div>
+                <div class="form-group">
+                    <span class="glyphicon glyphicon-home"></span>&nbsp;
+                    <b>Miejscowość</b>
+                    <p>' . $info['city'] . '</p>
+                </div>
+                <div class="form-group">
+                    <span class="glyphicon glyphicon-home"></span>&nbsp;
+                    <b>Maks. gości</b>
+                    <p>' . $info['max_guests'] . '</p>
+                </div>
+                <div class="form-group">
+                    <span class="glyphicon glyphicon-home"></span>&nbsp;
+                    <b>Cena</b>
+                    <p>' . $info['price_flat'] . '</p>
+                </div>
+            </div>
+            ';
+        }else
+        {
+            header('Location:../404.html');
+        }
+
     }
 
     public function displayFooter($kontaktPath)

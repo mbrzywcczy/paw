@@ -1,6 +1,8 @@
 <?php require('weselaPAW/functions.php');
 session_start();
 $functions = new functions('PDO');
+$id = $_GET['id'];
+$type = $_GET['type'];
 ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -28,41 +30,12 @@ $functions->displayTopNav("login.php", "index.php", $username, $admin, "../paw/w
 <div class="container-fluid bg-3 text-center">
     <div class="row">
         <div class="col-md-1"></div>
-        <div class="col-md-3" style="border-right: 1px solid #eee;">
-            <h2>Muzyk</h2>
-            <hr>
-            <span class="glyphicon glyphicon-tags"></span>&nbsp;
-            <b>DJ Trolo</b>
-            </br>
-            <small>Najważniejsze informacje</small>
-            <hr>
-            <div class="form-group">
-                <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
-                <b>Województwo</b>
-                <p>Śląskie</p>
-            </div>
-            <div class="form-group">
-                <span class="glyphicon glyphicon-home"></span>&nbsp;
-                <b>Miejscowość</b>
-                <p>Katowice</p>
-            </div>
-            <div class="form-group">
-                <span class="glyphicon glyphicon-usd"></span>&nbsp;
-                <b>Cena</b>
-                <p><?php $functions->salary()
-                    ?> zł</p>
-            </div>
-            <div class="form-group">
-                <span class="glyphicon glyphicon-time"></span>&nbsp;
-                <b>Koniec pracy</b>
-                <p>do 05:00</p>
-            </div>
-        </div>
+        <?php $functions->displayLeftOffert($id,$type)?>
         <div class="col-md-5">
             <h1>DJ Trolo</h1>
-            <?php $functions->commentsCount() ?> <span class="glyphicon glyphicon-comment" data-toggle="tooltip"
+            <?php $functions->commentsCount($id) ?> <span class="glyphicon glyphicon-comment" data-toggle="tooltip"
                                                        data-placement="right" title="Komentarzy"></span>
-            <?php $functions->rateAverage() ?> <span class="glyphicon glyphicon-star" data-toggle="tooltip"
+            <?php $functions->rateAverage($id) ?> <span class="glyphicon glyphicon-star" data-toggle="tooltip"
                                                      data-placement="right" title="Ocena"></span></p>
 
             <img src="https://images.unsplash.com/photo-1511217997341-fed0a62b3e28?auto=format&fit=crop&w=1350&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D"
@@ -136,7 +109,6 @@ $functions->displayTopNav("login.php", "index.php", $username, $admin, "../paw/w
         </div>
     </div>
     <div class="col-md-3"></div>
-</div>
 </div>
 <?php
 $functions->displayFooter('kontakt.php');
