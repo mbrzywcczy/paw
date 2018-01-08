@@ -37,14 +37,8 @@ class functions
         }
     }
 
-    public function register()
+    public function register($login, $password1, $email, $name, $lastname, $gender)
     {
-        $login = trim($_POST['reg_login']);
-        $password1 = md5(trim($_POST['reg_pass1']));
-        $email = trim($_POST['reg_email']);
-        $name = trim($_POST['reg_name']);
-        $lastname = trim($_POST['reg_lastname']);
-        $gender = trim($_POST['underwear']);
         $register = $this->db->prepare('INSERT INTO users (login, password, email, first_name, last_name, gender, 
             admin) VALUES (:login, :password, :email, :firstname, :lastname, :gender, 1)');
         $register->bindParam(':login', $login, PDO::PARAM_STR);
@@ -221,5 +215,4 @@ class functions
         </div></div></footer>';
     }
 }
-
 ?>

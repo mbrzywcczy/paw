@@ -1,0 +1,7 @@
+ErrorDocument 404 /paw/weselaPAW/404_redirect.php
+
+RewriteEngine On
+RewriteBase /
+
+RewriteCond %{REQUEST_URI} ^/404/$
+RewriteRule ^(.*)$ /paw/weselaPAW/404_redirect.php [L]

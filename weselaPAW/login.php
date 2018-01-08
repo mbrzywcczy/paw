@@ -7,12 +7,11 @@ if (isset($_SESSION['login'])) {
     exit;
 } else {
     if (isset($_POST['log_button'])) {
-        $login = trim($_POST['log_login']);
-        $password = trim($_POST['log_password']);
-        $pass_hash = md5($password);
-
         $object = new functions('PDO');
-        $object->login($login, $pass_hash);
+        $object->login(trim($_POST['log_login']), md5(trim($_POST['log_password'])));
+    } else {
+        header('Location:../index.php');
+        exit;
     }
 }
 ?>

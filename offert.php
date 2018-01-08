@@ -17,13 +17,13 @@ $functions = new functions('PDO');
 </head>
 <body>
 <?php
-    $username = "";
-    $admin = 1;
-    if (isset($_SESSION['login'])){
-        $username = $_SESSION['login'];
-        $admin = $_SESSION['admin'];
-    }
-    $functions->displayTopNav("../paw/login.php", "../paw/index.php", $username, $admin, "../../paw/weselaPAW/logout.php", 'panel.php');$functions->displayTopNav("../login.php", "../index.php", $username, $admin, "../../paw/weselaPAW/logout.php", 'panel.php');
+$username = "";
+$admin = 1;
+if (isset($_SESSION['login'])) {
+    $username = $_SESSION['login'];
+    $admin = $_SESSION['admin'];
+}
+$functions->displayTopNav("login.php", "index.php", $username, $admin, "../paw/weselaPAW/logout.php", 'admin/panel.php');
 ?>
 <div class="container-fluid bg-3 text-center">
     <div class="row">
@@ -61,9 +61,9 @@ $functions = new functions('PDO');
         <div class="col-md-5">
             <h1>DJ Trolo</h1>
             <?php $functions->commentsCount() ?> <span class="glyphicon glyphicon-comment" data-toggle="tooltip"
-                                                data-placement="right" title="Komentarzy"></span>
+                                                       data-placement="right" title="Komentarzy"></span>
             <?php $functions->rateAverage() ?> <span class="glyphicon glyphicon-star" data-toggle="tooltip"
-                                              data-placement="right" title="Ocena"></span></p>
+                                                     data-placement="right" title="Ocena"></span></p>
 
             <img src="https://images.unsplash.com/photo-1511217997341-fed0a62b3e28?auto=format&fit=crop&w=1350&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D"
                  class="img-thumbnail">
