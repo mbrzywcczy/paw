@@ -1,13 +1,13 @@
 <?php require('weselaPAW/functions.php');
 session_start();
-$db = new functions('PDO');
+$functions = new functions('PDO');
 ?>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <title>Wesela</title>
+    <title>Oferta</title>
     <?php
-    $db->displayMetaTags('style.css');
+    $functions->displayMetaTags('style.css');
     ?>
     <script>
         $(document).ready(function () {
@@ -16,27 +16,15 @@ $db = new functions('PDO');
     </script>
 </head>
 <body>
-
-<nav class="navbar navbar-default">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Tu będzie logo</a>
-        </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="main.php">Strona główna</a></li>
-                <li><a href="#">Kreator ofert</a></li>
-                <li><a href="#">Kontakt</a></li>
-                <li><a href="#">Panel</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
+<?php
+    $username = "";
+    $admin = 1;
+    if (isset($_SESSION['login'])){
+        $username = $_SESSION['login'];
+        $admin = $_SESSION['admin'];
+    }
+    $functions->displayTopNav("../paw/login.php", "../paw/index.php", $username, $admin, "../../paw/weselaPAW/logout.php", 'panel.php');$functions->displayTopNav("../login.php", "../index.php", $username, $admin, "../../paw/weselaPAW/logout.php", 'panel.php');
+?>
 <div class="container-fluid bg-3 text-center">
     <div class="row">
         <div class="col-md-1"></div>
@@ -60,8 +48,8 @@ $db = new functions('PDO');
             </div>
             <div class="form-group">
                 <span class="glyphicon glyphicon-usd"></span>&nbsp;
-                <b>Wynagrodzenie</b>
-                <p><?php $db->salary()
+                <b>Cena</b>
+                <p><?php $functions->salary()
                     ?> zł</p>
             </div>
             <div class="form-group">
@@ -72,9 +60,9 @@ $db = new functions('PDO');
         </div>
         <div class="col-md-5">
             <h1>DJ Trolo</h1>
-            <?php $db->commentsCount() ?> <span class="glyphicon glyphicon-comment" data-toggle="tooltip"
+            <?php $functions->commentsCount() ?> <span class="glyphicon glyphicon-comment" data-toggle="tooltip"
                                                 data-placement="right" title="Komentarzy"></span>
-            <?php $db->rateAverage() ?> <span class="glyphicon glyphicon-star" data-toggle="tooltip"
+            <?php $functions->rateAverage() ?> <span class="glyphicon glyphicon-star" data-toggle="tooltip"
                                               data-placement="right" title="Ocena"></span></p>
 
             <img src="https://images.unsplash.com/photo-1511217997341-fed0a62b3e28?auto=format&fit=crop&w=1350&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D"
@@ -110,7 +98,7 @@ $db = new functions('PDO');
                 maximus ligula.
             </div>
             <br>
-            <form method='POST' action="<?php $db->setComment() ?>">
+            <form method='POST' action="<?php $functions->setComment() ?>">
                 <div class="form-group">
                     <div class="card-box">
                         <div class="row">
@@ -142,7 +130,7 @@ $db = new functions('PDO');
             </form>
             <div class="form-group">
                 <div class="card-box">
-                    <?php $db->getComment(); ?>
+                    <?php $functions->getComment(); ?>
                 </div>
             </div>
         </div>
