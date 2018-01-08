@@ -28,45 +28,54 @@ if (isset($_SESSION['login'])) {
 }
 $functions->displayTopNav("login.php", "index.php", $username, $admin, "../paw/weselaPAW/logout.php", 'admin/panel.php');
 ?>
-<div class="container" style="padding-top:20px;">
+<div class="container-fluid bg-3 text-center">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="well well-sm">
-                <form class="form-horizontal" action="" method="post">
-                    <fieldset>
-                        <legend class="text-center">Skontaktuj się z nami</legend>
-                        <div class="form-group">
-                            <label class="col-md-3 control-label" for="name">Nazwa użytkownika</label>
-                            <div class="col-md-9">
-                                <input id="name" name="name" type="text" placeholder="Nazwa użytkownika"
-                                       class="form-control"
-                                       required<?php if ($username != '') echo ' value="' . $username . '" disabled'; ?>>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-3 control-label" for="email">E-mail</label>
-                            <div class="col-md-9">
-                                <input id="email" name="email" type="text" placeholder="E-mail" class="form-control"
-                                       required<?php if ($username != '') echo ' value="' . $functions->getEmail($username) . '" disabled'; ?>>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-3 control-label" for="message">Wiadomość</label>
-                            <div class="col-md-9">
-                                <textarea class="form-control" id="message" name="message"
-                                          placeholder="Wpisz tutaj swoją wiadomość..." rows="10" maxlength="512"
-                                          required></textarea>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-md-12 text-right">
-                                <button type="submit" class="btn btn-primary btn-lg" disabled>Wyślij</button>
-                            </div>
-                        </div>
-                    </fieldset>
-                </form>
+        <div class="col-md-1"></div>
+        <div class="col-md-4">
+            <div class="row">
+                <div class="form-group">
+                    <h2>Dane kontaktowe:</h2>
+                    Nazwa firmy<br>
+                    ul. Zmyślona 8/65<br>
+                    40-096 Katowice<br>
+                    Mail: kontakt@wesela.pl
+                </div>
+                <hr>
+                <div class="form-group">
+                    <h2>Dane firmowe:</h2>
+                    Spółka z ograniczoną odpowiedzialnością<br>
+                    KRS: 0000000000<br>
+                    NIP: 0000000000<br>
+                    REGON: 000000000
+                </div>
             </div>
         </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-4">
+            <h2 class="kategoria">Formularz kontaktowy</h2>
+            <form class="form" name="contactform" method="post">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" name="first_name" required placeholder="Podaj imię"
+                                <?php if ($username != '') echo ' value="' . $username . '" disabled'; ?>>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="email" class="form-control" name="email" required placeholder="Podaj adres email"
+                                <?php if ($username != '') echo ' value="' . $functions->getEmail($username) . '" disabled'; ?>>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="subject" required placeholder="Temat">
+                </div>
+                <div class="form-group">
+                    <textarea name="comments" required class="form-control" style="resize: vertical;  overflow: auto;" rows="5" placeholder="Zostaw wiadomość"></textarea>
+                </div>
+                <input name="submit" type="submit" value="Wyślij" class="btn right btn-primary">
+            </form>
+        </div>
+        <div class="col-md-2"></div>
     </div>
 </div>
 <?php
