@@ -46,7 +46,7 @@ $functions->displayTopNav("login.php", "index.php", $username, $admin, "../paw/w
                 <div class="form-group">
                     <label for="inputPassword3" class="col-md-5 control-label">Hasło</label>
                     <div class="col-md-7">
-                        <input name="log_password" type="password" class="form-control" placeholder="Twoje tajne hasło">
+                        <input name="log_password" type="password" class="form-control" placeholder="Podaj hasło">
                     </div>
                 </div>
                 <?php
