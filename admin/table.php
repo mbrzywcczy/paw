@@ -32,12 +32,10 @@ if (!isset($_GET['type']) || !in_array($_GET['type'], $types)) {
 }
 $type = $_GET['type'];
 $dbConn = $functions->db;
-$rev = '';
-if (strpos($type, 'review') == true) {
-    $rev = 'disabled';
+if (strpos($type, 'review') == false) {
+    echo '<form action="/paw/admin/add.php"><input type="text" name="type" value="' . $type . '" hidden>';
+    echo '<input type=submit class="btn btn-success" value="Dodaj rekord" style="width:100%"></form>';
 }
-echo '<form action="/paw/admin/add.php"><input type="text" name="type" value="' . $type . '" hidden>';
-echo '<input type=submit class="btn btn-success" value="Dodaj rekord" style="width:100%" ' . $rev . '></form>';
 
 $columns = [];
 $colNames = $dbConn->query('SELECT * FROM ' . $type . ' LIMIT 0');

@@ -1,5 +1,5 @@
 <?php
-class adminDisplay
+class admin_display
 {
     public function displayFormEditReview($type, $id, $review, $rate)
     {

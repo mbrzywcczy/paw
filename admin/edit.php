@@ -3,7 +3,7 @@ require('../../paw/weselaPAW/functions.php');
 require('../../paw/weselaPAW/admin_display.php');
 $functions = new functions('PDO');
 $functions->checkIfUserIsAdmin();
-$admin_display = new adminDisplay();
+$admin_display = new admin_display();
 
 $types = array('consultant_details', 'consultant_reviews', 'couple_transport_details', 'couple_transport_reviews',
     'guest_transport_details', 'guest_transport_reviews', 'music_details', 'music_reviews', 'photo_detail',

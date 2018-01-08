@@ -3,7 +3,7 @@ require('../../paw/weselaPAW/functions.php');
 require('../../paw/weselaPAW/admin_display.php');
 $functions = new functions('PDO');
 $functions->checkIfUserIsAdmin();
-$admin_display = new adminDisplay();
+$admin_display = new admin_display();
 ?>
 <!DOCTYPE html>
 <html lang="pl">
