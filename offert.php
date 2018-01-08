@@ -138,19 +138,8 @@ $functions->displayTopNav("login.php", "index.php", $username, $admin, "../paw/w
     <div class="col-md-3"></div>
 </div>
 </div>
-<footer class="container-fluid bg-4 text-center">
-    <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-4">
-            <p>Projekt zaliczeniowy</p>
-        </div>
-        <div class="col-md-4">
-            <a href="#" class="fa fa-facebook-square social-size"></a>
-            <a href="#" class="fa fa-twitter-square social-size"></a>
-            <a href="#" class="fa fa-google-plus-square social-size"></a>
-            <a href="#" class="fa fa-instagram social-size"></a>
-        </div>
-    </div>
-</footer>
+<?php
+$functions->displayFooter('kontakt.php');
+?>
 </body>
 </html>
