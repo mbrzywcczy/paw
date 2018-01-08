@@ -1,38 +1,3 @@
-<?php
-require('weselaPAW/functions.php');
-$functions = new functions('PDO');
-session_start();
-
-$types = array('consultant_details', 'couple_transport_details', 'guest_transport_details', 'music_details',
-    'photo_detail', 'place_details', 'type_details', 'all');
-if (!isset($_GET['type']) || !in_array($_GET['type'], $types)) {
-    header('Location: index.php');
-    exit;
-}
-?>
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-    <title>Wesela</title>
-    <?php
-    $functions->displayMetaTags('style.css');
-    ?>
-    <script>
-        $(document).ready(function () {
-            $('[data-toggle="tooltip"]').tooltip();
-        });
-    </script>
-</head>
-<body>
-<?php
-$username = "";
-$admin = 1;
-if (isset($_SESSION['login'])){
-    $username = $_SESSION['login'];
-    $admin = $_SESSION['admin'];
-}
-$functions->displayTopNav("login.php", "index.php", $username, $admin, "../paw/weselaPAW/logout.php", 'admin/panel.php');
-?>
 <div class="container-fluidy bg-1 text-center">
     <h2 class="liczba">Ilość ogłoszeń: #liczba</h2>
 </div>
@@ -217,8 +182,3 @@ $functions->displayTopNav("login.php", "index.php", $username, $admin, "../paw/w
         <div class="col-md-3"></div>
     </div>
 </div>
-<?php
-$functions->displayFooter('kontakt.php');
-?>
-</body>
-</html>
