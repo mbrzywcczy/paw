@@ -61,7 +61,8 @@ $functions->displayTopNav("login.php", "index.php", $username, $admin, "../paw/w
                                 <?php if ($username != '') echo ' value="' . $username . '" disabled'; ?>>
                         </div>
                         <div class="col-md-6">
-                            <input type="email" class="form-control" name="email" required placeholder="Podaj adres email"
+                            <input type="email" class="form-control" name="email" required
+                                   placeholder="Podaj adres email"
                                 <?php if ($username != '') echo ' value="' . $functions->getEmail($username) . '" disabled'; ?>>
                         </div>
                     </div>
@@ -70,7 +71,8 @@ $functions->displayTopNav("login.php", "index.php", $username, $admin, "../paw/w
                     <input type="text" class="form-control" name="subject" required placeholder="Temat">
                 </div>
                 <div class="form-group">
-                    <textarea name="comments" required class="form-control" style="resize: vertical;  overflow: auto;" rows="5" placeholder="Zostaw wiadomość"></textarea>
+                    <textarea name="comments" required class="form-control" style="resize: vertical;  overflow: auto;"
+                              rows="5" placeholder="Zostaw wiadomość"></textarea>
                 </div>
                 <input name="submit" type="submit" value="Wyślij" class="btn right btn-primary">
             </form>
