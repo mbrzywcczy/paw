@@ -62,7 +62,7 @@ if ($query->fetch() == null) {
             echo '---' . $value . '---';
         }
     }
-    $count = count($query->fetch());
+    $count = $query->rowCount();
 }
 ?>
 
