@@ -1,0 +1,48 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="' . $styleDir . '" type="text/css"/>
+    <style>
+        .error-template {
+            padding: 40px 15px;
+            text-align: center;
+        }
+
+        .error-actions {
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        .error-actions .btn {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="error-template">
+                <h2>
+                    Nie znaleziono strony bądź nie masz do niej dostępu</h2>
+                <div class="error-details">
+                    Jeżeli uważasz że to błąd, skontaktuj się z nami
+                </div>
+                <div class="error-actions">
+                    <a href="index.php" class="btn btn-primary btn-lg"><span
+                            class="glyphicon glyphicon-home"></span> Strona Główna </a><a
+                        href="kontakt.html" class="btn btn-default btn-lg"><span
+                        class="glyphicon glyphicon-envelope"></span> Kontakt </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
