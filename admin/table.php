@@ -75,7 +75,7 @@ while ($row = $records->fetch()) {
 }
 echo '</table>';
 
-$functions->displayFooter();
+$functions->displayFooter('../kontakt.php');
 ?>
 </body>
 </html>

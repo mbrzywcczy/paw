@@ -200,7 +200,7 @@ if (strpos($type, 'review') == true) {
         $admin_display->displayFormAddEditTypeDetails($type, $id, "edit", $row['type'], $row['description'], $row['state'], $row['city'], $row['street'], $row['img_src']);
     }
 }
-$functions->displayFooter();
+$functions->displayFooter('../kontakt.php');
 ?>
 </body>
 </html>

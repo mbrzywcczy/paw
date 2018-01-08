@@ -142,7 +142,7 @@ $functions->displayTopNav("login.php", "index.php", $username, $admin, "../paw/w
 </div>
 <br>
 <?php
-$functions->displayFooter();
+$functions->displayFooter('kontakt.php');
 ?>
 </body>
 </html>

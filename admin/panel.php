@@ -121,7 +121,7 @@ $functions->displayTopNav("../login.php", "../index.php", $username, $admin, "..
     </tr>
 </table>
 <?php
-$functions->displayFooter();
+$functions->displayFooter('../kontakt.php');
 ?>
 </body>
 </html>

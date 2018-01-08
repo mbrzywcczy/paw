@@ -1,4 +1,5 @@
 ﻿<?php
+
 class functions
 {
     public $login;
@@ -202,17 +203,20 @@ class functions
         }
     }
 
-    public function displayFooter()
+    public function displayFooter($kontaktPath)
     {
-        echo '<footer class="container-fluid bg-4 text-center" style="width: 100%; padding: 20px;">
-        <div class="row"><div class="col-md-4"></div><div class="col-md-4">
-            <p>Projekt zaliczeniowy</p>
-        </div><div class="col-md-4">
-            <a href="#" class="fa fa-facebook-square social-size"></a>
-            <a href="#" class="fa fa-twitter-square social-size"></a>
-            <a href="#" class="fa fa-google-plus-square social-size"></a>
-            <a href="#" class="fa fa-instagram social-size"></a>
-        </div></div></footer>';
+        echo '<footer class="container-fluid bg-4 text-center" style="width: 100%; padding: 20px;">';
+        echo '<div class="row"><div class="col-md-4">';
+        echo '<a href="' . $kontaktPath . '">Kontakt</a>';
+        echo '</div><div class="col-md-4">';
+        echo '<p>Projekt zaliczeniowy</p>';
+        echo '</div><div class="col-md-4">';
+        echo '<a href="#" class="fa fa-facebook-square social-size"></a>';
+        echo '<a href="#" class="fa fa-twitter-square social-size"></a>';
+        echo '<a href="#" class="fa fa-google-plus-square social-size"></a>';
+        echo '<a href="#" class="fa fa-instagram social-size"></a>';
+        echo '</div></div></footer>';
     }
 }
+
 ?>

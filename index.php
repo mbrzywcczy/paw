@@ -135,7 +135,7 @@ if (isset($_GET['reg']) && $_GET['reg'] == 'ok'){
     </div>
 </div>
 <?php
-$functions->displayFooter();
+$functions->displayFooter('kontakt.php');
 ?>
 </body>
 </html>

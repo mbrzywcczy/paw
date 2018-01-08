@@ -179,7 +179,7 @@ if ($type == 'consultant_details') {
 } elseif ($type == 'type_details') {
     $admin_display->displayFormAddEditTypeDetails($type, $id, "add", $row['type'], $row['description'], $row['state'], $row['city'], $row['street'], $row['img_src']);
 }
-$functions->displayFooter();
+$functions->displayFooter('../kontakt.php');
 ?>
 </body>
 </html>
