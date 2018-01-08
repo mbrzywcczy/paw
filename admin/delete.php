@@ -5,7 +5,7 @@ $functions->checkIfUserIsAdmin();
 
 $types = array('consultant_details', 'consultant_reviews', 'couple_transport_details', 'couple_transport_reviews',
     'guest_transport_details', 'guest_transport_reviews', 'music_details', 'music_reviews', 'photo_detail',
-    'photo_reviews', 'place_details', 'place_reviews', 'type_details', 'type_reviews');
+    'photo_reviews', 'place_details', 'place_reviews', 'type_details', 'type_reviews', 'users');
 if (!isset($_GET['type']) || !in_array($_GET['type'], $types) || !isset($_GET['id'])) {
     header('Location: /paw/admin/panel.php');
     exit;
@@ -18,8 +18,12 @@ $delete = $dbConn->prepare('DELETE FROM ' . $type . ' WHERE id = :id');
 $delete->bindParam(':id', $id);
 $delete->setFetchMode(PDO::FETCH_ASSOC);
 $delete->execute();
+if ($type == 'users') {
+    header('Location: /paw/admin/users.php');
+    exit;
+}
 header('Location: /paw/admin/table.php?type=' . $type);
-
+exit;
 ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -33,7 +37,7 @@ header('Location: /paw/admin/table.php?type=' . $type);
 <?php
 $username = "";
 $admin = 1;
-if (isset($_SESSION['login'])){
+if (isset($_SESSION['login'])) {
     $username = $_SESSION['login'];
     $admin = $_SESSION['admin'];
 }
