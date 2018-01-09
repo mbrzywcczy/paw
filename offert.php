@@ -94,7 +94,7 @@ $functions->displayTopNav("login.php", "index.php", $username, $admin, "../paw/w
                                     <option>1</option>
                                 </select>
                             </div>
-                            <button type="submit" class="btn btn-default" style="margin-left: 85%;">Opublikuj</button>
+                            <button type="submit" class="btn btn-default" style="margin-left: 85%;"<?php if ($username == '') echo 'disabled';?>>Opublikuj</button>
                         </div>
                     </div>
                 </div>
