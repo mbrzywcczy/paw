@@ -76,13 +76,18 @@ $functions->displayTopNav("login.php", "index.php", $username, $admin, "../paw/w
                         <div class="row">
                             <div class="col-md-10">
                                 <label for="comment">Komentarz:</label>
-                                <textarea name="comment" class="form-control" rows="5" id="comment"></textarea>
+                                <textarea name="comment" class="form-control" rows="5" id="comment" maxlength="512"></textarea>
                             </div>
                             <div class="col-md-2">
                                 <p>Ocena: &nbsp;<span class="glyphicon glyphicon-star" data-toggle="tooltip"
                                                       data-placement="right" title="Ocena"></span></p>
                                 <select class="form-control" id="sel1" name="sell">
-                                    <option selected="selected">5</option>
+                                    <option selected="selected">10</option>
+                                    <option>9</option>
+                                    <option>8</option>
+                                    <option>7</option>
+                                    <option>6</option>
+                                    <option>5</option>
                                     <option>4</option>
                                     <option>3</option>
                                     <option>2</option>
