@@ -225,4 +225,3 @@ class admin_display
         echo '<br/><input type=submit class="btn btn-success" style="width:100%" value="Dodaj ' . $edit . 'rekord"></form>';
     }
 }
-?>

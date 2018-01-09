@@ -57,7 +57,7 @@ while ($row = $records->fetch()) {
     $disabled = "";
     foreach ($row as $value) {
         if ($loop != $pass_id) {
-            if ($loop == $login_id && $value == $username ){
+            if ($loop == $login_id && $value == $username) {
                 $disabled = "disabled";
             }
             echo '<td>' . $value . '</td>';
@@ -69,12 +69,11 @@ while ($row = $records->fetch()) {
         }
         $loop++;
     }
-        echo '<td><form action="/paw/admin/delete.php"><input type="text" name="type" value="users" hidden>';
-        echo '<input type="text" name="id" value="' . $id . '" hidden>';
-        echo '<input type=submit class="btn btn-danger" value="Usuń" style="width:100%" ' . $disabled . '></form></td></tr>';
+    echo '<td><form action="/paw/admin/delete.php"><input type="text" name="type" value="users" hidden>';
+    echo '<input type="text" name="id" value="' . $id . '" hidden>';
+    echo '<input type=submit class="btn btn-danger" value="Usuń" style="width:100%" ' . $disabled . '></form></td></tr>';
 }
 echo '</table>';
-
 
 $functions->displayFooter('../kontakt.php');
 ?>

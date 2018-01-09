@@ -557,5 +557,3 @@ class functions
         echo '</div></div></footer>';
     }
 }
-
-?>

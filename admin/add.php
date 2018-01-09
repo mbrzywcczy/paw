@@ -80,15 +80,15 @@ if (isset($_GET['add']) && $_GET['add'] == 'true') {
         :last_name, :company_name, :description, :photo, :photo_price, :video, :video_price, :drone, :drone_price, :state, :city, 
         :street, :img_src)');
         $photo = 1;
-        if (isset($_GET['photo_price']) && $_GET['photo_price'] != 0){
+        if (isset($_GET['photo_price']) && $_GET['photo_price'] != 0) {
             $photo = 0;
         }
         $video = 1;
-        if (isset($_GET['video_price']) && $_GET['video_price'] != 0){
+        if (isset($_GET['video_price']) && $_GET['video_price'] != 0) {
             $video = 0;
         }
         $drone = 1;
-        if (isset($_GET['drone_price']) && $_GET['drone_price'] != 0){
+        if (isset($_GET['drone_price']) && $_GET['drone_price'] != 0) {
             $drone = 0;
         }
         $add->bindParam(':first_name', $_GET['first_name']);
@@ -158,7 +158,7 @@ $row = $records->fetch();
 
 $username = "";
 $admin = 1;
-if (isset($_SESSION['login'])){
+if (isset($_SESSION['login'])) {
     $username = $_SESSION['login'];
     $admin = $_SESSION['admin'];
 }
@@ -167,11 +167,11 @@ echo '<a href="table.php?type=' . $type . '" class="btn btn-primary" style="widt
 if ($type == 'consultant_details') {
     $admin_display->displayFormAddEditConsultantDetails($type, $id, "add", $row['first_name'], $row['last_name'], $row['description'], $row['price'], $row['state'], $row['city'], $row['street'], $row['img_src']);
 } elseif ($type == 'couple_transport_details') {
-    $admin_display->displayFormAddEditCoupleTransportDetails($type, $id, "add", $row['type'], $row['description'], $row['price'],  $row['state'], $row['city'], $row['street'], $row['img_src']);
+    $admin_display->displayFormAddEditCoupleTransportDetails($type, $id, "add", $row['type'], $row['description'], $row['price'], $row['state'], $row['city'], $row['street'], $row['img_src']);
 } elseif ($type == 'guest_transport_details') {
     $admin_display->displayFormAddEditGuestTransportDetails($type, $id, "add", $row['type'], $row['description'], $row['price_flat'], $row['price_per_person'], $row['person_amount_per_unit'], $row['state'], $row['city'], $row['street'], $row['img_src']);
 } elseif ($type == 'music_details') {
-    $admin_display->displayFormAddEditMusicDetails($type, $id, "add", $row['type'], $row['name'], $row['description'], $row['price_flat'], $row['price_per_person'],  $row['state'], $row['city'], $row['street'], $row['img_src']);
+    $admin_display->displayFormAddEditMusicDetails($type, $id, "add", $row['type'], $row['name'], $row['description'], $row['price_flat'], $row['price_per_person'], $row['state'], $row['city'], $row['street'], $row['img_src']);
 } elseif ($type == 'photo_detail') {
     $admin_display->displayFormAddEditPhotoDetails($type, $id, "add", $row['first_name'], $row['last_name'], $row['company_name'], $row['description'], $row['photo_price'], $row['video_price'], $row['drone_price'], $row['state'], $row['city'], $row['street'], $row['img_src']);
 } elseif ($type == 'place_details') {

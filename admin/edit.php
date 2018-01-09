@@ -175,7 +175,7 @@ $row = $records->fetch();
 
 $username = "";
 $admin = 1;
-if (isset($_SESSION['login'])){
+if (isset($_SESSION['login'])) {
     $username = $_SESSION['login'];
     $admin = $_SESSION['admin'];
 }

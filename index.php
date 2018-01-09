@@ -76,9 +76,6 @@ if (isset($_GET['reg']) && $_GET['reg'] == 'ok') {
                         </a>
                     </div>
                 </form>
-<!--                <div class="col-md-12">-->
-<!--                    <a href="main.php?type=all" class="btn btn-primary" style="width:100%">Pokaż wszystkie oferty</a>-->
-<!--                </div>-->
             </div>
         </div>
     </div>
@@ -90,27 +87,13 @@ if (isset($_GET['reg']) && $_GET['reg'] == 'ok') {
         <div class="col-sm-12">
             <p>
             <ul class="list-inline">
-                <a class="btn btn-info" href="main.php?type=consultant_details">
-                    <li>Konsultanci</li>
-                </a>
-                <a class="btn btn-info" href="main.php?type=couple_transport_details">
-                    <li>Transport dla par</li>
-                </a>
-                <a class="btn btn-info" href="main.php?type=guest_transport_details">
-                    <li>Transport dla gości</li>
-                </a>
-                <a class="btn btn-info" href="main.php?type=music_details">
-                    <li>Muzyka</li>
-                </a>
-                <a class="btn btn-info" href="main.php?type=photo_detail">
-                    <li>Fotograf</li>
-                </a>
-                <a class="btn btn-info" href="main.php?type=place_details">
-                    <li>Miejsce</li>
-                </a>
-                <a class="btn btn-info" href="main.php?type=type_details">
-                    <li>Typ</li>
-                </a>
+                <li><a class="btn btn-info" href="main.php?type=consultant_details">Konsultanci</a></li>
+                <li><a class="btn btn-info" href="main.php?type=couple_transport_details">Transport dla par</a></li>
+                <li><a class="btn btn-info" href="main.php?type=guest_transport_details">Transport dla gości</a></li>
+                <li><a class="btn btn-info" href="main.php?type=music_details">Muzyka</a></li>
+                <li><a class="btn btn-info" href="main.php?type=photo_detail">Fotograf</a></li>
+                <li><a class="btn btn-info" href="main.php?type=place_details">Miejsce</a></li>
+                <li><a class="btn btn-info" href="main.php?type=type_details">Typ</a></li>
             </ul>
             </p>
         </div>

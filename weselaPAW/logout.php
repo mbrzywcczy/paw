@@ -9,4 +9,3 @@ if (!isset($_SESSION['login'])) {
     header('Location: /paw');
     exit;
 }
-?>

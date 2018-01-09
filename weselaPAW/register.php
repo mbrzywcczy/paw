@@ -31,9 +31,7 @@ if (isset($_POST['reg_button'])) {
         header('Location: ../login.php?' . $errors);
         exit;
     }
-}
-else{
+} else {
     header('Location: ../index.php');
     exit;
 }
-?>
