@@ -113,11 +113,11 @@ $functions->displayTopNav("login.php", "index.php", $username, $admin, "../paw/w
                             echo '<div class="row">';
                             echo '<div class="col-md-10">';
                             echo '<p>' . $comment['review'] . '</p>';
-                            echo '</div>
-                        <div class="col-md-2">
-                            <p>' . $comment['rate'] . '/5 &nbsp;<span class="glyphicon glyphicon-star" data-toggle="tooltip" data-placement="right" title="Ocena"></span></p>
-                        </div>
-                    </div></br>';
+                            echo '</div>';
+                            echo '<div class="col-md-2">';
+                            echo '<p>' . $comment['rate'] . ' / 10 &nbsp;<span class="glyphicon glyphicon-star" data-toggle="tooltip" data-placement="right" title="Ocena"></span></p>';
+                            echo '</div>';
+                            echo '</div></br>';
                         }
                     } ?>
                 </div>
