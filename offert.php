@@ -24,6 +24,8 @@ if ($type == 'music_details') {
     $info = $functions->placeInfo($id);
 } elseif ($type == 'type_details') {
     $info = $functions->typeInfo($id);
+} else {
+    $info = null;
 }
 
 $commentRow = $functions->getComment($id, $type);
