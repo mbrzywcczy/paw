@@ -16,7 +16,7 @@ if ($type == 'music_details') {
     $info = $functions->consultantInfo($id);
 } elseif ($type == 'couple_transport_details') {
     $info = $functions->coupleTransportInfo($id);
-} elseif ($type == 'guests_transport_details') {
+} elseif ($type == 'guest_transport_details') {
     $info = $functions->guestTransportInfo($id);
 } elseif ($type == 'photo_detail') {
     $info = $functions->photoInfo($id);
@@ -27,7 +27,6 @@ if ($type == 'music_details') {
 }
 
 $commentRow = $functions->getComment($id, $type);
-
 ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -68,7 +67,7 @@ $functions->displayTopNav("login.php", "index.php", $username, $admin, "../paw/w
                                                                data-placement="right" title="Ocena"></span></p>
             <br/>
             <div class="form-group">
-            <h4><?php echo $info['description'] ?></h4>
+                <h4><?php echo $info['description'] ?></h4>
             </div>
             <br>
             <form method='POST' action="<?php $functions->setComment($id, $type) ?>">
