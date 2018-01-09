@@ -6,7 +6,7 @@ session_start();
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <title>Wesela</title>
+    <title>Just Together</title>
     <?php
     $functions->displayMetaTags('style.css');
     ?>
@@ -49,6 +49,7 @@ if (isset($_GET['reg']) && $_GET['reg'] == 'ok') {
                             <div class="form-group">
                                 <label for="state" class="label label-info">Wybierz województwo</label>
                                 <select class="form-control" id="state" name="state" required>
+                                    <option value="All">Wszystkie</option>
                                     <option value="Dolnośląskie">Dolnośląskie</option>
                                     <option value="Kujawsko-Pomorskie">Kujawsko-Pomorskie</option>
                                     <option value="Lubelskie">Lubelskie</option>
@@ -75,9 +76,9 @@ if (isset($_GET['reg']) && $_GET['reg'] == 'ok') {
                         </a>
                     </div>
                 </form>
-                <div class="col-md-12">
-                    <a href="main.php?type=all" class="btn btn-primary" style="width:100%">Pokaż wszystkie oferty</a>
-                </div>
+<!--                <div class="col-md-12">-->
+<!--                    <a href="main.php?type=all" class="btn btn-primary" style="width:100%">Pokaż wszystkie oferty</a>-->
+<!--                </div>-->
             </div>
         </div>
     </div>
