@@ -128,9 +128,15 @@ class functions
         $stmt->bindParam(':idMusic', $idMusic, PDO::PARAM_STR);
         $stmt->execute();
         $row = $stmt->fetch();
-        echo $row['average'];
-    }
+        if($row['average'] > 0){
+            echo $row['average'];
+        }else
+        {
+            echo 'Brak ocen';
+        }
 
+    }
+    // Jak zrobić uniwersalną fukncje dodawania komentarzy na podstawie typu
     public function setComment()
     {
         if (isset($_POST['comment']) && isset($_POST['sell'])) {
@@ -148,10 +154,10 @@ class functions
         }
     }
 
-    public function commentsCount($idMusic)
+    public function commentsCount($id)
     {
-        $stmt = $this->db->prepare('SELECT COUNT(*) counter FROM music_reviews WHERE music_id = :idMusic');
-        $stmt->bindParam(':idMusic', $idMusic, PDO::PARAM_STR);
+        $stmt = $this->db->prepare('SELECT COUNT(*) counter FROM music_reviews WHERE music_id = :id');
+        $stmt->bindParam(':id', $id, PDO::PARAM_STR);
         $stmt->execute();
         $row = $stmt->fetch();
         echo $row['counter'];

@@ -3,6 +3,25 @@ session_start();
 $functions = new functions('PDO');
 $id = $_GET['id'];
 $type = $_GET['type'];
+
+if($type == 'music_details')
+{
+    $info = $functions->artistInfo($id);
+}elseif ($type == 'consultant_details'){
+    $info = $functions->consultantInfo($id);
+}elseif ($type == 'couple_transport_details'){
+    $info = $functions->coupleTransportInfo($id);
+}elseif ($type == 'guests_transport_details'){
+    $info = $functions->guestTransportInfo($id);
+}elseif ($type == 'photo_detail'){
+    $info = $functions->photoInfo($id);
+}elseif ($type == 'place_details'){
+    $info = $functions->placeInfo($id);
+}elseif ($type == 'type_details'){
+    $info = $functions->typeInfo($id);
+}else{
+    echo 'brak danych';
+}
 ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -30,15 +49,16 @@ $functions->displayTopNav("login.php", "index.php", $username, $admin, "../paw/w
 <div class="container-fluid bg-3 text-center">
     <div class="row">
         <div class="col-md-1"></div>
+        <!-- Z racji tego, że te wszystkie elementy się różnią od siebie polami to przerzuciłem kod HTML do funkcji wyświetlania. Trochę tego dużo tam
+            ale no pola nie są jednolite niestety. ( w przyszłości do zmiany). -->
         <?php $functions->displayLeftOffert($id,$type)?>
         <div class="col-md-5">
-            <h1>DJ Trolo</h1>
+            <h1><?php echo $info['description'] ?></h1>
             <?php $functions->commentsCount($id) ?> <span class="glyphicon glyphicon-comment" data-toggle="tooltip"
                                                        data-placement="right" title="Komentarzy"></span>
             <?php $functions->rateAverage($id) ?> <span class="glyphicon glyphicon-star" data-toggle="tooltip"
                                                      data-placement="right" title="Ocena"></span></p>
-
-            <img src="https://images.unsplash.com/photo-1511217997341-fed0a62b3e28?auto=format&fit=crop&w=1350&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D"
+            <img src="<?php echo $info['img_src'] ?>"
                  class="img-thumbnail">
             <br><br>
             <div class="form-group">
@@ -52,23 +72,6 @@ $functions->displayTopNav("login.php", "index.php", $username, $admin, "../paw/w
                 aliquam magna augue ut turpis. Sed lacinia malesuada enim, vitae tempor purus. Donec consectetur, urna
                 sit amet fringilla cursus, lorem augue vestibulum enim, ac rutrum erat mauris fringilla nulla.
 
-                Sed et lectus risus. Fusce pharetra hendrerit metus, nec ornare nibh ullamcorper non. Pellentesque eget
-                ultricies elit. In vehicula lectus at urna elementum consectetur. Aliquam orci mauris, posuere a tortor
-                euismod, pharetra mollis eros. Etiam sit amet urna id nisl porttitor auctor id vitae nisl. Donec id
-                massa quam. Ut vel erat eu ligula dignissim placerat id non metus.
-
-                Nam non convallis neque, vel elementum dolor. Pellentesque vel facilisis dui. Suspendisse facilisis
-                vestibulum turpis in ornare. Duis pharetra ex non lorem auctor eleifend. Aliquam erat volutpat.
-                Suspendisse non mattis erat. Aenean sit amet urna ac nisi elementum finibus. Suspendisse interdum, velit
-                nec maximus semper, lacus risus maximus velit, non imperdiet odio urna congue leo.
-
-                Fusce convallis gravida elementum. In sodales, tellus nec porta tempus, mi est dictum leo, nec aliquet
-                neque nunc auctor turpis. Suspendisse blandit neque id velit lacinia mattis. Sed dui erat, iaculis sit
-                amet ante at, lacinia ullamcorper urna. Aliquam eget consectetur velit. Aenean eu dictum lectus. Proin
-                porttitor efficitur sodales. Nullam dolor libero, aliquet in tortor in, venenatis tempus odio. Nulla
-                quam tortor, egestas suscipit ultricies ac, iaculis ac justo. Sed in fringilla lorem, eu volutpat nibh.
-                Nullam ut nisi tempor, pharetra ex id, semper risus. Nam auctor nisi ut sem dapibus vehicula. Fusce quis
-                maximus ligula.
             </div>
             <br>
             <form method='POST' action="<?php $functions->setComment() ?>">
