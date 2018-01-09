@@ -1,6 +1,13 @@
 <?php require('weselaPAW/functions.php');
 session_start();
 $functions = new functions('PDO');
+
+$types = array('consultant_details', 'couple_transport_details', 'guest_transport_details', 'music_details',
+    'photo_detail', 'place_details', 'type_details');
+if (!isset($_GET['id']) || !isset($_GET['type']) || !in_array($_GET['type'], $types)){
+    header('Location: /paw/admin/panel.php');
+    exit;
+}
 $id = $_GET['id'];
 $type = $_GET['type'];
 
