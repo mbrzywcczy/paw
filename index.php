@@ -41,7 +41,7 @@ if (isset($_GET['reg']) && $_GET['reg'] == 'ok') {
                                     <option value="music_details">Muzyka</option>
                                     <option value="photo_detail">Fotograf</option>
                                     <option value="place_details">Miejsce</option>
-                                    <option value="type_details">Type</option>
+                                    <option value="type_details">Typ</option>
                                 </select>
                             </div>
                         </div>
@@ -86,58 +86,30 @@ if (isset($_GET['reg']) && $_GET['reg'] == 'ok') {
 <div class="container-fluid bg-3 text-center">
     <h2 class="kategoria">Nasze kategorie</h2>
     <div class="row">
-        <div class="col-sm-3">
-            <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;
-            <b>Kategoria 1</b>
+        <div class="col-sm-12">
             <p>
-            <ul class="lista">
-                <li><a href="#">- Lorem ipsum</a></li>
-                <li><a href="#">- Lorem ipsum</a></li>
-                <li><a href="#">- Lorem ipsum</a></li>
-                <li><a href="#">- Lorem ipsum</a></li>
-            </ul>
-            </p>
-
-        </div>
-        <div class="col-sm-3">
-            <span class="glyphicon glyphicon-tags" aria-hidden="true"></span>&nbsp;
-            <b>Kategoria 2</b>
-            <p>
-            <ul class="lista">
-                <li><a href="#">- Lorem ipsum</a></li>
-                <li><a href="#">- Lorem ipsum</a></li>
-                <li><a href="#">- Lorem ipsum</a></li>
-                <li><a href="#">- Lorem ipsum</a></li>
-                <li><a href="#">- Lorem ipsum</a></li>
-                <li><a href="#">- Lorem ipsum</a></li>
-                <li><a href="#">- Lorem ipsum</a></li>
-                <li><a href="#">- Lorem ipsum</a></li>
-            </ul>
-            </p>
-
-        </div>
-        <div class="col-sm-3">
-            <span class="glyphicon glyphicon-camera" aria-hidden="true"></span>&nbsp;
-            <b>Kategoria 3</b>
-            <p>
-            <ul class="lista">
-                <li><a href="#">- Lorem ipsum</a></li>
-                <li><a href="#">- Lorem ipsum</a></li>
-                <li><a href="#">- Lorem ipsum</a></li>
-                <li><a href="#">- Lorem ipsum</a></li>
-                <li><a href="#">- Lorem ipsum</a></li>
-            </ul>
-            </p>
-
-        </div>
-        <div class="col-sm-3">
-            <span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span>&nbsp;
-            <b>Kategoria 4</b>
-            <p>
-            <ul class="lista">
-                <li><a href="#">- Lorem ipsum</a></li>
-                <li><a href="#">- Lorem ipsum</a></li>
-                <li><a href="#">- Lorem ipsum</a></li>
+            <ul class="list-inline">
+                <a class="btn btn-info" href="main.php?type=consultant_details">
+                    <li>Konsultanci</li>
+                </a>
+                <a class="btn btn-info" href="main.php?type=couple_transport_details">
+                    <li>Transport dla par</li>
+                </a>
+                <a class="btn btn-info" href="main.php?type=guest_transport_details">
+                    <li>Transport dla gości</li>
+                </a>
+                <a class="btn btn-info" href="main.php?type=music_details">
+                    <li>Muzyka</li>
+                </a>
+                <a class="btn btn-info" href="main.php?type=photo_detail">
+                    <li>Fotograf</li>
+                </a>
+                <a class="btn btn-info" href="main.php?type=place_details">
+                    <li>Miejsce</li>
+                </a>
+                <a class="btn btn-info" href="main.php?type=type_details">
+                    <li>Typ</li>
+                </a>
             </ul>
             </p>
         </div>
