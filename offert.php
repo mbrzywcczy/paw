@@ -75,7 +75,7 @@ $functions->displayTopNav("login.php", "index.php", $username, $admin, "../paw/w
                     <div class="card-box">
                         <div class="row">
                             <div class="col-md-10">
-                                <label for="comment">Komentarz:</label>
+                                <label for="comment">Komentarz<?php if ($username != '') echo ' jako ' . $username;?>:</label>
                                 <textarea name="comment" class="form-control" rows="5" id="comment" maxlength="512"></textarea>
                             </div>
                             <div class="col-md-2">
