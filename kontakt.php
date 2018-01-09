@@ -53,7 +53,7 @@ $functions->displayTopNav("login.php", "index.php", $username, $admin, "../paw/w
         <div class="col-md-1"></div>
         <div class="col-md-4">
             <h2 class="kategoria">Formularz kontaktowy</h2>
-            <form class="form" name="contactform" method="post">
+            <form class="form" name="contactform" method="post" action="index.php"/>
                 <div class="form-group">
                     <div class="row">
                         <div class="col-md-6">
