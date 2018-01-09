@@ -96,71 +96,151 @@ class functions
         return false;
     }
 
-    public function getComment()
+    public function getComment($id, $type)
     {
-        $idMusic = $_GET['id'];
-        $stmt = $this->db->prepare('SELECT * FROM music_reviews WHERE music_id = :idMusic ORDER BY id DESC');
-        $stmt->bindParam(':idMusic', $idMusic, PDO::PARAM_STR);
-        $stmt->execute();
-
-        while ($row = $stmt->fetch()) {
-
-            echo '<div class="row">
-                      <div class="col-md-3" style="border-right: 1px solid #eee;">
-                        <button type="button" class="btn btn-default btn-sm">
-                          <span class="glyphicon glyphicon-user"></span>User 
-                        </button>
-                        <h4>Aleksander Kędzior</h4>
-                      </div>
-                      <div class="col-md-7">';
-            echo '<p>' . $row['review'] . '</p>';
-            echo '</div> 
-                      <div class="col-md-2">  
-                       <p>' . $row['rate'] . '/5 &nbsp;<span class="glyphicon glyphicon-star" data-toggle="tooltip" data-placement="right" title="Ocena"></span></p>       
-                      </div>              
-                        </div> </br>';
+        if($type == 'music_details'){
+            $stmt = $this->db->prepare('SELECT * FROM music_reviews WHERE music_id = :id ORDER BY id DESC');
+        }elseif($type == 'consultant_details')
+        {
+            $stmt = $this->db->prepare('SELECT * FROM consultant_reviews WHERE consultant_id = :id ORDER BY id DESC');
+        }elseif($type == 'couple_transport_details')
+        {
+            $stmt = $this->db->prepare('SELECT * FROM couple_transport_reviews WHERE couple_transport_id = :id ORDER BY id DESC');
+        }elseif($type == 'guest_transport_details')
+        {
+            $stmt = $this->db->prepare('SELECT * FROM guest_transport_reviews WHERE guest_transport_id = :id ORDER BY id DESC');
+        }elseif($type == 'photo_detail')
+        {
+            $stmt = $this->db->prepare('SELECT * FROM photo_reviews WHERE photo_id = :id ORDER BY id DESC');
+        }elseif($type == 'place_details')
+        {
+            $stmt = $this->db->prepare('SELECT * FROM place_reviews WHERE place_id = :id ORDER BY id DESC');
+        }elseif($type == 'type_details')
+        {
+            $stmt = $this->db->prepare('SELECT * FROM type_reviews WHERE type_id = :id ORDER BY id DESC');
+        }else
+        {
+            return null;
         }
+        $stmt->bindParam(':id', $id, PDO::PARAM_STR);
+        $stmt->execute();
+        $rows = $stmt->fetchAll();
+        return $rows;
     }
 
-    public function rateAverage($idMusic)
+    public function rateAverage($id,$type)
     {
-        $stmt = $this->db->prepare('SELECT ROUND(AVG(rate),1) average FROM music_reviews WHERE music_id = :idMusic');
-        $stmt->bindParam(':idMusic', $idMusic, PDO::PARAM_STR);
-        $stmt->execute();
-        $row = $stmt->fetch();
-        if($row['average'] > 0){
+        if($type == 'music_details'){
+            $stmt = $this->db->prepare('SELECT ROUND(AVG(rate),1) average FROM music_reviews WHERE music_id = :id');
+        }elseif($type == 'consultant_details')
+        {
+            $stmt = $this->db->prepare('SELECT ROUND(AVG(rate),1) average FROM consultant_reviews WHERE consultant_id = :id');
+        }elseif($type == 'couple_transport_details')
+        {
+            $stmt = $this->db->prepare('SELECT ROUND(AVG(rate),1) average FROM couple_transport_reviews WHERE couple_transport_id = :id');
+        }elseif($type == 'guest_transport_details')
+        {
+            $stmt = $this->db->prepare('SELECT ROUND(AVG(rate),1) average FROM guest_transport_reviews WHERE guest_transport_id = :id');
+        }elseif($type == 'photo_detail')
+        {
+            $stmt = $this->db->prepare('SELECT ROUND(AVG(rate),1) average FROM photo_reviews WHERE photo_id = :id');
+        }elseif($type == 'place_details')
+        {
+            $stmt = $this->db->prepare('SELECT ROUND(AVG(rate),1) average FROM place_reviews WHERE place_id = :id');
+        }elseif($type == 'type_details')
+        {
+            $stmt = $this->db->prepare('SELECT ROUND(AVG(rate),1) average FROM type_reviews WHERE type_id = :id');
+        }else
+        {
+            $stmt = null;
+        }
+        if(!is_null($stmt))
+        {
+            $stmt->bindParam(':id', $id, PDO::PARAM_STR);
+            $stmt->execute();
+            $row = $stmt->fetch();
             echo $row['average'];
         }else
         {
             echo 'Brak ocen';
         }
 
+
     }
-    // Jak zrobić uniwersalną fukncje dodawania komentarzy na podstawie typu
-    public function setComment()
+    public function setComment($id,$type)
     {
         if (isset($_POST['comment']) && isset($_POST['sell'])) {
             $comment = $_POST['comment'];
             $stars = $_POST['sell'];
-            $idArtist = $_GET['id'];
 
-            $set = $this->db->prepare('INSERT INTO music_reviews (id, music_id, review, rate) VALUES (null, :music_id, :review, :rate)');
-            $set->bindParam(':music_id', $idArtist, PDO::PARAM_INT);
-            $set->bindParam(':review', $comment, PDO::PARAM_STR);
-            $set->bindParam(':rate', $stars, PDO::PARAM_INT);
-            $set->execute();
-
-            header('Location: /offert.php?' . $idArtist);
+            if($type == 'music_details'){
+                $stmt = $this->db->prepare('INSERT INTO music_reviews (id, music_id, review, rate) VALUES (null, :id, :review, :rate)');
+            }elseif($type == 'consultant_details')
+            {
+                $stmt = $this->db->prepare('INSERT INTO consultant_reviews (id, consultant_id, review, rate) VALUES (null, :id, :review, :rate)');
+            }elseif($type == 'couple_transport_details')
+            {
+                $stmt = $this->db->prepare('INSERT INTO couple_transport_reviews (id, couple_transport_id, review, rate) VALUES (null, :id, :review, :rate)');
+            }elseif($type == 'guest_transport_details')
+            {
+                $stmt = $this->db->prepare('INSERT INTO guest_transport_reviews (id, guest_transport_id, review, rate) VALUES (null, :id, :review, :rate)');
+            }elseif($type == 'photo_detail')
+            {
+                $stmt = $this->db->prepare('INSERT INTO photo_reviews (id, photo_id, review, rate) VALUES (null, :id, :review, :rate)');
+            }elseif($type == 'place_details')
+            {
+                $stmt = $this->db->prepare('INSERT INTO place_reviews (id, place_id, review, rate) VALUES (null, :id, :review, :rate)');
+            }elseif($type == 'type_details')
+            {
+                $stmt = $this->db->prepare('INSERT INTO type_reviews (id, type_id, review, rate) VALUES (null, :id, :review, :rate)');
+            }else
+            {
+                $stmt = null;
+            }
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->bindParam(':review', $comment, PDO::PARAM_STR);
+            $stmt->bindParam(':rate', $stars, PDO::PARAM_INT);
+            $stmt->execute();
+            header('Location: /offert.php?type=' . $type .'&id='.$id);
         }
     }
 
-    public function commentsCount($id)
+    public function commentsCount($id,$type)
     {
-        $stmt = $this->db->prepare('SELECT COUNT(*) counter FROM music_reviews WHERE music_id = :id');
-        $stmt->bindParam(':id', $id, PDO::PARAM_STR);
-        $stmt->execute();
-        $row = $stmt->fetch();
-        echo $row['counter'];
+        if($type == 'music_details'){
+            $stmt = $this->db->prepare('SELECT COUNT(*) counter FROM music_reviews WHERE music_id = :id');
+        }elseif($type == 'consultant_details')
+        {
+            $stmt = $this->db->prepare('SELECT COUNT(*) counter FROM consultant_reviews WHERE consultant_id = :id');
+        }elseif($type == 'couple_transport_details')
+        {
+            $stmt = $this->db->prepare('SELECT COUNT(*) counter FROM couple_transport_reviews WHERE couple_transport_id = :id');
+        }elseif($type == 'guest_transport_details')
+        {
+            $stmt = $this->db->prepare('SELECT COUNT(*) counter FROM guest_transport_reviews WHERE guest_transport_id = :id');
+        }elseif($type == 'photo_detail')
+        {
+            $stmt = $this->db->prepare('SELECT COUNT(*) counter FROM photo_reviews WHERE photo_id = :id');
+        }elseif($type == 'place_details')
+        {
+            $stmt = $this->db->prepare('SELECT COUNT(*) counter FROM place_reviews WHERE place_id = :id');
+        }elseif($type == 'type_details')
+        {
+            $stmt = $this->db->prepare('SELECT COUNT(*) counter FROM type_reviews WHERE type_id = :id');
+        }else
+        {
+            $stmt = null;
+        }
+        if(!is_null($stmt))
+        {
+            $stmt->bindParam(':id', $id, PDO::PARAM_STR);
+            $stmt->execute();
+            $row = $stmt->fetch();
+            echo $row['counter'];
+        }else
+        {
+            echo 'Brak ocen';
+        }
     }
 
     public function artistInfo($id)

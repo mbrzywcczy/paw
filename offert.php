@@ -22,6 +22,9 @@ if($type == 'music_details')
 }else{
     echo 'brak danych';
 }
+
+$commentRow = $functions->getComment($id,$type);
+
 ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -54,9 +57,9 @@ $functions->displayTopNav("login.php", "index.php", $username, $admin, "../paw/w
         <?php $functions->displayLeftOffert($id,$type)?>
         <div class="col-md-5">
             <h1><?php echo $info['description'] ?></h1>
-            <?php $functions->commentsCount($id) ?> <span class="glyphicon glyphicon-comment" data-toggle="tooltip"
+            <?php $functions->commentsCount($id,$type) ?> <span class="glyphicon glyphicon-comment" data-toggle="tooltip"
                                                        data-placement="right" title="Komentarzy"></span>
-            <?php $functions->rateAverage($id) ?> <span class="glyphicon glyphicon-star" data-toggle="tooltip"
+            <?php $functions->rateAverage($id,$type) ?> <span class="glyphicon glyphicon-star" data-toggle="tooltip"
                                                      data-placement="right" title="Ocena"></span></p>
             <img src="<?php echo $info['img_src'] ?>"
                  class="img-thumbnail">
@@ -74,7 +77,7 @@ $functions->displayTopNav("login.php", "index.php", $username, $admin, "../paw/w
 
             </div>
             <br>
-            <form method='POST' action="<?php $functions->setComment() ?>">
+            <form method='POST' action="<?php $functions->setComment($id,$type) ?>">
                 <div class="form-group">
                     <div class="card-box">
                         <div class="row">
@@ -106,7 +109,25 @@ $functions->displayTopNav("login.php", "index.php", $username, $admin, "../paw/w
             </form>
             <div class="form-group">
                 <div class="card-box">
-                    <?php $functions->getComment(); ?>
+                    <?php
+                    if(!is_null($commentRow)) {
+                        foreach ($commentRow as $comment) {
+                            echo '<div class="row">
+                        <div class="col-md-3" style="border-right: 1px solid #eee;">
+                            <button type="button" class="btn btn-default btn-sm">
+                                <span class="glyphicon glyphicon-user"></span>User
+                            </button>
+                            <h4>Aleksander Kędzior</h4>
+                        </div>
+                        <div class="col-md-7">';
+                            echo '<p>' . $comment['review'] . '</p>';
+                            echo '</div>
+                        <div class="col-md-2">
+                            <p>' . $comment['rate'] . '/5 &nbsp;<span class="glyphicon glyphicon-star" data-toggle="tooltip" data-placement="right" title="Ocena"></span></p>
+                        </div>
+                    </div> </br>';
+                        }
+                    }?>
                 </div>
             </div>
         </div>
