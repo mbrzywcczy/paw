@@ -59,7 +59,7 @@ $functions->displayTopNav("login.php", "index.php", $username, $admin, "../paw/w
         <!-- Z racji tego, że te wszystkie elementy się różnią od siebie polami to przerzuciłem kod HTML do funkcji wyświetlania. Trochę tego dużo tam
             ale no pola nie są jednolite niestety. ( w przyszłości do zmiany). -->
         <?php $functions->displayLeftOffert($id, $type) ?>
-        <div class="col-md-5">
+        <div class="col-md-7">
             <h1><?php echo $info['description'] ?></h1>
             <?php $functions->commentsCount($id, $type) ?> <span class="glyphicon glyphicon-comment"
                                                                  data-toggle="tooltip"
@@ -85,13 +85,7 @@ $functions->displayTopNav("login.php", "index.php", $username, $admin, "../paw/w
                 <div class="form-group">
                     <div class="card-box">
                         <div class="row">
-                            <div class="col-md-3" style="border-right: 1px solid #eee;">
-                                <button type="button" class="btn btn-default btn-sm">
-                                    <span class="glyphicon glyphicon-user"></span>User
-                                </button>
-                                <h4>Mateusz Pyka</h4>
-                            </div>
-                            <div class="col-md-7">
+                            <div class="col-md-10">
                                 <label for="comment">Komentarz:</label>
                                 <textarea name="comment" class="form-control" rows="5" id="comment"></textarea>
                             </div>
@@ -116,25 +110,20 @@ $functions->displayTopNav("login.php", "index.php", $username, $admin, "../paw/w
                     <?php
                     if (!is_null($commentRow)) {
                         foreach ($commentRow as $comment) {
-                            echo '<div class="row">
-                        <div class="col-md-3" style="border-right: 1px solid #eee;">
-                            <button type="button" class="btn btn-default btn-sm">
-                                <span class="glyphicon glyphicon-user"></span>User
-                            </button>
-                            <h4>Aleksander Kędzior</h4>
-                        </div>
-                        <div class="col-md-7">';
+                            echo '<div class="row">';
+                            echo '<div class="col-md-10">';
                             echo '<p>' . $comment['review'] . '</p>';
                             echo '</div>
                         <div class="col-md-2">
                             <p>' . $comment['rate'] . '/5 &nbsp;<span class="glyphicon glyphicon-star" data-toggle="tooltip" data-placement="right" title="Ocena"></span></p>
                         </div>
-                    </div> </br>';
+                    </div></br>';
                         }
                     } ?>
                 </div>
             </div>
         </div>
+        <div class="col-md-1"></div>
     </div>
     <div class="col-md-3"></div>
 </div>
