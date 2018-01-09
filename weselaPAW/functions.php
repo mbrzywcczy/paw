@@ -353,7 +353,6 @@ class functions
 
     public function displayLeftOffert($id, $type)
     {
-
         if($type == 'music_details') {
             $info = $this->artistInfo($id);
             echo '
@@ -387,11 +386,9 @@ class functions
             $drone = $info['drone'];
             echo '
             <div class="col-md-3" style="border-right: 1px solid #eee;">
-                <h2> photo </h2>
+                <h2>' . $info['first_name']. ' '. $info['last_name'] . '</h2>
                 <hr>
                 <span class="glyphicon glyphicon-tags"></span>&nbsp;
-                <b>' . $info['first_name']. ' '. $info['last_name'] . '</b>
-                </br>
                 <small>' . $info['company_name'] . '</small>
                 <hr>
                 <div class="form-group">
@@ -427,11 +424,7 @@ class functions
             $info = $this->consultantInfo($id);
             echo '
             <div class="col-md-3" style="border-right: 1px solid #eee;">
-                <h2>' . $info['description'] . '</h2>
-                <hr>
-                <span class="glyphicon glyphicon-tags"></span>&nbsp;
-                <b>' . $info['first_name'] . ' '.$info['last_name'] . '</b>
-                </br>             
+                <h2>' . $info['first_name'] . ' '.$info['last_name'] . '</h2>
                 <hr>
                 <div class="form-group">
                     <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
@@ -456,10 +449,6 @@ class functions
             <div class="col-md-3" style="border-right: 1px solid #eee;">
                 <h2>' . $info['type'] . '</h2>
                 <hr>
-                <span class="glyphicon glyphicon-tags"></span>&nbsp;
-                <b>' . $info['description'] . '</b>
-                </br>             
-                <hr>
                 <div class="form-group">
                     <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
                     <b>Województwo</b>
@@ -482,10 +471,6 @@ class functions
             echo '
             <div class="col-md-3" style="border-right: 1px solid #eee;">
                 <h2>' . $info['type'] . '</h2>
-                <hr>
-                <span class="glyphicon glyphicon-tags"></span>&nbsp;
-                <b>' . $info['description'] . '</b>
-                </br>             
                 <hr>
                 <div class="form-group">
                     <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
@@ -510,10 +495,6 @@ class functions
             <div class="col-md-3" style="border-right: 1px solid #eee;">
                 <h2>' . $info['type'] . '</h2>
                 <hr>
-                <span class="glyphicon glyphicon-tags"></span>&nbsp;
-                <b>' . $info['description'] . '</b>
-                </br>             
-                <hr>
                 <div class="form-group">
                     <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
                     <b>Województwo</b>
@@ -531,10 +512,6 @@ class functions
             echo '
             <div class="col-md-3" style="border-right: 1px solid #eee;">
                 <h2>' . $info['type'] . '</h2>
-                <hr>
-                <span class="glyphicon glyphicon-tags"></span>&nbsp;
-                <b>' . $info['description'] . '</b>
-                </br>             
                 <hr>
                 <div class="form-group">
                     <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
