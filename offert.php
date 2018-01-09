@@ -4,33 +4,30 @@ $functions = new functions('PDO');
 
 $types = array('consultant_details', 'couple_transport_details', 'guest_transport_details', 'music_details',
     'photo_detail', 'place_details', 'type_details');
-if (!isset($_GET['id']) || !isset($_GET['type']) || !in_array($_GET['type'], $types)){
-    header('Location: /paw/admin/panel.php');
+if (!isset($_GET['id']) || !isset($_GET['type']) || !in_array($_GET['type'], $types)) {
+    header('Location: /paw/index.php');
     exit;
 }
 $id = $_GET['id'];
 $type = $_GET['type'];
 
-if($type == 'music_details')
-{
+if ($type == 'music_details') {
     $info = $functions->artistInfo($id);
-}elseif ($type == 'consultant_details'){
+} elseif ($type == 'consultant_details') {
     $info = $functions->consultantInfo($id);
-}elseif ($type == 'couple_transport_details'){
+} elseif ($type == 'couple_transport_details') {
     $info = $functions->coupleTransportInfo($id);
-}elseif ($type == 'guests_transport_details'){
+} elseif ($type == 'guests_transport_details') {
     $info = $functions->guestTransportInfo($id);
-}elseif ($type == 'photo_detail'){
+} elseif ($type == 'photo_detail') {
     $info = $functions->photoInfo($id);
-}elseif ($type == 'place_details'){
+} elseif ($type == 'place_details') {
     $info = $functions->placeInfo($id);
-}elseif ($type == 'type_details'){
+} elseif ($type == 'type_details') {
     $info = $functions->typeInfo($id);
-}else{
-    echo 'brak danych';
 }
 
-$commentRow = $functions->getComment($id,$type);
+$commentRow = $functions->getComment($id, $type);
 
 ?>
 <!DOCTYPE html>
@@ -61,13 +58,14 @@ $functions->displayTopNav("login.php", "index.php", $username, $admin, "../paw/w
         <div class="col-md-1"></div>
         <!-- Z racji tego, że te wszystkie elementy się różnią od siebie polami to przerzuciłem kod HTML do funkcji wyświetlania. Trochę tego dużo tam
             ale no pola nie są jednolite niestety. ( w przyszłości do zmiany). -->
-        <?php $functions->displayLeftOffert($id,$type)?>
+        <?php $functions->displayLeftOffert($id, $type) ?>
         <div class="col-md-5">
             <h1><?php echo $info['description'] ?></h1>
-            <?php $functions->commentsCount($id,$type) ?> <span class="glyphicon glyphicon-comment" data-toggle="tooltip"
-                                                       data-placement="right" title="Komentarzy"></span>
-            <?php $functions->rateAverage($id,$type) ?> <span class="glyphicon glyphicon-star" data-toggle="tooltip"
-                                                     data-placement="right" title="Ocena"></span></p>
+            <?php $functions->commentsCount($id, $type) ?> <span class="glyphicon glyphicon-comment"
+                                                                 data-toggle="tooltip"
+                                                                 data-placement="right" title="Komentarzy"></span>
+            <?php $functions->rateAverage($id, $type) ?> <span class="glyphicon glyphicon-star" data-toggle="tooltip"
+                                                               data-placement="right" title="Ocena"></span></p>
             <img src="<?php echo $info['img_src'] ?>"
                  class="img-thumbnail">
             <br><br>
@@ -81,10 +79,9 @@ $functions->displayTopNav("login.php", "index.php", $username, $admin, "../paw/w
                 Fusce sit amet feugiat lectus. Quisque porta, velit in fermentum dapibus, sapien arcu accumsan dui, at
                 aliquam magna augue ut turpis. Sed lacinia malesuada enim, vitae tempor purus. Donec consectetur, urna
                 sit amet fringilla cursus, lorem augue vestibulum enim, ac rutrum erat mauris fringilla nulla.
-
             </div>
             <br>
-            <form method='POST' action="<?php $functions->setComment($id,$type) ?>">
+            <form method='POST' action="<?php $functions->setComment($id, $type) ?>">
                 <div class="form-group">
                     <div class="card-box">
                         <div class="row">
@@ -117,7 +114,7 @@ $functions->displayTopNav("login.php", "index.php", $username, $admin, "../paw/w
             <div class="form-group">
                 <div class="card-box">
                     <?php
-                    if(!is_null($commentRow)) {
+                    if (!is_null($commentRow)) {
                         foreach ($commentRow as $comment) {
                             echo '<div class="row">
                         <div class="col-md-3" style="border-right: 1px solid #eee;">
@@ -134,7 +131,7 @@ $functions->displayTopNav("login.php", "index.php", $username, $admin, "../paw/w
                         </div>
                     </div> </br>';
                         }
-                    }?>
+                    } ?>
                 </div>
             </div>
         </div>
