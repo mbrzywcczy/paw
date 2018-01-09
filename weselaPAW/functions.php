@@ -201,7 +201,7 @@ class functions
             $stmt->bindParam(':review', $comment, PDO::PARAM_STR);
             $stmt->bindParam(':rate', $stars, PDO::PARAM_INT);
             $stmt->execute();
-            header('Location: /offert.php?type=' . $type .'&id='.$id);
+            header('Location: ../paw/offert.php?type=' . $type .'&id='.$id);
         }
     }
 
