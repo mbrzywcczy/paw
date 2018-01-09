@@ -10,7 +10,6 @@ if (!isset($_GET['id']) || !isset($_GET['type']) || !in_array($_GET['type'], $ty
 }
 $id = $_GET['id'];
 $type = $_GET['type'];
-
 if ($type == 'music_details') {
     $info = $functions->artistInfo($id);
 } elseif ($type == 'consultant_details') {
@@ -60,25 +59,16 @@ $functions->displayTopNav("login.php", "index.php", $username, $admin, "../paw/w
             ale no pola nie są jednolite niestety. ( w przyszłości do zmiany). -->
         <?php $functions->displayLeftOffert($id, $type) ?>
         <div class="col-md-7">
-            <h1><?php echo $info['description'] ?></h1>
+            <img src="<?php echo $info['img_src'] ?>" class="img-thumbnail">
+            <br/>
             <?php $functions->commentsCount($id, $type) ?> <span class="glyphicon glyphicon-comment"
                                                                  data-toggle="tooltip"
                                                                  data-placement="right" title="Komentarzy"></span>
             <?php $functions->rateAverage($id, $type) ?> <span class="glyphicon glyphicon-star" data-toggle="tooltip"
                                                                data-placement="right" title="Ocena"></span></p>
-            <img src="<?php echo $info['img_src'] ?>"
-                 class="img-thumbnail">
-            <br><br>
+            <br/>
             <div class="form-group">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in sapien mollis, tincidunt augue vel,
-                dignissim quam. Nunc non faucibus nisl, sed congue dolor. Vivamus volutpat euismod dolor, eget fermentum
-                dui. Curabitur quis sagittis quam, eget tincidunt arcu. Phasellus iaculis tortor pellentesque tristique
-                gravida. Cras a diam id velit tincidunt fermentum nec et purus. Ut ipsum orci, blandit a tempus id,
-                faucibus vel neque. Donec at volutpat sem. Donec nec hendrerit elit. Nullam eu felis eget lacus
-                consectetur ornare et vulputate erat. Praesent egestas erat mauris, at ultricies justo sagittis in.
-                Fusce sit amet feugiat lectus. Quisque porta, velit in fermentum dapibus, sapien arcu accumsan dui, at
-                aliquam magna augue ut turpis. Sed lacinia malesuada enim, vitae tempor purus. Donec consectetur, urna
-                sit amet fringilla cursus, lorem augue vestibulum enim, ac rutrum erat mauris fringilla nulla.
+            <h4><?php echo $info['description'] ?></h4>
             </div>
             <br>
             <form method='POST' action="<?php $functions->setComment($id, $type) ?>">
